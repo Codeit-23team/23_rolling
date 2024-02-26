@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './header.css';
 
-const Header = () => {
+const Header = ({button}) => {
     return(
         <header>
             <div>
@@ -10,7 +10,11 @@ const Header = () => {
                         홈으로
                     </Link>
                 </h1>
-                <Link>롤링페이퍼 만들기</Link>
+                {
+                    button ? 
+                    <Link>롤링페이퍼 만들기</Link>
+                    : null
+                }
             </div>
         </header>
     )

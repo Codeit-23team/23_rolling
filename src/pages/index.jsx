@@ -1,8 +1,18 @@
 import Header from "../components/header/header";
+import IndexBottom from "../components/main/indexBottom";
+import IndexTop from "../components/main/indexTop";
 
-function Index() {
+const Index = () => {
   return (
-    <Header/>
+    <>
+      <Header button={false}/>
+      <div>
+        <IndexTop/>
+      </div>
+      <div>
+        <IndexBottom/>
+      </div>
+    </>
   )
 }
 
