@@ -1,7 +1,7 @@
 import './textInput.css';
 
-const TextInput = () => {
-  return <input className="textInput"></input>;
+const TextInput = ({ placeholder }) => {
+  return <input className="textInput" placeholder={placeholder}></input>;
 };
 
 export default TextInput;

@@ -1,0 +1,41 @@
+.backgroundImg {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.backgroundImg button {
+  width: 168px;
+  height: 168px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.backgroundImg button.background1 {
+  background-image: url('images/background1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.backgroundImg button.background2 {
+  background-image: url('images/background2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.backgroundImg button.background3 {
+  background-image: url('images/background1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.backgroundImg button.background4 {
+  background-image: url('images/background2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.backgroundImg .backgroundImgBox {
+  position: relative;
+}

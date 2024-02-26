@@ -1,7 +1,13 @@
+import Header from '../../components/header/header';
+import InputName from '../../components/inputName/inputName';
+import ChooseBackground from '../../components/chooseBackground/chooseBackground';
+
 function PostPage() {
   return (
     <>
-      <div>저</div>
+      <Header button={false} />
+      <InputName type="To" />
+      <ChooseBackground />
     </>
   );
 }
