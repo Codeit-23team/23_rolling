@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from '../../assets/images/logo.png';
 import './header.css';
 
 const Header = () => {
@@ -7,7 +6,7 @@ const Header = () => {
         <header>
             <div>
                 <h1>
-                    <Link style={{backgroundImage: `url(${logo})`}}>
+                    <Link style={{backgroundImage: `url(images/logo.png)`}}>
                         홈으로
                     </Link>
                 </h1>

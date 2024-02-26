@@ -16,6 +16,7 @@ header h1 a {
 }
 header div > a {
     display: inline-block;
+    font-weight: 700;
     padding: 8px 16px;
     color: var(--gray900);
     border: 1px solid var(--gray300);

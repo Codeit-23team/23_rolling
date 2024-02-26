@@ -74,6 +74,21 @@ th {
 }
 
 /* 추가 reset */
+@font-face { 
+  font-family: 'Pretendard'; 
+  font-weight: 700; 
+
+  src: url('../fonts/pretendard/Pretendard-Bold.ttf') format('truetype');
+}
+@font-face { 
+  font-family: 'Pretendard'; 
+  font-weight: 400; 
+  src: url('../fonts/pretendard/Pretendard-Regular.ttf') format('truetype');
+}
+html {
+  font-family: 'Pretendard';
+}
+
 a {
   text-decoration: none;
 }

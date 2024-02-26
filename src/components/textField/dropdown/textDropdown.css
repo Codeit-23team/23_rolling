@@ -1,4 +1,4 @@
-.textInput {
+.textDropdown {
   display: flex;
   width: 320px;
   padding: 12px 16px;
@@ -16,27 +16,27 @@
   letter-spacing: -0.16px;
 }
 
-.textInput:hover {
+.textDropdown:hover {
   border: 1px solid var(--gray500);
 }
 
-.textInput:focus {
+.textDropdown:focus {
   border: 2px solid var(--gray500);
   color: var(--gray900);
 }
 
-.textInput:active {
+.textDropdown:active {
   border: 2px solid var(--gray700);
   color: var(--gray900);
 }
 
-.textInput:disabled {
+.textDropdown:disabled {
   border: 1px solid var(--gray300);
   background: var(--gray100);
   color: var(--gray400);
 }
 
-.textInput .error {
+.textDropdown .error {
   border: 1px solid var(--error);
   color: var(--gray500);
 }
