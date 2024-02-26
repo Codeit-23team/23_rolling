@@ -8,7 +8,7 @@ export const getApiRecipient = async (id) => {
   }
 };
 
-export const postApiRecipient = async (user, color) => {
+export const postApiRecipient = async (user, color, imageUrl) => {
   try {
     const response = await fetch(`https://rolling-api.vercel.app/4-23/recipients/`, {
       method: 'POST',
@@ -18,6 +18,7 @@ export const postApiRecipient = async (user, color) => {
       body: JSON.stringify({
         name: user,
         backgroundColor: color,
+        backgroundImageURL: imageUrl,
       }),
     });
     const data = await response.json();
