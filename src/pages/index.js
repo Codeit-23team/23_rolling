@@ -1,0 +1,3 @@
+function asdasd() {
+  return <></>;
+}
