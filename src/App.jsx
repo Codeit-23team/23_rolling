@@ -1,9 +1,7 @@
-import Path from "./path/path";
+import Path from './path/path';
 
 function App() {
-  return (
-      <Path/>
-    )
+  return <Path />;
 }
 
 export default App;

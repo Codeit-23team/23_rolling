@@ -5,7 +5,7 @@ import IndexTop from "../components/main/indexTop";
 const Index = () => {
   return (
     <>
-      <Header/>
+      <Header button={false}/>
       <div>
         <IndexTop/>
       </div>
