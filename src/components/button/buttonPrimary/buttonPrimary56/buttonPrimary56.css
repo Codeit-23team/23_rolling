@@ -1,0 +1,34 @@
+.buttonPrimary56 {
+  display: inline-flex;
+  padding: 14px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--purple600);
+  color: var(--white);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.16px;
+}
+
+.buttonPrimary56:hover {
+  background: var(--purple700);
+}
+
+.buttonPrimary56:focus {
+  border: 1px solid var(--purple900);
+  background: var(--purple800);
+}
+
+.buttonPrimary56:active {
+  background: var(--purple800);
+}
+
+.buttonPrimary56:disabled {
+  background-color: var(--gray300);
+}
