@@ -1,0 +1,32 @@
+.textInput {
+  display: flex;
+  width: 320px;
+  padding: 12px 16px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--gray300);
+  background: var(--white);
+  outline: none;
+}
+
+.textInput:hover {
+  border: 1px solid var(--gray500);
+}
+
+.textInput:focus {
+  border: 2px solid var(--gray500);
+}
+
+.textInput:active {
+  border: 2px solid var(--gray700);
+}
+
+.textInput:disabled {
+  border: 1px solid var(--gray300);
+  background: var(--gray100);
+}
+
+.textInput .error {
+  border: 1px solid var(--error);
+}
