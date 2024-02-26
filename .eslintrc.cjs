@@ -1,4 +1,8 @@
 module.exports = {
+  env: {
+    browser: true,
+    node: true,
+  },
   extends: [
     // By extending from a plugin config, we can get recommended rules without having to add them manually.
     'eslint:recommended',
@@ -23,6 +27,8 @@ module.exports = {
     },
   },
   rules: {
-    // Add your own rules here to override ones from the extended configs.
+    // Add your own rules here to override ones from the extended configs.z
+    'react/react-in-jsx-scope': 'off',
+    'parser': 'babel-parser',
   },
 };
