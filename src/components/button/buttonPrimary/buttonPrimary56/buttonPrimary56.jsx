@@ -1,7 +1,14 @@
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { postApiRecipient } from '../../../../apis/apiRecipient';
 import './buttonPrimary56.css';
 
 const ButtonPrimary56 = ({ buttonName, userName, backgroundColor, backgroundImg }) => {
+  const [goLink, setGoLink] = useState('');
+  const navigate = useNavigate();
+  //혹시 id가 필요하면 ㄱㄱ
+  //const [userId, setUserId] = useState(null);
+
   const userData = {
     name: !!userName === false ? null : userName,
     color: !!backgroundColor === false ? 'beige' : backgroundColor,
@@ -10,19 +17,30 @@ const ButtonPrimary56 = ({ buttonName, userName, backgroundColor, backgroundImg 
 
   const handlePostUserInfo = () => {
     if (userData.name === null) {
-      alert('이름을 입력해 주세요');
+      //데이터 보내면 안됨
     } else {
       postApiRecipient(userData.name, userData.color, userData.backgroundImg).then((response) => {
         const data = response;
-        return data;
+        //혹시 id가 필요하면 ㄱㄱ
+        //setUserId(data.id);
+        // post/{id} 페이지 이동
+        navigate(`/post/${data.id}`);
       });
     }
   };
 
+  useEffect(() => {
+    if (buttonName === '구경해보기') {
+      setGoLink('/list');
+    }
+  }, []);
+
   return (
-    <button className="buttonPrimary56" onClick={handlePostUserInfo}>
-      {buttonName}
-    </button>
+    <Link to={goLink}>
+      <button className="buttonPrimary56" onClick={handlePostUserInfo}>
+        {buttonName}
+      </button>
+    </Link>
   );
 };
 
