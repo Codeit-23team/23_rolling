@@ -11,8 +11,11 @@ header div {
 }
 header h1 a {
     display: block;
-    width: 106px; height: 30px;
+    width: 106px; 
+    height: 42px;
     font-size: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 header div > a {
     display: inline-block;
