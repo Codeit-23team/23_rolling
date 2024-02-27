@@ -1,0 +1,33 @@
+.backgroundColor {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.backgroundColor button {
+  width: 168px;
+  height: 168px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.backgroundColor button.orange {
+  background: var(--orange200);
+}
+
+.backgroundColor button.purple {
+  background: var(--purple200);
+}
+
+.backgroundColor button.blue {
+  background: var(--blue200);
+}
+
+.backgroundColor button.green {
+  background: var(--green200);
+}
+
+.backgroundColor .backgroundColorBox {
+  position: relative;
+}

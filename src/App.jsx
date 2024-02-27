@@ -1,7 +1,12 @@
+import { RecoilRoot } from 'recoil';
 import Path from './path/path';
 
 function App() {
-  return <Path />;
+  return (
+    <RecoilRoot>
+      <Path />
+    </RecoilRoot>
+  );
 }
 
 export default App;
