@@ -1,7 +1,12 @@
-import { selector } from 'recoil';
-import { getApiRecipient, postApiRecipient, deleteApiRecipient, profileImageRecipient } from '../../apis/apiRecipient';
+import { selector, atom } from 'recoil';
+import { profileImageRecipient } from '../../apis/apiRecipient';
 
 export const profileImageData = selector({
     key: "profileImageData",
     get: profileImageRecipient,
+});
+
+export const userId = atom({
+  key: 'userId',
+  default: '1',
 });

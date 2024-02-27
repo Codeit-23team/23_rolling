@@ -9,8 +9,6 @@ function ChooseBackground({
   setBackgroundColor,
   setBackgroundImg,
 }) {
-  const userInfo = { userName, backgroundColor, backgroundImg };
-
   return (
     <div className="chooseBackground">
       <div className="chooseBackgroundText">
@@ -18,7 +16,12 @@ function ChooseBackground({
         <p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
       </div>
       <ToggleButton setBackgroundColor={setBackgroundColor} setBackgroundImg={setBackgroundImg} />
-      <ButtonPrimary56 buttonName="생성하기" userInfo={userInfo} />
+      <ButtonPrimary56
+        buttonName="생성하기"
+        userName={userName}
+        backgroundColor={backgroundColor}
+        backgroundImg={backgroundImg}
+      />
     </div>
   );
 }
