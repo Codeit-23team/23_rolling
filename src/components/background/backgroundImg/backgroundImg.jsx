@@ -9,24 +9,45 @@ function BackgroundImg({ setBackgroundColor, setBackgroundImg }) {
     setCheck(number);
     setBackgroundColor('');
     setBackgroundImg(`images/background${number}.jpg`);
+    setTranslucent(true);
+  };
+
+  const transparency = {
+    opacity: 0.5,
   };
 
   return (
     <div className="backgroundImg">
       <div className="backgroundImgBox">
-        <button className="background1" onClick={() => handleOnClick(1)} />
+        <button
+          className="background1"
+          onClick={() => handleOnClick(1)}
+          style={check === 1 ? transparency : null}
+        />
         {check === 1 ? <BackgroundCheck /> : null}
       </div>
       <div className="backgroundImgBox">
-        <button className="background2" onClick={() => handleOnClick(2)} />
+        <button
+          className="background2"
+          onClick={() => handleOnClick(2)}
+          style={check === 2 ? transparency : null}
+        />
         {check === 2 ? <BackgroundCheck /> : null}
       </div>
       <div className="backgroundImgBox">
-        <button className="background3" onClick={() => handleOnClick(3)} />
+        <button
+          className="background3"
+          onClick={() => handleOnClick(3)}
+          style={check === 3 ? transparency : null}
+        />
         {check === 3 ? <BackgroundCheck /> : null}
       </div>
       <div className="backgroundImgBox">
-        <button className="background4" onClick={() => handleOnClick(4)} />
+        <button
+          className="background4"
+          onClick={() => handleOnClick(4)}
+          style={check === 4 ? transparency : null}
+        />
         {check === 4 ? <BackgroundCheck /> : null}
       </div>
     </div>

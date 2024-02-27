@@ -3,6 +3,9 @@
   align-items: flex-start;
   margin-top: 24px;
   margin-bottom: 45px;
+  width: 180px;
+  border-radius: 6px;
+  background: var(--gray200);
 }
 
 .toggleButton button {
