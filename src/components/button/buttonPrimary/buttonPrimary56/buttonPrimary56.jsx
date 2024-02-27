@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { postApiRecipient } from '../../../../apis/apiRecipient';
+import { useSetRecoilState } from 'recoil';
+import { userId } from '../../../../store/recoil/apiData';
 import './buttonPrimary56.css';
 
 const ButtonPrimary56 = ({ buttonName, userName, backgroundColor, backgroundImg }) => {
   const [goLink, setGoLink] = useState('');
   const navigate = useNavigate();
-  //혹시 id가 필요하면 ㄱㄱ
-  //const [userId, setUserId] = useState(null);
+  const setSelectId = useSetRecoilState(userId);
 
   const userData = {
     name: !!userName === false ? null : userName,
@@ -21,8 +22,7 @@ const ButtonPrimary56 = ({ buttonName, userName, backgroundColor, backgroundImg 
     } else {
       postApiRecipient(userData.name, userData.color, userData.backgroundImg).then((response) => {
         const data = response;
-        //혹시 id가 필요하면 ㄱㄱ
-        //setUserId(data.id);
+        setSelectId(data.id);
         // post/{id} 페이지 이동
         navigate(`/post/${data.id}`);
       });
