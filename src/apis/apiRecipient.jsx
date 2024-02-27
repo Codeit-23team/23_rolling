@@ -39,3 +39,13 @@ export const deleteApiRecipient = async (id) => {
     throw new Error(error);
   }
 };
+
+export const profileImageRecipient = async () => {
+  try {
+    const response = await fetch(`https://rolling-api.vercel.app/profile-images/`);
+    const data = await response.json();
+    return data;
+  } catch {
+    throw new Error(error);
+  }
+};

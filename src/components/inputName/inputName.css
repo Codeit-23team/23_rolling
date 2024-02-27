@@ -1,6 +1,10 @@
+/* div에 margin을 넣는게 좋아보여서 바꿨습니다! : 임동현 */
+.inputName {
+  margin: 57px auto;
+}
+
 .inputName form {
   max-width: 720px;
-  margin: 57px auto;
 }
 
 .inputName form label {
