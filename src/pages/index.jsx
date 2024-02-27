@@ -1,19 +1,19 @@
-import Header from "../components/header/header";
-import IndexBottom from "../components/main/indexBottom";
-import IndexTop from "../components/main/indexTop";
+import Header from '../components/header/header';
+import IndexBottom from '../components/main/indexBottom';
+import IndexTop from '../components/main/indexTop';
 
 const Index = () => {
   return (
     <>
-      <Header button={false}/>
+      <Header button={false} />
       <div>
-        <IndexTop/>
+        <IndexTop />
       </div>
       <div>
-        <IndexBottom/>
+        <IndexBottom />
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Index;

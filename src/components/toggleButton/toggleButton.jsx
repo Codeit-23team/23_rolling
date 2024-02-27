@@ -3,12 +3,11 @@ import BackgroundColor from '../background/backgroundColor/backgroundColor';
 import BackgroundImg from '../background/backgroundImg/backgroundImg';
 import './toggleButton.css';
 
-function ToggleButton() {
+function ToggleButton({ setBackgroundColor, setBackgroundImg }) {
   const [toggleOn, setToggleOn] = useState(true);
 
   const handleOnClick = () => {
     setToggleOn(!toggleOn);
-    setOptionBackground(!toggleOn);
   };
 
   return (
@@ -29,7 +28,17 @@ function ToggleButton() {
           이미지
         </button>
       </div>
-      {toggleOn === false ? <BackgroundColor /> : <BackgroundImg />}
+      {toggleOn === false ? (
+        <BackgroundColor
+          setBackgroundColor={setBackgroundColor}
+          setBackgroundImg={setBackgroundImg}
+        />
+      ) : (
+        <BackgroundImg
+          setBackgroundColor={setBackgroundColor}
+          setBackgroundImg={setBackgroundImg}
+        />
+      )}
     </div>
   );
 }

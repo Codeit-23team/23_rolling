@@ -2,11 +2,13 @@ import { useState } from 'react';
 import BackgroundCheck from '../backgroundCheck/backgroundCheck';
 import './backgroundImg.css';
 
-function BackgroundImg() {
+function BackgroundImg({ setBackgroundColor, setBackgroundImg }) {
   const [check, setCheck] = useState(0);
 
   const handleOnClick = (number) => {
     setCheck(number);
+    setBackgroundColor('');
+    setBackgroundImg(`images/background${number}.jpg`);
   };
 
   return (

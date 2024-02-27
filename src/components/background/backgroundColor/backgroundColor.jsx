@@ -2,30 +2,32 @@ import { useState } from 'react';
 import BackgroundCheck from '../backgroundCheck/backgroundCheck';
 import './backgroundColor.css';
 
-function BackgroundColor() {
+function BackgroundColor({ setBackgroundColor, setBackgroundImg }) {
   const [check, setCheck] = useState(0);
 
-  const handleOnClick = (number) => {
-    setCheck(number);
+  const handleOnClick = (color) => {
+    setCheck(color);
+    setBackgroundColor(color);
+    setBackgroundImg('');
   };
 
   return (
     <div className="backgroundColor">
       <div className="backgroundColorBox">
-        <button className="orange" onClick={() => handleOnClick(1)} />
-        {check === 1 ? <BackgroundCheck /> : null}
+        <button className="orange" onClick={() => handleOnClick('orange')} />
+        {check === 'orange' ? <BackgroundCheck /> : null}
       </div>
       <div className="backgroundColorBox">
-        <button className="purple" onClick={() => handleOnClick(2)} />
-        {check === 2 ? <BackgroundCheck /> : null}
+        <button className="purple" onClick={() => handleOnClick('purple')} />
+        {check === 'purple' ? <BackgroundCheck /> : null}
       </div>
       <div className="backgroundColorBox">
-        <button className="blue" onClick={() => handleOnClick(3)} />
-        {check === 3 ? <BackgroundCheck /> : null}
+        <button className="blue" onClick={() => handleOnClick('blue')} />
+        {check === 'blue' ? <BackgroundCheck /> : null}
       </div>
       <div className="backgroundColorBox">
-        <button className="green" onClick={() => handleOnClick(4)} />
-        {check === 4 ? <BackgroundCheck /> : null}
+        <button className="green" onClick={() => handleOnClick('green')} />
+        {check === 'green' ? <BackgroundCheck /> : null}
       </div>
     </div>
   );
