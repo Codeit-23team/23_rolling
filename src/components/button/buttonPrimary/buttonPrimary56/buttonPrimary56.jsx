@@ -1,18 +1,22 @@
 import { postApiRecipient } from '../../../../apis/apiRecipient';
 import './buttonPrimary56.css';
 
-const ButtonPrimary56 = ({ buttonName, userInfo }) => {
+const ButtonPrimary56 = ({ buttonName, userName, backgroundColor, backgroundImg }) => {
   const userData = {
-    name: userInfo.userName,
-    color: !!userInfo.backgroundColor === false ? 'beige' : userInfo.backgroundColor,
-    img: !!userInfo.backgroundImg === false ? null : userInfo.backgroundImg,
+    name: !!userName === false ? null : userName,
+    color: !!backgroundColor === false ? 'beige' : backgroundColor,
+    img: !!backgroundImg === false ? null : backgroundImg,
   };
 
   const handlePostUserInfo = () => {
-    postApiRecipient(userData.name, userData.color, null).then((response) => {
-      const data = response;
-      return data;
-    });
+    if (userData.name === null) {
+      alert('이름을 입력해 주세요');
+    } else {
+      postApiRecipient(userData.name, userData.color, userData.backgroundImg).then((response) => {
+        const data = response;
+        return data;
+      });
+    }
   };
 
   return (
