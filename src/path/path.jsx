@@ -1,13 +1,16 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PostidNav from '../components/postId/PostidNav';
 import Index from '../pages';
 import PostPage from '../pages/post';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 function Path() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="post" element={<PostPage />} />
+                <Route path="post" element={<PostPage />}>
+                    <Route path=":id" element={<PostidNav />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     );
