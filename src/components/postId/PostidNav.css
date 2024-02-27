@@ -1,7 +1,3 @@
-.line {
-  border-left: 1px solid #eeeeee;
-}
-
 .postIdNav {
   display: flex;
   justify-content: space-between;
@@ -11,7 +7,7 @@
   width: 100%;
 }
 
-.postIdNav p span {
+.highlight {
   font-size: 18px;
   font-weight: 700;
 }
@@ -36,9 +32,34 @@
   display: flex;
   align-items: center;
   gap: 11px;
+  margin-right: 28px;
 }
 
 .postIdNav div {
   display: flex;
   align-items: center;
+}
+
+.line {
+  border-left: 1px solid #000;
+  height: 100%;
+}
+
+.imoji {
+  margin-left: 28px;
+  display: flex;
+  gap: 2px;
+}
+
+.imoji ul {
+  list-style: none;
+  display: flex;
+  gap: 2px;
+}
+
+.imoji button {
+  border: 0px;
+  background-color: white;
+  width: 36px;
+  height: 36px;
 }
