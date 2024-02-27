@@ -18,7 +18,6 @@
 }
 
 .buttonPrimary56:focus {
-  border: 1px solid var(--purple900);
   background: var(--purple800);
   box-sizing: border-box;
 }

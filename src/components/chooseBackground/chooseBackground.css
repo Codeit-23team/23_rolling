@@ -1,0 +1,33 @@
+.chooseBackground {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.chooseBackground .chooseBackgroundText {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.chooseBackground .chooseBackgroundText h1 {
+  color: var(--gray900);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.24px;
+}
+
+.chooseBackground .chooseBackgroundText p {
+  color: var(--gray500);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.16px;
+}
+
+.chooseBackground .buttonPrimary56 {
+  margin-top: 69px;
+  margin-bottom: 336px;
+  width: 720px;
+}
