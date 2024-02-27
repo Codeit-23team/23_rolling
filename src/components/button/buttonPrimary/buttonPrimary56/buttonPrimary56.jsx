@@ -1,15 +1,17 @@
 import { postApiRecipient } from '../../../../apis/apiRecipient';
 import './buttonPrimary56.css';
 
-// 데이터 보낼시 배경 이미지는 링크를 따와야 함
 const ButtonPrimary56 = ({ buttonName, userInfo }) => {
+  console.log(userInfo.userName);
+  console.log(userInfo.backgroundColor);
+  console.log(userInfo.backgroundImg);
   const handlePostUserInfo = () => {
-    postApiRecipient({
-      /* 보낼 데이터 작성 */
-    }).then((response) => {
-      const data = response;
-      return data;
-    });
+    postApiRecipient(userInfo.userName, userInfo.backgroundColor, userInfo.backgroundImg).then(
+      (response) => {
+        const data = response;
+        return data;
+      },
+    );
   };
 
   return (
