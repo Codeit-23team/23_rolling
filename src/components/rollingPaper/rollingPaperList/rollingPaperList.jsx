@@ -27,11 +27,6 @@ function RollingPaperList({ name }) {
             />
           </li>
         ))}
-        {/*array?.map((arr, index) => (
-          <li key={arr.id}>
-            <RollingPaperBox />
-          </li>
-        ))*/}
       </ul>
       <button className="left">{`<`}</button>
       <button className="right">{`>`}</button>

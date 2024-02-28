@@ -10,23 +10,23 @@ export const profileImageData = selector({
 export const fromName = atom({
   key: 'fromName',
   default: '',
-})
+});
 export const messageProfile = atom({
   key: 'messageProfile',
   default: '',
-})
+});
 export const messageRelationship = atom({
   key: 'messageRelationship',
   default: '',
-})
+});
 export const messageEditor = atom({
   key: 'messageEditor',
   default: '',
-})
+});
 export const messageFont = atom({
   key: 'messageFont',
   default: '',
-})
+});
 // -----------------------
 
 export const postUserId = atom({

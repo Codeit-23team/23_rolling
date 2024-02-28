@@ -1,4 +1,3 @@
-
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Index from '../pages';
 import PostPage from '../pages/post';
@@ -11,7 +10,7 @@ function Path() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="post" element={<PostPage />}/>
+        <Route path="post" element={<PostPage />} />
         <Route path="post/:id/message" element={<PostMessagePage />} />
         <Route path="/post/:id" element={<PostIdPage />} />
         <Route path="list" element={<ListPage />} />

@@ -1,4 +1,3 @@
-
 import PostidNav from '../../../components/postId/PostidNav';
 import { useParams } from 'react-router-dom';
 
