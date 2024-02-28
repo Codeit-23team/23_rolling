@@ -9,7 +9,7 @@ const ButtonOutlined40 = ({ iconUrl, buttonName }) => {
       ) : (
         <div className="iconBox">
           <img className="icon" src={iconUrl} alt="icon" />
-          <span>{buttonName}</span>
+          {buttonName !== undefined && <span>{buttonName}</span>}
         </div>
       )}
     </button>

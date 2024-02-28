@@ -5,6 +5,10 @@
   max-width: 1200px;
   margin: 13px auto;
   width: 100%;
+
+  @media screen and (max-width: 1248px) {
+    padding: 0 24px;
+  }
 }
 
 .highlight {
@@ -62,4 +66,8 @@
   background-color: white;
   width: 36px;
   height: 36px;
+}
+
+.buttonSection {
+  gap: 13px;
 }
