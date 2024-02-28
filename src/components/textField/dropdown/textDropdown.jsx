@@ -1,11 +1,13 @@
 import './textDropdown.css';
 import Select from "react-select";
+import { useState } from 'react';
 
-const TextDropdown = ({type}) => {
-  const options = [
-    { value: "test1", label: "테스트1" },
-    { value: "test2", label: "테스트2" }
-  ]
+const TextDropdown = ({type, options}) => {
+  // const [selectedOption, setSelectedOption] = useState(null);
+
+  // const handleChange = (selectedOption) => {
+  //   setSelectedOption(selectedOption);
+  // };
   const custom = {
     container : (provided) => ({
       ...provided,
@@ -30,14 +32,18 @@ const TextDropdown = ({type}) => {
     }),
     dropdownIndicator: (provided, state) => ({
       ...provided,
-      paddingRight: '16px',
+      padding: '0 16px',
       transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
     }),
   }
   return (
     <div className='selectBox'>
       <strong className='formTitle'>{type}</strong>
-      <Select options={options} styles={custom}/>
+      <Select 
+      options={options} 
+      // onChange={handleChange}
+      defaultValue={options.find(option => option.value === options[0].value)} 
+      styles={custom}/>
     </div>
   );
 };
