@@ -10,9 +10,8 @@ function Path() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
-
-        <Route path="message" element={<PostMessagePage />} />
         <Route path="post" element={<PostPage />} />
+        <Route path="post/:id/message" element={<PostMessagePage />} />
         <Route path="/post/:id" element={<PostIdPage />} />
         <Route path="list" element={<ListPage />} />
       </Routes>
