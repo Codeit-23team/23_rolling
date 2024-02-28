@@ -1,7 +1,7 @@
 import ReactQuill from "react-quill";
 import './editor.css';
 
-const Editor = ({type}) => {
+const Editor = ({type, editorData, setEditorData}) => {
     const modules = {
         toolbar: {
             container: [
@@ -32,10 +32,17 @@ const Editor = ({type}) => {
         "video",
         "width",
     ];
+    const handleChange = (value) => {
+        setEditorData(value);
+    };
     return(
         <div className="testCon">
             <strong className="formTitle">{type}</strong>
-            <ReactQuill formats={formats} modules={modules}/>
+            <ReactQuill 
+            value={editorData}
+            onChange={handleChange} 
+            formats={formats} 
+            modules={modules}/>
         </div>
     )
 }
