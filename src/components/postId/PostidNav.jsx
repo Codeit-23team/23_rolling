@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage, getApiMessageCondition } from '../../apis/messageApi';
 import miniProfile from './../miniProfile/miniProfile';
-import './PostidNav.css';
 import Reaction from '../reaction/Reaction';
+import line from '/public/images/line.svg';
+import './PostidNav.css';
 
 function PostidNav({ id }) {
   const [name, setname] = useState('');
@@ -58,18 +59,27 @@ function PostidNav({ id }) {
             <span className="highlight">{messageCount}</span>명이 작성했어요!
           </p>
         </div>
-        <div className="line">
-          <div className="imoji">
-            {/* 이모티콘 */}
-            <ul>
-              {/* {reaction.map(({ emoji, count, id }) => (
-                <Reaction key={id} emoji={emoji} count={count} />
-              ))} */}
-            </ul>
-            <button type="button">
-            </button>
-          </div>
+        <img src={line} alt="line" />
+        <div className="imoji">
+          {/* 이모티콘 */}
+          <ul>
+            {reaction.map(({ emoji, count, id }) => (
+              <Reaction key={id} emoji={emoji} count={count} />
+            ))}
+          </ul>
+          <button type="button">
+            <img src="/public/images/chevronDown.svg" alt="chevronDown" />
+          </button>
+          <button type="button">
+            <img src="/public/images/addImojiIcon.png" alt="addImojiIcon" />
+            추가
+          </button>
+
         </div>
+        <img src={line} alt="line" />
+        <button type="button">
+          <img src="/public/images/shareIcon.png" alt="shareIcon" />
+        </button>
       </div>
     </article>
   );
