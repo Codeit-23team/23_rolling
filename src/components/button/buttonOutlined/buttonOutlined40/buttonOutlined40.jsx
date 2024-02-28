@@ -1,9 +1,8 @@
 import './buttonOutlined40.css';
 
-const ButtonOutlined40 = ({ iconUrl, buttonName }) => {
-  console.log(iconUrl);
+const ButtonOutlined40 = ({ iconUrl, buttonName, onClick }) => {
   return (
-    <button className="buttonOutlined40">
+    <button className="buttonOutlined40" onClick={onClick}>
       {iconUrl === undefined ? (
         buttonName
       ) : (
