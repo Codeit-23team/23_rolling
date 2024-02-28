@@ -26,7 +26,7 @@
 
 .rollingPaperList button.right {
   top: 50%;
-  right: -1%;
+  right: -1%g;
   transform: translateY(50%);
   position: absolute;
 }
