@@ -1,7 +1,6 @@
-function PostIdPage({ selectId }) {
+function PostIdPage() {
   return (
     <>
-      <div>{selectId}</div>
       <div>윗부분 : 나은님</div>
       <div>아랫부분 : 가은님</div>
     </>
