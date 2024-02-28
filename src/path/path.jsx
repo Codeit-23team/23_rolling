@@ -9,15 +9,14 @@ import { userId } from '../store/recoil/apiData';
 
 function Path() {
   const selectId = useRecoilValue(userId);
-
-  console.log(`post/${selectId}`);
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="message" element={<PostMessagePage />} />
-        <Route path="post" element={<PostPage />} />
-        <Route path={'post/' + selectId} element={<PostIdPage selectId={selectId} />} />
+        <Route path="post" element={<PostPage />}/>
+        <Route path="post/:id" element={<div>테스트 페이지</div>} />
+        <Route path="post/:id/message" element={<PostMessagePage />} />
+        {/* <Route path={'post/' + selectId} element={<PostIdPage selectId={selectId} />} /> */}
         <Route path="list" element={<ListPage />} />
       </Routes>
     </BrowserRouter>

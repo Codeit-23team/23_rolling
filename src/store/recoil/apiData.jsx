@@ -6,6 +6,29 @@ export const profileImageData = selector({
     get: profileImageRecipient,
 });
 
+// message 페이지 전역 변수 _ 임동현
+export const fromName = atom({
+  key: 'fromName',
+  default: '',
+})
+export const messageProfile = atom({
+  key: 'messageProfile',
+  default: '',
+})
+export const messageRelationship = atom({
+  key: 'messageRelationship',
+  default: '',
+})
+export const messageEditor = atom({
+  key: 'messageEditor',
+  default: '',
+})
+export const messageFont = atom({
+  key: 'messageFont',
+  default: '',
+})
+// -----------------------
+
 export const userId = atom({
   key: 'userId',
   default: '1',

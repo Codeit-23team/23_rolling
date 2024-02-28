@@ -49,3 +49,25 @@ export const profileImageRecipient = async () => {
     throw new Error(error);
   }
 };
+
+export const messageApiRecipient = async (user, imageUrl, relation, content, font, id) => {
+  try {
+    const response = await fetch(`https://rolling-api.vercel.app/4-23/recipients/${id}/message`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: user,
+        profileImageURL: imageUrl,
+        relationship: relation,
+        content: content,
+        font: font,
+      }),
+    });
+    const data = await response.json();
+    return data;
+  } catch {
+    throw new Error(error);
+  }
+};
