@@ -33,3 +33,9 @@ export const postUserId = atom({
   key: 'postUserId',
   default: '1',
 });
+
+//------ post/id페이지 emoji 추가 토글 상태) _ 권나은
+export const emojiModalState = atom({
+  key: 'emojiModalState',
+  default: false,
+});

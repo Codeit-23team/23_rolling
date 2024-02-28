@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 function PostIdPage() {
   const { id } = useParams();
+
   return (
     <>
       <Header button={false} />

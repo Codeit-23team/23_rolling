@@ -1,20 +1,24 @@
 import { useEffect, useState } from 'react';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage, getApiMessageCondition } from '../../apis/messageApi';
-import miniProfile from './../miniProfile/miniProfile';
-import Reaction from '../reaction/Reaction';
-import line from '@/line.svg';
-import styles from './PostidNav.module.css';
 import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
-import data from '@emoji-mart/data';
-import Picker from '@emoji-mart/react';
+import MiniProfile from './../miniProfile/miniProfile';
+import EmojiModal from './emojiModal/emojiModal';
+import Reaction from '../reaction/Reaction';
+import styles from './PostidNav.module.css';
+import line from '@/line.svg';
+import { emojiModalState } from '../../store/recoil/apiData';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
-function PostidNav({ id }) {
+const PostidNav = ({ id }) => {
   const [name, setname] = useState('');
   const [messageCount, setMessageCount] = useState(0);
   const [reaction, setReaction] = useState([]);
   const [message, setMessage] = useState([]);
-  const [imojiModal, setImojoModal] = useState(false);
+
+  //recoil
+  const emojiModal = useRecoilValue(emojiModalState);
+  const setEmojiModal = useSetRecoilState(emojiModalState);
 
   useEffect(() => {
     //reactionTop3 받아오기
@@ -44,11 +48,14 @@ function PostidNav({ id }) {
 
     // getMessage();
     getUserName();
-    getReaction();
-  }, [id]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
+    if (!emojiModal) {
+      // emojiModal이 false일 때에만 실행
+      getReaction();
+    }
+  }, [id, emojiModal]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
 
-  const HandleImojiButtonClick = () => {
-    setImojoModal(!imojiModal);
+  const HandleEmojiButtonClick = () => {
+    setEmojiModal(true);
   };
 
   return (
@@ -61,7 +68,7 @@ function PostidNav({ id }) {
           <div className={styles.messageUsers}>
             {/* 미니 프로필, 이모지, 공유 버튼 */}
             {/* {message.map(({ profileImageURL }) => {
-          <miniProfile profileImageURL={profileImageURL} />;
+          <MiniProfile profileImageURL={profileImageURL} />;
         })} */}
             <div>profile(ex)</div>
             <p>
@@ -69,7 +76,7 @@ function PostidNav({ id }) {
             </p>
           </div>
           <img src={line} alt="line" />
-          <div className={styles.imoji}>
+          <div className={styles.emoji}>
             {/* 이모티콘 */}
             <ul>
               {reaction.map(({ emoji, count, id }) => (
@@ -81,19 +88,28 @@ function PostidNav({ id }) {
             </button>
           </div>
           <div className={styles.buttonSection}>
-            <ButtonOutlined40
-              onClick={HandleImojiButtonClick}
-              iconUrl="/images/addImojiIcon.png"
-              buttonName="추가"
-            />
+            <div className={styles.addEmoji}>
+              <div>
+                <ButtonOutlined40
+                  onClick={HandleEmojiButtonClick}
+                  iconUrl="/images/addImojiIcon.png"
+                  buttonName="추가"
+                />
+              </div>
+
+              {emojiModal && (
+                <div>
+                  <EmojiModal id={id} />
+                </div>
+              )}
+            </div>
             <img src={line} alt="line" />
             <ButtonOutlined40 iconUrl="/images/shareIcon.png" />
           </div>
         </div>
       </article>
-      {imojiModal && <Picker data={data} onEmojiSelect={console.log} locale={'kr'} />}
     </>
   );
-}
+};
 
 export default PostidNav;
