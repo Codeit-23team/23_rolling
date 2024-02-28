@@ -1,0 +1,65 @@
+.postIdNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 13px auto;
+  width: 100%;
+}
+
+.highlight {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.postIdNav p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  display: inline-block;
+}
+
+.postIdNav > div:first-child p {
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.messageUsers {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-right: 28px;
+}
+
+.postIdNav div {
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  border-left: 1px solid #000;
+  height: 100%;
+}
+
+.imoji {
+  margin-left: 28px;
+  display: flex;
+  gap: 2px;
+}
+
+.imoji ul {
+  list-style: none;
+  display: flex;
+  gap: 2px;
+}
+
+.imoji button {
+  border: 0px;
+  background-color: white;
+  width: 36px;
+  height: 36px;
+}
