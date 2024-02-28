@@ -1,19 +1,22 @@
-import Header from "../components/header/header";
-import IndexBottom from "../components/main/indexBottom";
-import IndexTop from "../components/main/indexTop";
+import ButtonPrimary56 from '../components/button/buttonPrimary/buttonPrimary56/buttonPrimary56';
+import Header from '../components/header/header';
+import IndexBottom from '../components/main/indexBottom';
+import IndexTop from '../components/main/indexTop';
+
 
 const Index = () => {
   return (
     <>
-      <Header button={false}/>
-      <div>
-        <IndexTop/>
+      <Header button={true} />
+      <div className="indexContents">
+        <IndexTop />
+        <IndexBottom />
       </div>
-      <div>
-        <IndexBottom/>
+      <div className="linkButtonCon">
+        <ButtonPrimary56 goLink={'./list'} buttonName="구경해보기" />
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Index;

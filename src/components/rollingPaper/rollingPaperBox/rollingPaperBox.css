@@ -1,0 +1,22 @@
+.rollingPaperBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 43px;
+  width: 275px;
+  height: 260px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--purple200);
+  box-shadow: 0px 2px 12px 0px;
+  padding: 30px 24px 20px;
+}
+
+.rollingPaperBox .rollingPaperInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}

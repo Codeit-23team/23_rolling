@@ -74,6 +74,7 @@ function PostidNav({ id }) {
             <img src="/public/images/addImojiIcon.png" alt="addImojiIcon" />
             추가
           </button>
+
         </div>
         <img src={line} alt="line" />
         <button type="button">

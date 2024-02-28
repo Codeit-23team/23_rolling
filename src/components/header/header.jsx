@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import './header.css';
+import logoImg from '@/logo.png';
 
 const Header = ({button}) => {
     return(
         <header>
             <div>
                 <h1>
-                    <Link style={{backgroundImage: `url(images/logo.png)`}}>
+                    <Link to={'/'} style={{backgroundImage: `url(${logoImg})`}}>
                         홈으로
                     </Link>
                 </h1>
                 {
                     button ? 
-                    <Link>롤링페이퍼 만들기</Link>
+                    <Link to={'/post'}>롤링페이퍼 만들기</Link>
                     : null
                 }
             </div>

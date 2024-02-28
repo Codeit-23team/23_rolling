@@ -1,0 +1,30 @@
+/* div에 margin을 넣는게 좋아보여서 바꿨습니다! : 임동현 */
+.inputName {
+  margin: 57px auto;
+}
+
+.inputName form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.inputName form label {
+  color: var(--gray-900, #181818);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px; /* 175% */
+  letter-spacing: -0.24px;
+}
+
+.inputName form input {
+  width: 100%;
+}
+.inputName form .errorInput {
+  color: var(--error);
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.06px;
+}
