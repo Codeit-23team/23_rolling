@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage, getApiMessageCondition } from '../../apis/messageApi';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import miniProfile from './../miniProfile/miniProfile';
 import './PostidNav.css';
 import Reaction from '../reaction/Reaction';
@@ -68,9 +66,7 @@ function PostidNav({ id }) {
                 <Reaction key={id} emoji={emoji} count={count} />
               ))}
             </ul>
-            <button type="button">
-              <FontAwesomeIcon icon={faChevronDown} />
-            </button>
+            <button type="button">{/* <FontAwesomeIcon icon={faChevronDown} /> */}</button>
           </div>
         </div>
       </div>
