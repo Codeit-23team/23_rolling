@@ -1,5 +1,12 @@
+import { RecoilRoot } from 'recoil';
+import Path from './path/path';
+
 function App() {
-  return <div>안녕</div>;
+  return (
+    <RecoilRoot>
+      <Path />
+    </RecoilRoot>
+  );
 }
 
 export default App;

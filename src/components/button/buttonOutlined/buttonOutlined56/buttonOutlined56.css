@@ -1,0 +1,36 @@
+.buttonOutlined56 {
+  display: inline-flex;
+  padding: 14px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--gray300);
+  background: var(--white);
+  color: var(--gray900);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+}
+
+.buttonOutlined56:hover {
+  background: var(--gray100);
+}
+
+.buttonOutlined56:focus {
+  border: 1px solid var(--gray500);
+  background: var(--white);
+}
+
+.buttonOutlined56:active {
+  background: var(--gray100);
+}
+
+.buttonOutlined56:disabled {
+  background: var(--gray300);
+  color: var(--white);
+}
