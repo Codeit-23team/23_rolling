@@ -1,0 +1,39 @@
+.rollingPaperList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 50px auto;
+  max-width: 1160px;
+}
+
+.rollingPaperList h1 {
+  color: var(--black);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.24px;
+}
+
+.rollingPaperList button.left {
+  top: 50%;
+  left: -1%;
+  transform: translateY(50%);
+  position: absolute;
+}
+
+.rollingPaperList button.right {
+  top: 50%;
+  right: -1%;
+  transform: translateY(50%);
+  position: absolute;
+}
+
+.rollingPaperList .rollingPaperBoxList {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}

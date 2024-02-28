@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { postApiRecipient } from '../../../../apis/apiRecipient';
+import { deleteApiRecipient, postApiRecipient } from '../../../../apis/apiRecipient';
 import { useSetRecoilState } from 'recoil';
 import { userId } from '../../../../store/recoil/apiData';
 import './buttonPrimary56.css';
