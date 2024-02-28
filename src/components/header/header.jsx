@@ -6,13 +6,13 @@ const Header = ({button}) => {
         <header>
             <div>
                 <h1>
-                    <Link style={{backgroundImage: `url(images/logo.png)`}}>
+                    <Link to={'/'} style={{backgroundImage: `url(images/logo.png)`}}>
                         홈으로
                     </Link>
                 </h1>
                 {
                     button ? 
-                    <Link>롤링페이퍼 만들기</Link>
+                    <Link to={'/post'}>롤링페이퍼 만들기</Link>
                     : null
                 }
             </div>
