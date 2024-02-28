@@ -2,8 +2,8 @@ import { selector, atom } from 'recoil';
 import { profileImageRecipient } from '../../apis/apiRecipient';
 
 export const profileImageData = selector({
-    key: "profileImageData",
-    get: profileImageRecipient,
+  key: 'profileImageData',
+  get: profileImageRecipient,
 });
 
 // message 페이지 전역 변수 _ 임동현
@@ -29,7 +29,7 @@ export const messageFont = atom({
 })
 // -----------------------
 
-export const userId = atom({
-  key: 'userId',
+export const postUserId = atom({
+  key: 'postUserId',
   default: '1',
 });

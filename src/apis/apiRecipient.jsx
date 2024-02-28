@@ -1,3 +1,13 @@
+export const getApiRecipientList = async () => {
+  try {
+    const response = await fetch(`https://rolling-api.vercel.app/4-23/recipients/`);
+    const data = await response.json();
+    return data;
+  } catch {
+    throw new Error(error);
+  }
+};
+
 export const getApiRecipient = async (id) => {
   try {
     const response = await fetch(`https://rolling-api.vercel.app/4-23/recipients/${id}/`);
@@ -52,12 +62,14 @@ export const profileImageRecipient = async () => {
 
 export const messageApiRecipient = async (user, imageUrl, relation, content, font, id) => {
   try {
-    const response = await fetch(`https://rolling-api.vercel.app/4-23/recipients/${id}/message`, {
+    const response = await fetch(`https://rolling-api.vercel.app/4-23/recipients/${id}/messages/`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
+        team: '4-23',
+        recipientId: Number(id),
         sender: user,
         profileImageURL: imageUrl,
         relationship: relation,

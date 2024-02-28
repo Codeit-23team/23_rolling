@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { postApiRecipient } from '../../apis/apiRecipient';
 import { useSetRecoilState } from 'recoil';
-import { userId } from '../../store/recoil/apiData';
+import { postUserId } from '../../store/recoil/apiData';
 import ToggleButton from '../toggleButton/toggleButton';
 import ButtonPrimary56 from '../button/buttonPrimary/buttonPrimary56/buttonPrimary56';
 import './chooseBackground.css';
@@ -14,7 +14,7 @@ function ChooseBackground({
   setBackgroundImg,
 }) {
   const navigate = useNavigate();
-  const setSelectId = useSetRecoilState(userId);
+  const setSelectId = useSetRecoilState(postUserId);
 
   const userData = {
     name: !!userName === false ? null : userName,

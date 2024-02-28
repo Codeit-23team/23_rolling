@@ -9,6 +9,7 @@ import { useRecoilState } from "recoil";
 import { messageRelationship, messageFont, messageEditor, fromName, messageProfile } from "../../../../store/recoil/apiData";
 import { useEffect } from "react";
 import { messageApiRecipient } from "../../../../apis/apiRecipient";
+import { useParams } from "react-router-dom";
 
 const PostMessagePage = () => {
     const [messageName, setMessageName] = useRecoilState(fromName);
@@ -16,6 +17,7 @@ const PostMessagePage = () => {
     const [relationship, setRelationship] = useRecoilState(messageRelationship);
     const [editorData, setEditorData] = useRecoilState(messageEditor);
     const [choiceFont, setChoiceFont] = useRecoilState(messageFont);
+    const {id} = useParams();
 
     const relationshipOptions = [
         { value: "친구", label: "친구" },
@@ -28,14 +30,13 @@ const PostMessagePage = () => {
         { value: "Pretendard", label: "Pretendard" }
     ]
     const handlePostMessage = () => {
-        if (messageName === null) {
-          //데이터 보내면 안됨
+        if (messageName === '' || editorData === '<p><br></p>' || editorData === '<p></p>') {
+            // 생성 막음
         } else {
-            messageApiRecipient(messageName, messageImage, relationship, editorData, choiceFont)
+            messageApiRecipient(messageName, messageImage, relationship, editorData, choiceFont, id)
             .then((response) => {const data = response; return data;})
         }
     };
-    console.log(handlePostMessage);
     return(
         <>
             <Header button={false}></Header>
