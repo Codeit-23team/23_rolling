@@ -1,7 +1,7 @@
 import ReactQuill from "react-quill";
 import './editor.css';
 
-const Editor = () => {
+const Editor = ({type}) => {
     const modules = {
         toolbar: {
             container: [
@@ -34,6 +34,7 @@ const Editor = () => {
     ];
     return(
         <div className="testCon">
+            <strong className="formTitle">{type}</strong>
             <ReactQuill formats={formats} modules={modules}/>
         </div>
     )

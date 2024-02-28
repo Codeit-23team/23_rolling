@@ -1,5 +1,24 @@
 .testCon {
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 40px;
+}
+.quill {
+    border: 1px solid var(--gray300);
+    border-radius: 8px;
+}
+.ql-toolbar.ql-snow {
+    padding: 12px 15px;
+    background-color: var(--gray200);
+    border: none;
+}
+.ql-container {
+    font-size: 16px;
+    font-family: 'Pretendard';
+}
+.ql-container.ql-snow {
+    border: none;
+}
+.ql-editor {
+    padding: 16px;
+    min-height: 178px;
 }
