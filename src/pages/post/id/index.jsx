@@ -1,8 +1,12 @@
-function PostIdPage({ selectId }) {
+
+import PostidNav from '../../../components/postId/PostidNav';
+import { useParams } from 'react-router-dom';
+
+function PostIdPage() {
+  const { id } = useParams();
   return (
     <>
-      <div>{selectId}</div>
-      <div>윗부분 : 나은님</div>
+      <PostidNav id={id} />
       <div>아랫부분 : 가은님</div>
     </>
   );
