@@ -22,11 +22,13 @@ function ChooseBackground({
     img: !!backgroundImg === false ? null : backgroundImg,
   };
 
+  console.log(userData);
+
   const handlePostUserInfo = () => {
     if (userData.name === null) {
       //데이터 보내면 안됨
     } else {
-      postApiRecipient(userData.name, userData.color, userData.backgroundImg).then((response) => {
+      postApiRecipient(userData.name, userData.color, userData.img).then((response) => {
         const data = response;
         setSelectId(data.id);
         // post/{id} 페이지 이동
