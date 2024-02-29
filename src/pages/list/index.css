@@ -1,0 +1,6 @@
+.gotoPostButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto 218px;
+}

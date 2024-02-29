@@ -21,8 +21,11 @@ function RollingPaperList({ name }) {
           <li key={data.id}>
             <RollingPaperBox
               name={data.name}
-              backgroundColor={data.backgroundColor}
-              reactionCount={data.reactionCount}
+              background={
+                data.backgroundImageURL === null ? data.backgroundColor : data.backgroundImageURL
+              }
+              recentMessages={data.recentMessages}
+              reactionCount={data.messageCount}
               topReactions={data.topReactions}
             />
           </li>
