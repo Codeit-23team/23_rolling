@@ -14,7 +14,6 @@ const PostidNav = ({ id }) => {
   const [name, setname] = useState('');
   const [messageCount, setMessageCount] = useState(0);
   const [reaction, setReaction] = useState([]);
-  const [message, setMessage] = useState([]);
 
   //recoil
   const emojiModal = useRecoilValue(emojiModalState);
@@ -30,27 +29,19 @@ const PostidNav = ({ id }) => {
 
     const getUserName = async () => {
       //롤링페이퍼 id에 해당하는 name 받아오기
-      const data = await getApiRecipient(id);
+      const data = await getApiRecipient(id);++
       setname(data.name);
     };
 
     const getMessage = async () => {
       const MessageData = await getApiMessage(id);
       setMessageCount(MessageData.count);
-      // 메세지 객체 수가 3개 미만일 때
-      // if (countMessageData < 4) {
-      //   const limitMessageData = await getApiMessageCondition(id, 4);
-      //   setMessage(limitMessageData.results);
-      // } else {
-      //   setMessage(messageData.results);
-      // }
     };
 
-    // getMessage();
+    getMessage();
     getUserName();
     if (!emojiModal) {
-      // emojiModal이 false일 때에만 실행
-      getReaction();
+      getReaction(); // emojiModal이 false일 때에만 실행
     }
   }, [id, emojiModal]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
 
@@ -67,10 +58,6 @@ const PostidNav = ({ id }) => {
         <div>
           <div className={styles.messageUsers}>
             {/* 미니 프로필, 이모지, 공유 버튼 */}
-            {/* {message.map(({ profileImageURL }) => {
-          <MiniProfile profileImageURL={profileImageURL} />;
-        })} */}
-            <div>profile(ex)</div>
             <p>
               <span className={styles.highlight}>{messageCount}</span>명이 작성했어요!
             </p>
@@ -96,12 +83,7 @@ const PostidNav = ({ id }) => {
                   buttonName="추가"
                 />
               </div>
-
-              {emojiModal && (
-                <div>
-                  <EmojiModal id={id} />
-                </div>
-              )}
+              {emojiModal && <EmojiModal id={id} />}
             </div>
             <img src={line} alt="line" />
             <ButtonOutlined40 iconUrl="/images/shareIcon.png" />
