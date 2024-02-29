@@ -1,22 +1,7 @@
-import { useEffect, useState } from 'react';
 import ProfileImg from './profileImg/profileImg';
 import './rollingPaperBox.css';
 
-function RollingPaperBox({ name, background, recentMessages, reactionCount, topReactions }) {
-  const [imageCount, setImageCount] = useState(0);
-
-  const profileImage = recentMessages.map((data, index) => {
-    if (index >= 3) {
-      return null;
-    } else {
-      return data.profileImageURL;
-    }
-  });
-
-  useEffect(() => {
-    setImageCount(profileImage.length - 2);
-  }, []);
-
+function RollingPaperBox({ name, background, recentMessages, messageCount, topReactions }) {
   return (
     <div
       className="rollingPaperBox"
@@ -37,20 +22,20 @@ function RollingPaperBox({ name, background, recentMessages, reactionCount, topR
         {/* 나은님 컴포넌트 작성하셨음 ! */}
         {/*프로필 부분 미완성!!*/}
         <ul className="profileImageBox">
-          {profileImage.map((data) =>
-            data === null ? null : (
-              <li>
-                <ProfileImg imageUrl={data} />
+          {recentMessages.map((data) =>
+            data.profileImageURL === null ? null : (
+              <li key={data.id}>
+                <ProfileImg imageUrl={data.profileImageURL} />
               </li>
             ),
           )}
-          {imageCount < 0 ? null : (
+          {messageCount < 3 ? null : (
             <li>
-              <ProfileImg imageCount={imageCount} />
+              <ProfileImg imageCount={messageCount - 3} />
             </li>
           )}
         </ul>
-        <div>{reactionCount}명이 작성했어요!</div>
+        <div>{messageCount}명이 작성했어요!</div>
       </div>
       {/* 나은님 컴포넌트 작성하셨음 ! */}
       {/*이모티콘 디자인 미완성!!*/}

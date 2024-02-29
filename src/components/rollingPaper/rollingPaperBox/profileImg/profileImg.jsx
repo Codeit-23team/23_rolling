@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import './profileImg.css';
 
 function ProfileImg({ imageUrl, imageCount }) {
-  console.log(imageCount);
   return (
     <div className="profileImg">
-      {imageCount >= 0 ? (
+      {imageCount > 0 ? (
         <div>+{imageCount}</div>
       ) : (
         <div

@@ -55,7 +55,7 @@ function RollingPaperList({ name, buttonClass }) {
                       : data.backgroundImageURL
                   }
                   recentMessages={data.recentMessages}
-                  reactionCount={data.messageCount}
+                  messageCount={data.messageCount}
                   topReactions={data.topReactions}
                 />
               </Link>
