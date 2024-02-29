@@ -1,0 +1,13 @@
+.profileImg div {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: 1.5px solid var(--white);
+  background: var(--white);
+
+  color: var(--black);
+  text-align: center;
+}
