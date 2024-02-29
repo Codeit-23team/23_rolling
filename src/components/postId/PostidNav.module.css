@@ -59,7 +59,7 @@
 .emoji ul {
   list-style: none;
   display: flex;
-  gap: 2px;
+  gap: 8px;
 }
 
 .emoji button {
@@ -82,4 +82,5 @@
   position: absolute;
   top: 50px;
   right: -50px;
+  z-index: 5;
 }
