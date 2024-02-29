@@ -9,7 +9,7 @@
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--purple200);
-  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
   padding: 30px 24px 20px;
 }
 
@@ -31,4 +31,9 @@
 }
 .rollingProfileImgBox > div:not(:nth-of-type(1)) {
   margin-left: -12px;
+}
+
+.emoji {
+  display: flex;
+  gap: 8px;
 }

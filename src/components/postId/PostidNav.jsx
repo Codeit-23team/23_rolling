@@ -55,7 +55,7 @@ const PostidNav = ({ id }) => {
   }, [id, emojiModal]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
 
   const HandleEmojiButtonClick = () => {
-    setEmojiModal(true);
+    setEmojiModal(!emojiModal);
   };
 
   return (
