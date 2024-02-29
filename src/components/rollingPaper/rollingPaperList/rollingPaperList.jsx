@@ -4,7 +4,7 @@ import RollingPaperBox from '../rollingPaperBox/rollingPaperBox';
 import './rollingPaperList.css';
 import { Link } from 'react-router-dom';
 import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 
 // Import Swiper styles
@@ -15,7 +15,7 @@ import 'swiper/css/scrollbar';
 
 function RollingPaperList({ name, buttonClass }) {
   const [userData, setUserData] = useState(undefined);
-  
+
   useEffect(() => {
     getApiRecipientList().then((response) => {
       const { results } = response;
@@ -34,13 +34,13 @@ function RollingPaperList({ name, buttonClass }) {
   return (
     <div className="rollingPaperList">
       <h1>{name}</h1>
-      <div className='rollingPaperSwiperBox'>
+      <div className="rollingPaperSwiperBox">
         <Swiper
           loop={true}
-          className='rollingPaperBoxList'
+          className="rollingPaperBoxList"
           modules={[Navigation]}
           spaceBetween={20}
-          slidesPerView='auto'
+          slidesPerView="auto"
           navigation
           {...swiperOptions}
         >
@@ -50,10 +50,12 @@ function RollingPaperList({ name, buttonClass }) {
                 <RollingPaperBox
                   name={data.name}
                   background={
-                    data.backgroundImageURL === null ? data.backgroundColor : data.backgroundImageURL
+                    data.backgroundImageURL === null
+                      ? data.backgroundColor
+                      : data.backgroundImageURL
                   }
                   recentMessages={data.recentMessages}
-                  reactionCount={data.messageCount}
+                  messageCount={data.messageCount}
                   topReactions={data.topReactions}
                 />
               </Link>
@@ -61,10 +63,10 @@ function RollingPaperList({ name, buttonClass }) {
           ))}
         </Swiper>
         <button className={`${buttonClass}Prev prev`}>
-          <img src='/images/arrow_left.png' alt='왼쪽 슬라이드 버튼'/>
+          <img src="/images/arrow_left.png" alt="왼쪽 슬라이드 버튼" />
         </button>
         <button className={`${buttonClass}Next next`}>
-          <img src='/images/arrow_right.png' alt='오른쪽 슬라이드 버튼'/>
+          <img src="/images/arrow_right.png" alt="오른쪽 슬라이드 버튼" />
         </button>
       </div>
     </div>

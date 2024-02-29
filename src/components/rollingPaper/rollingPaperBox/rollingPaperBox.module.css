@@ -26,10 +26,13 @@
   height: 12px;
 }
 
-.rollingProfileImgBox {
+.rollingPaperInfo .profileImageBox {
   display: flex;
+  position: relative;
+  left: 8px;
 }
-.rollingProfileImgBox > div:not(:nth-of-type(1)) {
+
+.rollingPaperInfo .profileImageBox > li:nth-of-type(n + 1) {
   margin-left: -12px;
 }
 
