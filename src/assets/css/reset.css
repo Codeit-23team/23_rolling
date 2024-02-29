@@ -106,3 +106,8 @@ select {
   -moz-appearance: none;
   appearance: none;
 }
+
+/* 20240229_임동현 높이값 추가 */
+html, body, #root {
+  height: 100%;
+}
