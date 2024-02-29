@@ -1,10 +1,11 @@
 import ProfileImg from './profileImg/profileImg';
-import './rollingPaperBox.css';
+import styles from './rollingPaperBox.module.css';
+import Reaction from '../../reaction/Reaction';
 
 function RollingPaperBox({ name, background, recentMessages, messageCount, topReactions }) {
   return (
     <div
-      className="rollingPaperBox"
+      className={styles.rollingPaperBox}
       style={
         background.includes('http')
           ? {
@@ -17,11 +18,11 @@ function RollingPaperBox({ name, background, recentMessages, messageCount, topRe
             }
       }
     >
-      <div className="rollingPaperInfo">
+      <div className={styles.rollingPaperInfo}>
         <div>To. {name}</div>
         {/* 나은님 컴포넌트 작성하셨음 ! */}
         {/*프로필 부분 미완성!!*/}
-        <ul className="profileImageBox">
+        <ul className={styles.profileImageBox}>
           {recentMessages.map((data) =>
             data.profileImageURL === null ? null : (
               <li key={data.id}>
@@ -39,7 +40,11 @@ function RollingPaperBox({ name, background, recentMessages, messageCount, topRe
       </div>
       {/* 나은님 컴포넌트 작성하셨음 ! */}
       {/*이모티콘 디자인 미완성!!*/}
-      <div>{topReactions?.map((data) => data.emoji + data.count)}</div>
+      <ul className={styles.emoji}>
+        {topReactions?.map((data) => (
+          <Reaction key={data.id} emoji={data.emoji} count={data.count} />
+        ))}
+      </ul>
     </div>
   );
 }

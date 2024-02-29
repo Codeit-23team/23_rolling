@@ -26,12 +26,17 @@
   height: 12px;
 }
 
-<<<<<<< HEAD .rollingPaperInfo .profileImageBox {
-  display: flexbox;
+.rollingPaperInfo .profileImageBox {
+  display: flex;
   position: relative;
   left: 8px;
 }
 
 .rollingPaperInfo .profileImageBox > li:nth-of-type(n + 1) {
   margin-left: -12px;
+}
+
+.emoji {
+  display: flex;
+  gap: 8px;
 }
