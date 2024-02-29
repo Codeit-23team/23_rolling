@@ -20,7 +20,12 @@ const TextInput = ({ placeholder, setUserName }) => {
 
   return (
     <>
-      <input ref={inputRef} className={textOn ? 'textInput error' : 'textInput'} placeholder={placeholder} onChange={handleUserName} onBlur={blurInput} />
+      <input 
+      ref={inputRef} 
+      className={textOn ? 'textInput error' : 'textInput'} 
+      placeholder={placeholder} 
+      onChange={handleUserName} 
+      onBlur={blurInput} />
       {
         textOn ? <p className='errorInput'>값을 입력해 주세요.</p> : null
       }
