@@ -6,7 +6,7 @@ const PostidBody = () => {
     <div className="postidBody">
       <div className="row">
         <div className="box">
-          <Link to="/message">
+          <Link to="message">
             <button>+</button>
           </Link>
         </div>
