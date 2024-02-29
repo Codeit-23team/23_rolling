@@ -1,42 +1,35 @@
+import { useEffect, useState } from 'react';
+import { getApiRecipientList } from '../../../apis/apiRecipient';
 import RollingPaperBox from '../rollingPaperBox/rollingPaperBox';
 import './rollingPaperList.css';
 
 function RollingPaperList({ name }) {
-  const array = [
-    {
-      id: 2323,
-      name: '강호순',
-    },
-    {
-      id: 2324,
-      name: '강호동',
-    },
-    {
-      id: 2325,
-      name: '홍길동',
-    },
-    {
-      id: 2326,
-      name: '홍길순',
-    },
-    {
-      id: 2327,
-      name: '여승구',
-    },
-  ];
+  const [userData, setUserData] = useState(undefined);
+
+  useEffect(() => {
+    getApiRecipientList().then((response) => {
+      const { results } = response;
+      setUserData(results);
+    });
+  }, []);
 
   return (
     <div className="rollingPaperList">
       <h1>{name}</h1>
       <ul className="rollingPaperBoxList">
-        {array?.map((arr, index) => (
-          <li key={arr.id}>
-            <RollingPaperBox />
+        {userData?.map((data) => (
+          <li key={data.id}>
+            <RollingPaperBox
+              name={data.name}
+              backgroundColor={data.backgroundColor}
+              reactionCount={data.reactionCount}
+              topReactions={data.topReactions}
+            />
           </li>
         ))}
       </ul>
-      <button className="left">x</button>
-      <button className="right">x</button>
+      <button className="left">{`<`}</button>
+      <button className="right">{`>`}</button>
     </div>
   );
 }

@@ -1,14 +1,21 @@
 import './rollingPaperBox.css';
 
-function RollingPaperBox() {
+function RollingPaperBox({ name, backgroundColor, reactionCount, topReactions }) {
   return (
-    <div className="rollingPaperBox">
+    <div
+      className="rollingPaperBox"
+      style={{
+        background: `var(--${backgroundColor === 'beige' ? 'orange' : backgroundColor}200)`,
+      }}
+    >
       <div className="rollingPaperInfo">
-        <div>To. 이름</div>
-        <div>(api쪽 result의 messageCount)만큼 프로필 </div>
-        <div>(api쪽 result의 messageCount) 명이 작성했어요!</div>
+        <div>To. {name}</div>
+        {/* 나은님 컴포넌트 작성하셨음 ! */}
+        <div>...만큼 프로필 </div>
+        <div>{reactionCount}명이 작성했어요!</div>
       </div>
-      <div className="rollingPaperIcon">이모티콘 있다 count로 올리고 하는 것 같다</div>
+      {/* 나은님 컴포넌트 작성하셨음 ! */}
+      <div>{topReactions?.map((data) => data.emoji + data.count)}</div>
     </div>
   );
 }
