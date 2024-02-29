@@ -95,3 +95,14 @@ a {
 ul, ol {
   list-style: none;
 }
+
+/* 20240227_임동현 selct 화살표 제거 */
+select::-ms-expand { 
+	display: none;
+}
+select {
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

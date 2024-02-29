@@ -1,0 +1,42 @@
+.postidBody {
+  display: flex;
+  justify-content: left;
+  align-items: start;
+  background-color: bisque;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  margin: 50px auto;
+  width: 1200px;
+  height: 280px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 384px;
+  height: 280px;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.messageBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 1160px;
+    background-color: white;
+    width: 384px;
+    height: 280px;
+    border-radius: 16px;
+    padding: 50px;
+}

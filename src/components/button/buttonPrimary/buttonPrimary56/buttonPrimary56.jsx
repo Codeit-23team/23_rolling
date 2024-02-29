@@ -1,21 +1,25 @@
-import { postApiRecipient } from '../../../../apis/apiRecipient';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './buttonPrimary56.css';
 
-// 데이터 보낼시 배경 이미지는 링크를 따와야 함
-const ButtonPrimary56 = ({ buttonName, userInfo }) => {
-  const handlePostUserInfo = () => {
-    postApiRecipient({
-      /* 보낼 데이터 작성 */
-    }).then((response) => {
-      const data = response;
-      return data;
-    });
-  };
+const ButtonPrimary56 = ({ buttonName, handleApi }) => {
+  const [goLink, setGoLink] = useState('');
+
+  useEffect(() => {
+    if (buttonName === '구경해보기') {
+      setGoLink('/list');
+    }
+    if (buttonName === '나도 만들어보기') {
+      setGoLink('/post');
+    }
+  }, []);
 
   return (
-    <button className="buttonPrimary56" onClick={handlePostUserInfo}>
-      {buttonName}
-    </button>
+    <Link to={goLink}>
+      <button className="buttonPrimary56" onClick={handleApi}>
+        {buttonName}
+      </button>
+    </Link>
   );
 };
 

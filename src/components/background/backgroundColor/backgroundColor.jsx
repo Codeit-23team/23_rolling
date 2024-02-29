@@ -15,8 +15,8 @@ function BackgroundColor({ setBackgroundColor, setBackgroundImg }) {
     <div className="backgroundColor">
       <div className="backgroundColorBox">
         {/* api에서 beige 컬러 받음 */}
-        <button className="orange" onClick={() => handleOnClick('beige')} />
-        {check === 'orange' ? <BackgroundCheck /> : null}
+        <button className="beige" onClick={() => handleOnClick('beige')} />
+        {check === 'beige' ? <BackgroundCheck /> : null}
       </div>
       <div className="backgroundColorBox">
         <button className="purple" onClick={() => handleOnClick('purple')} />

@@ -11,7 +11,7 @@ function PostPage() {
   return (
     <>
       <Header button={false} />
-      <InputName type="To" setUserName={setUserName} />
+      <InputName type="To" setUserName={setUserName} holdedrType={'받는 사람 이름을 입력해 주세요'}/>
       <ChooseBackground
         userName={userName}
         backgroundColor={backgroundColor}
