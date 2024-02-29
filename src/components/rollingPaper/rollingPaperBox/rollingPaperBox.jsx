@@ -1,18 +1,21 @@
+import { useEffect, useState } from 'react';
 import ProfileImg from './profileImg/profileImg';
 import './rollingPaperBox.css';
 
 function RollingPaperBox({ name, background, recentMessages, reactionCount, topReactions }) {
+  const [imageCount, setImageCount] = useState(0);
+
   const profileImage = recentMessages.map((data, index) => {
-    if (index >= 2) {
+    if (index >= 3) {
       return null;
     } else {
       return data.profileImageURL;
     }
   });
 
-  profileImage.map((data) => {
-    data === null ? console.log(profileImage.length) : console.log(data);
-  });
+  useEffect(() => {
+    setImageCount(profileImage.length - 2);
+  }, []);
 
   return (
     <div
@@ -33,13 +36,20 @@ function RollingPaperBox({ name, background, recentMessages, reactionCount, topR
         <div>To. {name}</div>
         {/* 나은님 컴포넌트 작성하셨음 ! */}
         {/*프로필 부분 미완성!!*/}
-        {profileImage.map((data) =>
-          data === null ? (
-            <ProfileImg imageCount={profileImage.length - 2} />
-          ) : (
-            <ProfileImg imageUrl={data} />
-          ),
-        )}
+        <ul className="profileImageBox">
+          {profileImage.map((data) =>
+            data === null ? null : (
+              <li>
+                <ProfileImg imageUrl={data} />
+              </li>
+            ),
+          )}
+          {imageCount < 0 ? null : (
+            <li>
+              <ProfileImg imageCount={imageCount} />
+            </li>
+          )}
+        </ul>
         <div>{reactionCount}명이 작성했어요!</div>
       </div>
       {/* 나은님 컴포넌트 작성하셨음 ! */}
