@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage, getApiMessageCondition } from '../../apis/messageApi';
 import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import ProfileBox from '../profileList/profilebox/profileBox';
 import MiniProfile from './../miniProfile/miniProfile';
 import EmojiModal from './emojiModal/emojiModal';
 import Reaction from '../reaction/Reaction';
@@ -14,12 +15,20 @@ const PostidNav = ({ id }) => {
   const [name, setname] = useState('');
   const [messageCount, setMessageCount] = useState(0);
   const [reaction, setReaction] = useState([]);
+  const [profileMessage, setProfileMessage] = useState([]);
+  const [profileCount, setProfileCount] = useState(0);
 
   //recoil
   const emojiModal = useRecoilValue(emojiModalState);
   const setEmojiModal = useSetRecoilState(emojiModalState);
 
   useEffect(() => {
+    getApiRecipient(id).then((response) => {
+      const { recentMessages, messageCount } = response;
+      setProfileMessage(recentMessages);
+      setProfileCount(messageCount);
+    });
+
     //reactionTop3 받아오기
     const getReaction = async () => {
       const reactionData = await getApiRecipient(id);
@@ -29,7 +38,7 @@ const PostidNav = ({ id }) => {
 
     const getUserName = async () => {
       //롤링페이퍼 id에 해당하는 name 받아오기
-      const data = await getApiRecipient(id);++
+      const data = await getApiRecipient(id);
       setname(data.name);
     };
 
@@ -58,6 +67,7 @@ const PostidNav = ({ id }) => {
         <div>
           <div className={styles.messageUsers}>
             {/* 미니 프로필, 이모지, 공유 버튼 */}
+            <ProfileBox recentMessages={profileMessage} messageCount={profileCount} />
             <p>
               <span className={styles.highlight}>{messageCount}</span>명이 작성했어요!
             </p>

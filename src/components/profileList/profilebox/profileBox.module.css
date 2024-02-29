@@ -1,0 +1,9 @@
+.profileBox {
+  display: flex;
+  position: relative;
+  left: 8px;
+}
+
+.profileBox > li:nth-of-type(n + 1) {
+  margin-left: -12px;
+}

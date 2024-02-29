@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import './profileImg.css';
+import styles from './profileImg.module.css';
 
 function ProfileImg({ imageUrl, imageCount }) {
   return (
-    <div className="profileImg">
+    <div className={styles.profileImg}>
       {imageCount > 0 ? (
         <div>+{imageCount}</div>
       ) : (
