@@ -33,6 +33,7 @@ function RollingPaperBox({ name, background, recentMessages, reactionCount, topR
         <div>To. {name}</div>
         {/* 나은님 컴포넌트 작성하셨음 ! */}
         {/*프로필 부분 미완성!!*/}
+        <div className='rollingProfileImgBox'>
         {profileImage.map((data) =>
           data === null ? (
             <ProfileImg imageCount={profileImage.length - 2} />
@@ -40,6 +41,7 @@ function RollingPaperBox({ name, background, recentMessages, reactionCount, topR
             <ProfileImg imageUrl={data} />
           ),
         )}
+        </div>
         <div>{reactionCount}명이 작성했어요!</div>
       </div>
       {/* 나은님 컴포넌트 작성하셨음 ! */}
