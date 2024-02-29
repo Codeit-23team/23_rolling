@@ -33,7 +33,7 @@ function RollingPaperList({ name, buttonClass }) {
 
   return (
     <div className="rollingPaperList">
-      <h1>{name}</h1>
+      <span>{name}</span>
       <div className="rollingPaperSwiperBox">
         <Swiper
           loop={true}

@@ -1,4 +1,3 @@
-import ProfileImg from './profileImg/profileImg';
 import styles from './rollingPaperBox.module.css';
 import Reaction from '../../reaction/Reaction';
 import ProfileBox from '../../profileList/profilebox/profileBox';
