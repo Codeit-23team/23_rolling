@@ -9,6 +9,9 @@ const ButtonPrimary56 = ({ buttonName, handleApi }) => {
     if (buttonName === '구경해보기') {
       setGoLink('/list');
     }
+    if (buttonName === '나도 만들어보기') {
+      setGoLink('/post');
+    }
   }, []);
 
   return (
