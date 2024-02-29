@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { getApiRecipient } from '../../apis/apiRecipient';
-import { getApiMessage, getApiMessageCondition } from '../../apis/messageApi';
+import { getApiMessage } from '../../apis/messageApi';
 import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
-import MiniProfile from './../miniProfile/miniProfile';
 import EmojiModal from './emojiModal/emojiModal';
 import Reaction from '../reaction/Reaction';
 import styles from './PostidNav.module.css';
 import line from '@/line.svg';
-import { emojiModalState } from '../../store/recoil/apiData';
+import { emojiModalState, shareModalState, toastState } from '../../store/recoil/apiData';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import ShareModal from './shareModal/ShareModal';
 
 const PostidNav = ({ id }) => {
   const [name, setname] = useState('');
@@ -17,7 +18,11 @@ const PostidNav = ({ id }) => {
 
   //recoil
   const emojiModal = useRecoilValue(emojiModalState);
+  const shareModal = useRecoilValue(shareModalState);
+  const showToast = useRecoilValue(toastState);
   const setEmojiModal = useSetRecoilState(emojiModalState);
+  const setShareModal = useSetRecoilState(shareModalState);
+  const setShowToast = useSetRecoilState(toastState);
 
   useEffect(() => {
     //reactionTop3 받아오기
@@ -29,7 +34,7 @@ const PostidNav = ({ id }) => {
 
     const getUserName = async () => {
       //롤링페이퍼 id에 해당하는 name 받아오기
-      const data = await getApiRecipient(id);++
+      const data = await getApiRecipient(id);
       setname(data.name);
     };
 
@@ -39,14 +44,25 @@ const PostidNav = ({ id }) => {
     };
 
     getMessage();
+
     getUserName();
+
     if (!emojiModal) {
       getReaction(); // emojiModal이 false일 때에만 실행
     }
-  }, [id, emojiModal]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
+
+    if (showToast === true) {
+      toast.success('URL이 복사 되었습니다.');
+      setShowToast(false);
+    }
+  }, [id, emojiModal, showToast]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
 
   const HandleEmojiButtonClick = () => {
     setEmojiModal(!emojiModal);
+  };
+
+  const HandleShareButtonClick = () => {
+    setShareModal(!shareModal);
   };
 
   return (
@@ -86,10 +102,30 @@ const PostidNav = ({ id }) => {
               {emojiModal && <EmojiModal id={id} />}
             </div>
             <img src={line} alt="line" />
-            <ButtonOutlined40 iconUrl="/images/shareIcon.png" />
+            <div className={styles.share}>
+              <ButtonOutlined40 onClick={HandleShareButtonClick} iconUrl="/images/shareIcon.png" />
+              {shareModal && (
+                <div>
+                  <ShareModal />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </article>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Slide
+      />
     </>
   );
 };
