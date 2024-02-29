@@ -32,8 +32,13 @@
 }
 
 .rollingPaperList .rollingPaperBoxList {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px;
+  width: 100%; */
+  overflow: hidden;
+  /* gap: 20px; */
+}
+.swiper {
+  width: 100%;
 }
