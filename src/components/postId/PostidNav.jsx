@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage, getApiMessageCondition } from '../../apis/messageApi';
 import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import ProfileBox from '../profileList/profilebox/profileBox';
 import MiniProfile from './../miniProfile/miniProfile';
 import EmojiModal from './emojiModal/emojiModal';
 import Reaction from '../reaction/Reaction';
@@ -14,13 +15,20 @@ const PostidNav = ({ id }) => {
   const [name, setname] = useState('');
   const [messageCount, setMessageCount] = useState(0);
   const [reaction, setReaction] = useState([]);
-  const [message, setMessage] = useState([]);
+  const [profileMessage, setProfileMessage] = useState([]);
+  const [profileCount, setProfileCount] = useState(0);
 
   //recoil
   const emojiModal = useRecoilValue(emojiModalState);
   const setEmojiModal = useSetRecoilState(emojiModalState);
 
   useEffect(() => {
+    getApiRecipient(id).then((response) => {
+      const { recentMessages, messageCount } = response;
+      setProfileMessage(recentMessages);
+      setProfileCount(messageCount);
+    });
+
     //reactionTop3 받아오기
     const getReaction = async () => {
       const reactionData = await getApiRecipient(id);
@@ -37,25 +45,17 @@ const PostidNav = ({ id }) => {
     const getMessage = async () => {
       const MessageData = await getApiMessage(id);
       setMessageCount(MessageData.count);
-      // 메세지 객체 수가 3개 미만일 때
-      // if (countMessageData < 4) {
-      //   const limitMessageData = await getApiMessageCondition(id, 4);
-      //   setMessage(limitMessageData.results);
-      // } else {
-      //   setMessage(messageData.results);
-      // }
     };
 
-    // getMessage();
+    getMessage();
     getUserName();
     if (!emojiModal) {
-      // emojiModal이 false일 때에만 실행
-      getReaction();
+      getReaction(); // emojiModal이 false일 때에만 실행
     }
   }, [id, emojiModal]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
 
   const HandleEmojiButtonClick = () => {
-    setEmojiModal(true);
+    setEmojiModal(!emojiModal);
   };
 
   return (
@@ -67,10 +67,7 @@ const PostidNav = ({ id }) => {
         <div>
           <div className={styles.messageUsers}>
             {/* 미니 프로필, 이모지, 공유 버튼 */}
-            {/* {message.map(({ profileImageURL }) => {
-          <MiniProfile profileImageURL={profileImageURL} />;
-        })} */}
-            <div>profile(ex)</div>
+            <ProfileBox recentMessages={profileMessage} messageCount={profileCount} />
             <p>
               <span className={styles.highlight}>{messageCount}</span>명이 작성했어요!
             </p>
@@ -96,12 +93,7 @@ const PostidNav = ({ id }) => {
                   buttonName="추가"
                 />
               </div>
-
-              {emojiModal && (
-                <div>
-                  <EmojiModal id={id} />
-                </div>
-              )}
+              {emojiModal && <EmojiModal id={id} />}
             </div>
             <img src={line} alt="line" />
             <ButtonOutlined40 iconUrl="/images/shareIcon.png" />

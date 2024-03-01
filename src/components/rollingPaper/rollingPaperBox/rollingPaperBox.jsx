@@ -1,22 +1,11 @@
-import ProfileImg from './profileImg/profileImg';
-import './rollingPaperBox.css';
+import styles from './rollingPaperBox.module.css';
+import Reaction from '../../reaction/Reaction';
+import ProfileBox from '../../profileList/profilebox/profileBox';
 
-function RollingPaperBox({ name, background, recentMessages, reactionCount, topReactions }) {
-  const profileImage = recentMessages.map((data, index) => {
-    if (index >= 2) {
-      return null;
-    } else {
-      return data.profileImageURL;
-    }
-  });
-
-  profileImage.map((data) => {
-    data === null ? console.log(profileImage.length) : console.log(data);
-  });
-
+function RollingPaperBox({ name, background, recentMessages, messageCount, topReactions }) {
   return (
     <div
-      className="rollingPaperBox"
+      className={styles.rollingPaperBox}
       style={
         background.includes('http')
           ? {
@@ -29,22 +18,16 @@ function RollingPaperBox({ name, background, recentMessages, reactionCount, topR
             }
       }
     >
-      <div className="rollingPaperInfo">
+      <div className={styles.rollingPaperInfo}>
         <div>To. {name}</div>
-        {/* 나은님 컴포넌트 작성하셨음 ! */}
-        {/*프로필 부분 미완성!!*/}
-        {profileImage.map((data) =>
-          data === null ? (
-            <ProfileImg imageCount={profileImage.length - 2} />
-          ) : (
-            <ProfileImg imageUrl={data} />
-          ),
-        )}
-        <div>{reactionCount}명이 작성했어요!</div>
+        <ProfileBox recentMessages={recentMessages} messageCount={messageCount} />
+        <div>{messageCount}명이 작성했어요!</div>
       </div>
-      {/* 나은님 컴포넌트 작성하셨음 ! */}
-      {/*이모티콘 디자인 미완성!!*/}
-      <div>{topReactions?.map((data) => data.emoji + data.count)}</div>
+      <ul className={styles.emoji}>
+        {topReactions?.map((data) => (
+          <Reaction key={data.id} emoji={data.emoji} count={data.count} />
+        ))}
+      </ul>
     </div>
   );
 }

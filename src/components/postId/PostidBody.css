@@ -1,29 +1,34 @@
-.postidBody {
-  display: flex;
-  justify-content: left;
-  align-items: start;
+.postBodyBox {
+  min-height: calc(100% - 133px);
   background-color: bisque;
+}
+.postidBody {
+  padding: 113px 24px 90px;
 }
 
 .row {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 24px;
-  margin: 50px auto;
-  width: 1200px;
-  height: 280px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 28px 24px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .box {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 384px;
   height: 280px;
   background-color: white;
   border-radius: 16px;
+}
+.box a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .messageBox {
@@ -35,8 +40,19 @@
     gap: 16px;
     max-width: 1160px;
     background-color: white;
-    width: 384px;
     height: 280px;
     border-radius: 16px;
     padding: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  .row {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
 }
