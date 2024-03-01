@@ -1,7 +1,7 @@
 .messageContainer {
     max-width: 720px;
     margin: 0 auto;
-    padding-bottom: 36px;
+    padding: 0 24px 36px;
 }
 .messageContainer .inputName {
     margin-top: 47px;

@@ -11,6 +11,12 @@
     background-color: var(--gray200);
     border: none;
 }
+.ql-toolbar.ql-snow .ql-formats {
+    margin-right: 14px;
+}
+.ql-toolbar.ql-snow .ql-formats:last-of-type {
+    margin-right: 0;
+}
 .ql-container {
     font-size: 16px;
     font-family: 'Pretendard';
@@ -21,4 +27,10 @@
 .ql-editor {
     padding: 16px;
     min-height: 178px;
+}
+.ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button, .ql-snow .ql-color-picker, .ql-snow .ql-icon-picker {
+    width: 24px;
+}
+.ql-snow .ql-color-picker .ql-picker-label, .ql-snow .ql-icon-picker .ql-picker-label {
+    padding: 2px 1px;
 }

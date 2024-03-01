@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import './textDropdown.css';
 import Select from "react-select";
 
 const TextDropdown = ({setValue, type, options}) => {
@@ -12,6 +11,9 @@ const TextDropdown = ({setValue, type, options}) => {
     container : (provided) => ({
       ...provided,
       width: '320px',
+      '@media screen and (max-width: 768px)': {
+        width: '100%',
+      },
     }),
     control : (provided, state) => ({
       display: 'flex',
@@ -29,6 +31,14 @@ const TextDropdown = ({setValue, type, options}) => {
     valueContainer: (provided) => ({
       ...provided,
       padding: '0 0 0 16px',
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isSelected || state.isFocused ? '#F6F6F6' : 'inherit',
+      color: state.isSelected ? '#181818' : '#181818',
+      '&:hover': {
+        backgroundColor: '#F6F6F6',
+      },
     }),
     dropdownIndicator: (provided, state) => ({
       ...provided,
