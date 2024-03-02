@@ -33,9 +33,7 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
     if (trash === true) {
       deleteApiMessage(deleteId)
         .catch((error) => {
-          //에러가 발생하는데 이유를 모르겠다 ...
-          //작동은 잘 된다
-          console.error('Error deleting message:', error);
+          throw new Error(error);
         })
         .finally(() => {
           setTrash(!trash);
@@ -44,14 +42,15 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
 
     //edit page에 삭제하기 버튼 누르면 전체 삭제
     if (allTrash === true) {
-      messageData?.map(({ id }) => {
-        deleteApiMessage(id).catch((error) => {
-          //에러가 발생하는데 이유를 모르겠다 ...
-          //작동은 잘 된다
-          console.error('Error deleting message:', error);
+      messageData
+        ?.map(({ id }) => {
+          deleteApiMessage(id).catch((error) => {
+            throw new Error(error);
+          });
+        })
+        .finally(() => {
+          setAllTrash(!trash);
         });
-      });
-      setAllTrash(!allTrash);
     }
   }, [trash, allTrash]);
 

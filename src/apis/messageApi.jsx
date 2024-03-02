@@ -49,8 +49,6 @@ export const deleteApiMessage = async (id) => {
     const response = await fetch(`https://rolling-api.vercel.app/4-23/messages/${id}/`, {
       method: 'DELETE',
     });
-    const data = await response.json();
-    return data;
   } catch {
     throw new Error(error);
   }
