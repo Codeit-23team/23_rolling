@@ -4,48 +4,72 @@ import { Link } from 'react-router-dom';
 import { deleteApiMessage, getApiMessage } from '../../apis/messageApi';
 import plusButton from '@/Enabled.png';
 import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import ButtonPrimary56 from '../button/buttonPrimary/buttonPrimary56/buttonPrimary56';
 
 const PostidBody = ({ id, optionDeleteButton = false }) => {
-  //휴지통에 쓸 useState
+  // messageData 안에 데이터 있습니다! - 임동현
+  const [messageData, setMessageData] = useState([]);
+
+  //edit page에 쓸 useState
   const [trash, setTrash] = useState(false);
+  const [allTrash, setAllTrash] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
 
-  //휴지통 클릭 시 - 여승구
+  //edit page에 휴지통 클릭 시
   const handleDeleteClick = (id) => {
     setTrash(!trash);
     setDeleteId(id);
   };
 
-  // messageData 안에 데이터 있습니다! - 임동현
-  const [messageData, setMessageData] = useState([]);
+  //edit page에 삭제하기 버튼 클릭 시
+  const handleAllDeleteClick = () => {
+    setAllTrash(!allTrash);
+  };
+
   useEffect(() => {
     getApiMessage(id).then((data) => setMessageData(data.results));
 
-    //휴지통 버튼 누르면 삭제
+    //edit page에 휴지통 버튼 누르면 삭제
     if (trash === true) {
       deleteApiMessage(deleteId)
-        .then((response) => {
-          const data = response;
-          return data;
-        })
         .catch((error) => {
-          //에러가 발생하는데 이유를 모르겠다 ... 보류
+          //에러가 발생하는데 이유를 모르겠다 ...
+          //작동은 잘 된다
           console.error('Error deleting message:', error);
         })
         .finally(() => {
           setTrash(!trash);
         });
     }
-  }, [trash]);
+
+    //edit page에 삭제하기 버튼 누르면 전체 삭제
+    if (allTrash === true) {
+      messageData?.map(({ id }) => {
+        deleteApiMessage(id).catch((error) => {
+          //에러가 발생하는데 이유를 모르겠다 ...
+          //작동은 잘 된다
+          console.error('Error deleting message:', error);
+        });
+      });
+      setAllTrash(!allTrash);
+    }
+  }, [trash, allTrash]);
 
   return (
     <div className="postidBody">
+      {/*edit page에서 삭제하기 버튼 추가*/}
+      {optionDeleteButton === true ? (
+        <ButtonPrimary56 buttonName="삭제하기" handleApi={handleAllDeleteClick} />
+      ) : null}
       <ul className="row">
-        <li className="box">
-          <Link to="message">
-            <img src={plusButton} alt="message 추가" />
-          </Link>
-        </li>
+        {/*edit page에서는 message 추가 버튼 없음*/}
+        {optionDeleteButton === false ? (
+          <li className="box">
+            <Link to="message">
+              <img src={plusButton} alt="message 추가" />
+            </Link>
+          </li>
+        ) : null}
         {/* <div className="messageBox">
           <h1>form. ~~</h1>
           <ul>
