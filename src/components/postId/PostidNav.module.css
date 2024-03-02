@@ -84,3 +84,14 @@
   right: -50px;
   z-index: 5;
 }
+
+.share {
+  position: relative;
+}
+
+.share > div {
+  position: absolute;
+  z-index: 5;
+  top: 50px;
+  right: -40px;
+}

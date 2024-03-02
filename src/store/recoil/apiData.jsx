@@ -39,3 +39,13 @@ export const emojiModalState = atom({
   key: 'emojiModalState',
   default: false,
 });
+
+export const shareModalState = atom({
+  key: 'shareModalState',
+  default: false,
+});
+
+export const toastState = atom({
+  key: 'toastState',
+  default: false,
+});
