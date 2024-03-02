@@ -28,8 +28,12 @@ const ShareModal = () => {
   return (
     <>
       <ul className={styles.share}>
-        <li onClick={() => handleItemClick('url')}>URL 공유</li>
-        <li onClick={() => handleItemClick('kakao')}>카카오톡 공유</li>
+        <li>
+          <button onClick={() => handleItemClick('url')}>URL 공유</button>
+        </li>
+        <li>
+          <button onClick={() => handleItemClick('kakao')}>카카오톡 공유</button>
+        </li>
       </ul>
     </>
   );
