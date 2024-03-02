@@ -3,6 +3,7 @@ import Index from '../pages';
 import PostPage from '../pages/post';
 import PostIdPage from '../pages/post/id';
 import PostMessagePage from '../pages/post/id/message';
+import PostEditPage from '../pages/post/id/edit';
 import ListPage from '../pages/list';
 
 function Path() {
@@ -12,6 +13,7 @@ function Path() {
         <Route path="/" element={<Index />} />
         <Route path="post" element={<PostPage />} />
         <Route path="post/:id/message" element={<PostMessagePage />} />
+        <Route path="post/:id/edit" element={<PostEditPage />} />
         <Route path="/post/:id" element={<PostIdPage />} />
         <Route path="list" element={<ListPage />} />
       </Routes>
