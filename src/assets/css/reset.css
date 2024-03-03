@@ -111,3 +111,17 @@ select {
 html, body, #root {
   height: 100%;
 }
+
+/* 20240303_임동현 search 수정 */
+/* IE의 경우 */
+input::-ms-clear,
+input::-ms-reveal{
+    display:none;
+}
+/* 크롬의 경우 */
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+    display:none;
+}
