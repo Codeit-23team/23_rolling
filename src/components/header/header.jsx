@@ -25,7 +25,7 @@ const SearchBox = ({open}) => {
                 <div>
                     <form action="/search" onSubmit={handleSearchValue}>
                         <input ref={searchRef} type="search" placeholder="이름을 입력해주세요."/>
-                        <button type="button">
+                        <button onClick={handleSearchValue} type="button">
                             <img src={searchIcon} alt="검색 하기"/>
                         </button>
                     </form>
