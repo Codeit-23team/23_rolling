@@ -49,3 +49,10 @@ export const toastState = atom({
   key: 'toastState',
   default: false,
 });
+
+
+// ------ 검색페이지 _ 임동현
+export const searchState = atom({
+  key: 'searchState',
+  default: '',
+});
