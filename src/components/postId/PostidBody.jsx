@@ -23,7 +23,7 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
 
   //edit page에 삭제하기 버튼 클릭 시
   const handleAllDeleteClick = () => {
-    deleteApiRecipient(id)
+    deleteApiRecipient(id);
   };
 
   useEffect(() => {
@@ -46,12 +46,15 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
       <div className={styles.postidBody}>
         {/*edit page에서 삭제하기 버튼 추가*/}
         <div className={styles.editButton}>
-          {
-          optionDeleteButton === true ?
-          <ButtonPrimary56 linkName={`/`} buttonName="삭제하기" handleApi={handleAllDeleteClick} />
-          : 
-          <ButtonPrimary56 linkName={`/post/${id}/edit`} buttonName="수정하기"/>
-          }
+          {optionDeleteButton === true ? (
+            <ButtonPrimary56
+              linkName={`/`}
+              buttonName="삭제하기"
+              handleApi={handleAllDeleteClick}
+            />
+          ) : (
+            <ButtonPrimary56 linkName={`/post/${id}/edit`} buttonName="수정하기" />
+          )}
         </div>
         <ul className={styles.row}>
           {/*edit page에서는 message 추가 버튼 없음*/}
@@ -62,13 +65,24 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
               </Link>
             </li>
           ) : null}
-          {messageData?.map(({ id:cardId, content, createdAt, profileImageURL, relationship, sender}) => {
-            return (
-              <li key={cardId} className={styles.messageBox}>
-                <MessageBox handleDeleteClick={handleDeleteClick} optionDeleteButton={optionDeleteButton} id={cardId} content={content} createdAt={createdAt} profileImageURL={profileImageURL} relationship={relationship} sender={sender}/>
-              </li>
-            );
-          })}
+          {messageData?.map(
+            ({ id: cardId, content, createdAt, profileImageURL, relationship, sender }) => {
+              return (
+                <li key={cardId} className={styles.messageBox}>
+                  <MessageBox
+                    handleDeleteClick={handleDeleteClick}
+                    optionDeleteButton={optionDeleteButton}
+                    id={cardId}
+                    content={content}
+                    createdAt={createdAt}
+                    profileImageURL={profileImageURL}
+                    relationship={relationship}
+                    sender={sender}
+                  />
+                </li>
+              );
+            },
+          )}
         </ul>
       </div>
     </div>

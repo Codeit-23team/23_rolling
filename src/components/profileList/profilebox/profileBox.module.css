@@ -2,6 +2,8 @@
   display: flex;
   position: relative;
   left: 8px;
+  width: 28px;
+  height: 28px;
 }
 
 .profileBox > li:nth-of-type(n + 1) {
