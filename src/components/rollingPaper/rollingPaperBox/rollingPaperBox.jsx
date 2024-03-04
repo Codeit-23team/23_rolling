@@ -18,7 +18,10 @@ function RollingPaperBox({ name, background, recentMessages, messageCount, topRe
             }
       }
     >
-      <div className={styles.rollingPaperInfo}>
+      <div
+        className={styles.rollingPaperInfo}
+        style={background.includes('http') ? { color: `var(--white)` } : { color: `var(--black)` }}
+      >
         <div>To. {name}</div>
         <ProfileBox recentMessages={recentMessages} messageCount={messageCount} />
         <div>{messageCount}명이 작성했어요!</div>
