@@ -55,9 +55,6 @@
     border-radius: 16px;
     padding: 28px 24px 24px 24px;
 }
-.messageBox button {
-  margin-left: auto;
-}
 
 @media screen and (max-width: 1024px) {
   .row {
