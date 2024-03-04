@@ -44,3 +44,12 @@ export const postApiReaction = async (id, inputEmoji, setType) => {
   }
 };
 
+export const deleteApiMessage = async (id) => {
+  try {
+    const response = await fetch(`https://rolling-api.vercel.app/4-23/messages/${id}/`, {
+      method: 'DELETE',
+    });
+  } catch {
+    throw new Error(error);
+  }
+};
