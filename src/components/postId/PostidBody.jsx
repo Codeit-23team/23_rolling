@@ -71,10 +71,16 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
               </Link>
             </li>
           ) : null}
-          {messageData?.map(({ id, content, createdAt, profileImageURL, relationship, sender}) => {
+          {messageData?.map(({ id, content, createdAt, profileImageURL, relationship, sender }) => {
             return (
               <li key={id} className={styles.messageBox}>
-                <MessageBox content={content} createdAt={createdAt} profileImageURL={profileImageURL} relationship={relationship} sender={sender}/>
+                <MessageBox
+                  content={content}
+                  createdAt={createdAt}
+                  profileImageURL={profileImageURL}
+                  relationship={relationship}
+                  sender={sender}
+                />
                 {/* post/{id}/edit 페이지에서 버튼 활성화 */}
                 {optionDeleteButton === true ? (
                   <ButtonOutlined40
