@@ -25,11 +25,11 @@ function RollingPaperBox({ name, background, recentMessages, messageCount, topRe
         className={styles.rollingPaperInfo}
         style={background.includes('http') ? { color: `var(--white)` } : { color: `var(--black)` }}
       >
-        <div>To. {name}</div>
+        <div className={styles.name}>To. {name}</div>
         <div className={styles.profileCount}>
           <ProfileBox recentMessages={recentMessages} messageCount={messageCount} />
         </div>
-        <div>{messageCount}명이 작성했어요!</div>
+        <div className={styles.message}>{messageCount}명이 작성했어요!</div>
       </div>
       <ul className={styles.emoji}>
         {topReactions?.map((data) => (

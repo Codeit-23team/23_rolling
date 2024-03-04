@@ -2,10 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 43px;
-  /* width: 275px; */
   height: 260px;
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -25,12 +23,35 @@
   height: 12px;
 }
 
+.rollingPaperBox .rollingPaperInfo .name {
+  max-height: 72px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.24px;
+  word-wrap: break-word;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .rollingPaperBox .rollingPaperInfo .profileCount {
   height: 28px;
+}
+
+.rollingPaperBox .rollingPaperInfo .message {
+  height: 26px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.16px;
 }
 
 .emoji {
   display: flex;
   gap: 8px;
-  height: 40px;
+  height: 56px;
+  padding-top: 16px;
+  width: 227px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
