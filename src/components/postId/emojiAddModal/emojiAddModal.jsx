@@ -1,10 +1,10 @@
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
-import { postApiReaction } from '../../../apis/messageApi';
+import { postApiReaction } from '../../../apis/reactionApi';
 import { useSetRecoilState } from 'recoil';
 import { emojiModalState } from '../../../store/recoil/apiData';
 
-const EmojiModal = ({ id }) => {
+const EmojiAddModal = ({ id }) => {
   const setEmojiModal = useSetRecoilState(emojiModalState);
 
   const HandleSelectEmoji = (data) => {
@@ -21,4 +21,4 @@ const EmojiModal = ({ id }) => {
   );
 };
 
-export default EmojiModal;
+export default EmojiAddModal;
