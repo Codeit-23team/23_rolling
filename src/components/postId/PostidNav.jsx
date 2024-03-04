@@ -38,7 +38,7 @@ const PostidNav = ({ id }) => {
     const getReaction = async () => {
       const reactionData = await getApiRecipient(id);
       setReaction(reactionData.topReactions);
-      console.log(reaction);
+      // console.log(reaction);
     };
 
     const getUserName = async () => {

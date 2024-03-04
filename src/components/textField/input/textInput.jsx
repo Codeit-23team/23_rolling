@@ -8,7 +8,7 @@ const TextInput = ({ placeholder, setUserName }) => {
 
   const handleUserName = (e) => {
     setUserName(e.target.value);
-    console.log(inputRef.current.value);
+    // console.log(inputRef.current.value);
   };
   const blurInput = () => {
     if(inputRef.current.value === '') {

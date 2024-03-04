@@ -18,7 +18,6 @@ const SearchContents = () => {
         }));
     });
     }, [currentValue]);
-    console.log(userData);
     return(
         <div className="searchContainer">
             <div className='searchContents'>

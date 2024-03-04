@@ -22,7 +22,7 @@ function ChooseBackground({
     img: !!backgroundImg === false ? null : backgroundImg,
   };
 
-  console.log(userData);
+  // console.log(userData);
 
   const handlePostUserInfo = () => {
     if (userData.name === null) {
