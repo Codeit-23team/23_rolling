@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import './messageBox.css';
 import { dateChange } from "../../../utils/utilsFunction";
+import ButtonOutlined40 from "../../button/buttonOutlined/buttonOutlined40/buttonOutlined40";
 
-const MessageBox = ({content, createdAt, profileImageURL, relationship, sender}) => {
+const MessageBox = ({handleDeleteClick, optionDeleteButton, id, content, createdAt, profileImageURL, relationship, sender}) => {
     const [relationClass, setRelationClass] = useState('');
+    
     useEffect(() => {
         if(relationship === '지인') {
             setRelationClass('acquaintance');
@@ -15,6 +17,7 @@ const MessageBox = ({content, createdAt, profileImageURL, relationship, sender})
             setRelationClass('family');
         }
     }, [])
+    
     return(
         <>
             <div className="messageBoxTop">
@@ -24,6 +27,9 @@ const MessageBox = ({content, createdAt, profileImageURL, relationship, sender})
                         <p>From.<strong>{sender}</strong></p>
                         <span className={`badge ${relationClass}`}>{relationship}</span>
                     </div>
+                    {
+                        optionDeleteButton ? <ButtonOutlined40 iconUrl="/images/deleted.svg" onClick={() => handleDeleteClick(id)}/> : null
+                    }
                 </div>
                 <div className="messageTextBox" dangerouslySetInnerHTML={{__html: content}}></div>
             </div>

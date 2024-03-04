@@ -1,12 +1,7 @@
-/* if(relationship === '지인') {
-    setRelationClass('acquaintance');
-} else if(relationship === `친구`) {
-    setRelationClass('friend');
-} else if(relationship === '동료') {
-    setRelationClass('colleague');
-} else if(relationship === '가족') {
-    setRelationClass('family');
-} */
+.messageBoxContents > button {
+    margin-left: auto;
+    padding: 8px;
+}
 
 .messageBoxContents {
     display: flex;
@@ -14,7 +9,7 @@
     padding-bottom: 15px;
     border-bottom: 1px solid var(--gray200);
 }
-.messageBoxContents img {
+.messageBoxContents > img {
     flex-shrink: 0;
     width: 56px; height: 56px;
     border-radius: 50%;
