@@ -2,8 +2,19 @@
   min-height: calc(100% - 133px);
   background-color: bisque;
 }
+.editButton {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 11px;
+  text-align: right;
+}
+.editButton button {
+  width: 92px;
+  padding: 7px 16px;
+  border-radius: 6px;
+}
 .postidBody {
-  padding: 113px 24px 90px;
+  padding: 63px 24px 90px;
 }
 
 .row {
@@ -43,6 +54,9 @@
     height: 280px;
     border-radius: 16px;
     padding: 28px 24px 24px 24px;
+}
+.messageBox button {
+  margin-left: auto;
 }
 
 @media screen and (max-width: 1024px) {

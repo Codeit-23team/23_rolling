@@ -13,9 +13,7 @@ function PostEditPage() {
     <>
       <Header button={false} />
       <PostidNav id={id} />
-      <div className="postBodyBox">
-        <PostidBody id={id} optionDeleteButton={true} />
-      </div>
+      <PostidBody id={id} optionDeleteButton={true} />
     </>
   );
 }
