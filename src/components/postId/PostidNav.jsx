@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { ToastContainer, toast } from 'react-toastify';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage } from '../../apis/messageApi';
-import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import { emojiModalState, shareModalState, toastState } from '../../store/recoil/apiData';
 import ProfileBox from '../profileList/profilebox/profileBox';
-import EmojiAddModal from './emojiAddModal/emojiAddModal';
 import Reaction from '../reaction/Reaction';
+import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import EmojiShowModal from './emojiShowModal/emojiShowModal';
+import EmojiAddModal from './emojiAddModal/emojiAddModal';
+import ShareModal from './shareModal/ShareModal';
 import styles from './PostidNav.module.css';
 import line from '@/line.svg';
-import { emojiModalState, shareModalState, toastState } from '../../store/recoil/apiData';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import ShareModal from './shareModal/ShareModal';
-import EmojiShowModal from './emojiShowModal/emojiShowModal';
 
 const PostidNav = ({ id }) => {
   const [name, setname] = useState('');
