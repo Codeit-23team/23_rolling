@@ -10,8 +10,6 @@ import MessageBox from './messageBox/messageBox';
 const PostidBody = ({ id, optionDeleteButton = false }) => {
   const [messageData, setMessageData] = useState([]);
   const [userData, setUserData] = useState([]);
-  console.log(userData?.backgroundColor);
-  console.log(userData);
   //edit page에 쓸 useState
   const [trash, setTrash] = useState(false);
   const [trashId, setTrashId] = useState('');
