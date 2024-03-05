@@ -38,6 +38,7 @@ const MessageBox = ({
 
   return (
     <>
+
       <div className="messageBoxTop" onClick={handleMessageModalClick}>
         <div className="messageBoxContents">
           <img src={profileImageURL} />

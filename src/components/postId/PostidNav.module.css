@@ -54,6 +54,7 @@
   margin-right: 8px;
   display: flex;
   gap: 2px;
+  position: relative;
 }
 
 .emoji ul {
@@ -94,4 +95,8 @@
   z-index: 5;
   top: 50px;
   right: -40px;
+}
+
+.toggle {
+  width: 14px;
 }
