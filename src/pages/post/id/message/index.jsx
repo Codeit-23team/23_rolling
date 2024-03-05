@@ -36,6 +36,9 @@ const PostMessagePage = () => {
     { value: 'Pretendard', label: 'Pretendard' },
   ];
   const handlePostMessage = () => {
+    //새로운 메시지 작성시 내용 입력칸에 지워지지 않은 텍스트 해결 - 여승구
+    setEditorData('');
+
     if (messageName === '' || editorData === '<p><br></p>' || editorData === '<p></p>') {
       // 생성 막음
     } else {
