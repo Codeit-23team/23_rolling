@@ -10,7 +10,7 @@ function PostIdPage() {
     <>
       <Header button={false} />
       <PostidNav id={id} />
-      <PostidBody id={id}/>
+      <PostidBody id={id} />
     </>
   );
 }

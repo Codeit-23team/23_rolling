@@ -1,68 +1,69 @@
 .messageBoxContents > button {
-    margin-left: auto;
-    padding: 8px;
+  margin-left: auto;
+  padding: 8px;
 }
 
 .messageBoxContents {
-    display: flex;
-    gap: 14px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--gray200);
+  display: flex;
+  gap: 14px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--gray200);
 }
 .messageBoxContents > img {
-    flex-shrink: 0;
-    width: 56px; height: 56px;
-    border-radius: 50%;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
 }
 .messageBoxContents div {
-    overflow: hidden;
+  overflow: hidden;
 }
 .messageBoxContents p {
-    font-size: 20px;
-    margin-bottom: 6px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  font-size: 20px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .messageBoxContents p strong {
-    margin-left: 6px;
+  margin-left: 6px;
 }
 
 .messageBoxContents .badge {
-    padding: 0 8px;
-    border-radius: 4px;
-    font-size: 14px;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-size: 14px;
 }
 .messageBoxContents .badge.acquaintance {
-    background-color: var(--orange100);
-    color: var(--orange500);
+  background-color: var(--orange100);
+  color: var(--orange500);
 }
 .messageBoxContents .badge.colleague {
-    background-color: var(--purple100);
-    color: var(--purple500);
+  background-color: var(--purple100);
+  color: var(--purple500);
 }
 .messageBoxContents .badge.friend {
-    background-color: var(--blue100);
-    color: var(--blue500);
+  background-color: var(--blue100);
+  color: var(--blue500);
 }
 .messageBoxContents .badge.family {
-    background-color: var(--green100);
-    color: var(--green500);
+  background-color: var(--green100);
+  color: var(--green500);
 }
 
 .messageTextBox {
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    font-size: 18px;
-    line-height: 26px;
-    text-overflow: ellipsis;
-    margin-top: 16px;
-    height: 104px;
-    overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  font-size: 18px;
+  line-height: 26px;
+  text-overflow: ellipsis;
+  margin-top: 16px;
+  height: 104px;
+  overflow: hidden;
 }
 
 .messageDate {
-    color: var(--gray400);
-    font-size: 12px;
+  color: var(--gray400);
+  font-size: 12px;
 }
