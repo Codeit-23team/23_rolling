@@ -66,4 +66,5 @@
 .messageDate {
   color: var(--gray400);
   font-size: 12px;
+  margin-top: 12px;
 }
