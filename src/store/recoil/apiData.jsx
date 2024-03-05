@@ -50,7 +50,6 @@ export const toastState = atom({
   default: false,
 });
 
-
 // ------ 검색페이지 _ 임동현
 export const searchState = atom({
   key: 'searchState',

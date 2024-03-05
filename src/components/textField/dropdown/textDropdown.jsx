@@ -1,25 +1,24 @@
 import { useEffect } from 'react';
-import Select from "react-select";
+import Select from 'react-select';
 
-const TextDropdown = ({setValue, type, options}) => {
-
+const TextDropdown = ({ setValue, type, options }) => {
   const handleChange = (selectedOption) => {
     setValue(selectedOption.value);
   };
 
   const custom = {
-    container : (provided) => ({
+    container: (provided) => ({
       ...provided,
-      width: '320px',
+      'width': '320px',
       '@media screen and (max-width: 768px)': {
         width: '100%',
       },
     }),
-    control : (provided, state) => ({
-      display: 'flex',
-      height: '50px',
-      borderRadius: '8px',
-      border: state.isFocused ? '2px solid #555' : '1px solid #ccc',
+    control: (provided, state) => ({
+      'display': 'flex',
+      'height': '50px',
+      'borderRadius': '8px',
+      'border': state.isFocused ? '2px solid #555' : '1px solid #ccc',
       '&:hover': {
         border: state.isFocused ? '2px solid #555' : '1px solid #555',
       },
@@ -34,8 +33,8 @@ const TextDropdown = ({setValue, type, options}) => {
     }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isSelected || state.isFocused ? '#F6F6F6' : 'inherit',
-      color: state.isSelected ? '#181818' : '#181818',
+      'backgroundColor': state.isSelected || state.isFocused ? '#F6F6F6' : 'inherit',
+      'color': state.isSelected ? '#181818' : '#181818',
       '&:hover': {
         backgroundColor: '#F6F6F6',
       },
@@ -45,21 +44,22 @@ const TextDropdown = ({setValue, type, options}) => {
       padding: '0 16px',
       transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
     }),
-  }
+  };
 
   useEffect(() => {
-    let defaultData = options.find(option => option.value === options[0].value);
+    let defaultData = options.find((option) => option.value === options[0].value);
     setValue(defaultData.value);
-  }, [])
+  }, []);
 
   return (
-    <div className='selectBox'>
-      <strong className='formTitle'>{type}</strong>
-      <Select 
-      options={options} 
-      onChange={handleChange}
-      defaultValue={options.find(option => option.value === options[0].value)} 
-      styles={custom}/>
+    <div className="selectBox">
+      <strong className="formTitle">{type}</strong>
+      <Select
+        options={options}
+        onChange={handleChange}
+        defaultValue={options.find((option) => option.value === options[0].value)}
+        styles={custom}
+      />
     </div>
   );
 };

@@ -1,0 +1,107 @@
+.messageModalTop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.messageModalBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  width: 600px;
+  height: 476px;
+  border-radius: 16px;
+}
+
+.messageModalBox .modalButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.messageModalContents > button {
+  margin-left: auto;
+  padding: 8px;
+}
+
+.messageModalContents > p {
+  margin-left: auto;
+  padding: 8px;
+}
+
+.messageModalContents {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--gray200);
+}
+.messageModalContents > img {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+.messageModalContents div {
+  overflow: hidden;
+}
+.messageModalContents p {
+  font-size: 20px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.messageModalContents p strong {
+  margin-left: 6px;
+}
+
+.messageModalContents span {
+  padding: 0 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.messageModalContents .acquaintance {
+  background-color: var(--orange100);
+  color: var(--orange500);
+}
+.messageModalContents .colleague {
+  background-color: var(--purple100);
+  color: var(--purple500);
+}
+.messageModalContents .friend {
+  background-color: var(--blue100);
+  color: var(--blue500);
+}
+.messageModalContents .family {
+  background-color: var(--green100);
+  color: var(--green500);
+}
+
+.messageModalTextBox {
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  font-size: 18px;
+  line-height: 26px;
+  text-overflow: ellipsis;
+  margin-top: 16px;
+  width: 100%;
+  height: 240px;
+  overflow: auto;
+}
+
+.messageModalContents .messageDate {
+  color: var(--gray400);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.modalButton {
+  margin: auto;
+}

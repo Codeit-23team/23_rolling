@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { ToastContainer, toast } from 'react-toastify';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage } from '../../apis/messageApi';
-import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import { emojiModalState, shareModalState, toastState } from '../../store/recoil/apiData';
 import ProfileBox from '../profileList/profilebox/profileBox';
-import EmojiModal from './emojiModal/emojiModal';
 import Reaction from '../reaction/Reaction';
+import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import EmojiShowModal from './emojiShowModal/emojiShowModal';
+import EmojiAddModal from './emojiAddModal/emojiAddModal';
+import ShareModal from './shareModal/ShareModal';
 import styles from './PostidNav.module.css';
 import line from '@/line.svg';
-import { emojiModalState, shareModalState, toastState } from '../../store/recoil/apiData';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import ShareModal from './shareModal/ShareModal';
 
 const PostidNav = ({ id }) => {
   const [name, setname] = useState('');
@@ -18,6 +19,7 @@ const PostidNav = ({ id }) => {
   const [reaction, setReaction] = useState([]);
   const [profileMessage, setProfileMessage] = useState([]);
   const [profileCount, setProfileCount] = useState(0);
+  const [emojiToggle, setEmojiToggle] = useState(false);
 
   //recoil
   const emojiModal = useRecoilValue(emojiModalState);
@@ -38,7 +40,6 @@ const PostidNav = ({ id }) => {
     const getReaction = async () => {
       const reactionData = await getApiRecipient(id);
       setReaction(reactionData.topReactions);
-      console.log(reaction);
     };
 
     const getUserName = async () => {
@@ -53,7 +54,6 @@ const PostidNav = ({ id }) => {
     };
 
     getMessage();
-
     getUserName();
 
     if (!emojiModal) {
@@ -72,6 +72,10 @@ const PostidNav = ({ id }) => {
 
   const HandleShareButtonClick = () => {
     setShareModal(!shareModal);
+  };
+
+  const HandleShowAllEmojiClick = () => {
+    setEmojiToggle(!emojiToggle);
   };
 
   return (
@@ -96,9 +100,14 @@ const PostidNav = ({ id }) => {
                 <Reaction key={id} emoji={emoji} count={count} />
               ))}
             </ul>
-            <button type="button">
-              <img src="/images/chevronDown.svg" alt="chevronDown" />
+            <button type="button" onClick={HandleShowAllEmojiClick}>
+              {emojiToggle ? (
+                <img className={styles.toggle} src="/images/chevronUp.svg" alt="chevronUp" />
+              ) : (
+                <img src="/images/chevronDown.svg" alt="chevronDown" />
+              )}
             </button>
+            {emojiToggle && <EmojiShowModal id={id} />}
           </div>
           <div className={styles.buttonSection}>
             <div className={styles.addEmoji}>
@@ -109,7 +118,7 @@ const PostidNav = ({ id }) => {
                   buttonName="추가"
                 />
               </div>
-              {emojiModal && <EmojiModal id={id} />}
+              {emojiModal && <EmojiAddModal id={id} />}
             </div>
             <img src={line} alt="line" />
             <div className={styles.share}>
