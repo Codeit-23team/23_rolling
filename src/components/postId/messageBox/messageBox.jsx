@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './messageBox.css';
 import { dateChange } from '../../../utils/utilsFunction';
 import ButtonOutlined40 from '../../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import ModalPortal from '../../../utils/modalPortal';
+import MessageModal from '../messageModal/messageModal';
 
 const MessageBox = ({
   handleDeleteClick,
@@ -14,6 +16,13 @@ const MessageBox = ({
   sender,
 }) => {
   const [relationClass, setRelationClass] = useState('');
+
+  //모달 열기
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleMessageModalClick = () => {
+    setModalOpen(!modalOpen);
+  };
 
   useEffect(() => {
     if (relationship === '지인') {
@@ -29,7 +38,7 @@ const MessageBox = ({
 
   return (
     <>
-      <div className="messageBoxTop">
+      <div className="messageBoxTop" onClick={handleMessageModalClick}>
         <div className="messageBoxContents">
           <img src={profileImageURL} />
           <div>
@@ -45,6 +54,19 @@ const MessageBox = ({
         <div className="messageTextBox" dangerouslySetInnerHTML={{ __html: content }}></div>
       </div>
       <p className="messageDate">{dateChange(createdAt)}</p>
+      {/* 메시지 모달 ㄱㄱ */}
+      {modalOpen && (
+        <ModalPortal>
+          <MessageModal
+            content={content}
+            createdAt={createdAt}
+            profileImageURL={profileImageURL}
+            relationship={relationship}
+            sender={sender}
+            handleMessageModalClick={handleMessageModalClick}
+          />
+        </ModalPortal>
+      )}
     </>
   );
 };

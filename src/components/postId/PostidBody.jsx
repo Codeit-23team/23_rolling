@@ -3,8 +3,6 @@ import styles from './PostidBody.module.css';
 import { Link } from 'react-router-dom';
 import { deleteApiMessage, getApiMessage } from '../../apis/messageApi';
 import { deleteApiRecipient } from '../../apis/apiRecipient';
-import ModalPortal from '../../utils/modalPortal';
-import MessageModal from './messageModal/messageModal';
 import plusButton from '@/Enabled.png';
 import ButtonPrimary56 from '../button/buttonPrimary/buttonPrimary56/buttonPrimary56';
 import MessageBox from './messageBox/messageBox';
@@ -17,9 +15,6 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
   const [trash, setTrash] = useState(false);
   const [trashId, setTrashId] = useState('');
 
-  //모달 열기
-  const [modalOpen, setModalOpen] = useState(false);
-
   //edit page에 휴지통 클릭 시
   const handleDeleteClick = (cardId) => {
     setTrash(true);
@@ -29,10 +24,6 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
   //edit page에 삭제하기 버튼 클릭 시
   const handleAllDeleteClick = () => {
     deleteApiRecipient(id);
-  };
-
-  const handleMessageModalClick = () => {
-    setModalOpen(!modalOpen);
   };
 
   useEffect(() => {
@@ -78,33 +69,16 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
             ({ id: cardId, content, createdAt, profileImageURL, relationship, sender }) => {
               return (
                 <li key={cardId} className={styles.messageBox}>
-                  <button style={{ all: 'unset' }} onClick={handleMessageModalClick}>
-                    <MessageBox
-                      handleDeleteClick={handleDeleteClick}
-                      optionDeleteButton={optionDeleteButton}
-                      id={cardId}
-                      content={content}
-                      createdAt={createdAt}
-                      profileImageURL={profileImageURL}
-                      relationship={relationship}
-                      sender={sender}
-                    />
-                    {/* 메시지 모달 ㄱㄱ */}
-                    {modalOpen && (
-                      <ModalPortal>
-                        <MessageModal
-                          handleDeleteClick={handleMessageModalClick}
-                          optionDeleteButton={optionDeleteButton}
-                          id={cardId}
-                          content={content}
-                          createdAt={createdAt}
-                          profileImageURL={profileImageURL}
-                          relationship={relationship}
-                          sender={sender}
-                        />
-                      </ModalPortal>
-                    )}
-                  </button>
+                  <MessageBox
+                    handleDeleteClick={handleDeleteClick}
+                    optionDeleteButton={optionDeleteButton}
+                    id={cardId}
+                    content={content}
+                    createdAt={createdAt}
+                    profileImageURL={profileImageURL}
+                    relationship={relationship}
+                    sender={sender}
+                  />
                 </li>
               );
             },
