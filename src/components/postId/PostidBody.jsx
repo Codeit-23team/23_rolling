@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import styles from './PostidBody.module.css';
 import { Link } from 'react-router-dom';
 import { deleteApiMessage, getApiMessage } from '../../apis/messageApi';
-import { deleteApiRecipient } from '../../apis/apiRecipient';
+import { deleteApiRecipient, getApiRecipient } from '../../apis/apiRecipient';
 import plusButton from '@/Enabled.png';
 import ButtonPrimary56 from '../button/buttonPrimary/buttonPrimary56/buttonPrimary56';
 import MessageBox from './messageBox/messageBox';
 
 const PostidBody = ({ id, optionDeleteButton = false }) => {
-  // messageData 안에 데이터 있습니다! - 임동현
   const [messageData, setMessageData] = useState([]);
-
+  const [userData, setUserData] = useState([]);
+  console.log(userData?.backgroundColor);
+  console.log(userData);
   //edit page에 쓸 useState
   const [trash, setTrash] = useState(false);
   const [trashId, setTrashId] = useState('');
@@ -27,8 +28,6 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
   };
 
   useEffect(() => {
-    getApiMessage(id).then((data) => setMessageData(data.results));
-
     //edit page에 휴지통 버튼 누르면 삭제
     if (trash === true) {
       deleteApiMessage(trashId)
@@ -40,9 +39,23 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
         });
     }
   }, [trash]);
+  useEffect(() => {
+    getApiMessage(id).then((data) => setMessageData(data.results));
+    getApiRecipient(id).then((data) => setUserData(data));
+  }, []);
 
   return (
-    <div className={styles.postBodyBox}>
+    <div
+      className={styles.postBodyBox}
+      style={{
+        backgroundImage: userData?.backgroundImageURL
+          ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${userData?.backgroundImageURL})`
+          : null,
+        backgroundColor: `var(--${userData?.backgroundColor}200)`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className={styles.postidBody}>
         {/*edit page에서 삭제하기 버튼 추가*/}
         <div className={styles.editButton}>
