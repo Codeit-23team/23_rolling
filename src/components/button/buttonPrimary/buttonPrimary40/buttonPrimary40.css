@@ -7,11 +7,12 @@
   width: 120px;
   letter-spacing: -0.16px;
   line-height: 26px;
-  text-align: center;
+  /* text-align: center; */
   font-size: 16px;
   font-family: 'Pretendard';
   font-weight: 400;
-  border: 1px solid var(--purple600);
+  /* border: 1px solid var(--purple600); */
+  border: none;
 }
 
 .buttonPrimary40:hover {

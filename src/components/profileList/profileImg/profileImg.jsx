@@ -12,7 +12,7 @@ function ProfileImg({ imageUrl, imageCount }) {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
           }}
-        />
+        ></div>
       )}
     </div>
   );

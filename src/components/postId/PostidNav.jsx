@@ -84,7 +84,7 @@ const PostidNav = ({ id }) => {
         <div>
           <p>To. {name}</p>
         </div>
-        <div>
+        <div className={styles.postIdNavUtil}>
           <div className={styles.messageUsers}>
             {/* 미니 프로필, 이모지, 공유 버튼 */}
             <ProfileBox recentMessages={profileMessage} messageCount={profileCount} />

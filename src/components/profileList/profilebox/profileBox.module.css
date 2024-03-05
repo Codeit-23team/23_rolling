@@ -1,11 +1,10 @@
 .profileBox {
   display: flex;
-  position: relative;
-  left: 8px;
-  width: 28px;
-  height: 28px;
+  /* position: relative; */
 }
-
-.profileBox > li:nth-of-type(n + 1) {
+.profileBox .profileNum div div {
+  border: 1px solid #e3e3e3;
+}
+.profileBox > li:not(:first-of-type) {
   margin-left: -12px;
 }

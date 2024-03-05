@@ -45,6 +45,7 @@
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
 }
 .messageBox {
+  cursor: pointer;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -58,6 +59,23 @@
 @media screen and (max-width: 1024px) {
   .row {
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+  .editButton {
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    bottom: 24px;
+    left: 0;
+    padding: 0 24px;
+  }
+  .editButton a {
+    display: block;
+    width: 100%;
+  }
+  .editButton a button {
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 12px;
   }
 }
 

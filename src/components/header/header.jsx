@@ -49,7 +49,7 @@ const Header = ({ button }) => {
   };
   return (
     <>
-      <header>
+      <header className={button ? null : 'header'}>
         <div>
           <h1>
             <Link to={'/'} style={{ backgroundImage: `url(${logoImg})` }}>
