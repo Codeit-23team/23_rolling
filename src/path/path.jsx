@@ -6,6 +6,7 @@ import PostMessagePage from '../pages/post/id/message';
 import PostEditPage from '../pages/post/id/edit';
 import ListPage from '../pages/list';
 import SearchPage from '../pages/search';
+import NotFoundPage from '../pages/notFound';
 
 function Path() {
   return (
@@ -18,6 +19,7 @@ function Path() {
         <Route path="/post/:id" element={<PostIdPage />} />
         <Route path="list" element={<ListPage />} />
         <Route path="search" element={<SearchPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

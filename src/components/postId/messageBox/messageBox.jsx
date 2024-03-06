@@ -37,8 +37,8 @@ const MessageBox = ({
   }, []);
 
   return (
-    <>
-      <div className="messageBoxTop" onClick={handleMessageModalClick} tabIndex={0}>
+    <div className="messageBox" onClick={handleMessageModalClick}>
+      <div className="messageBoxTop" tabIndex={0}>
         <div className="messageBoxContents">
           <img src={profileImageURL} />
           <div>
@@ -67,7 +67,7 @@ const MessageBox = ({
           />
         </ModalPortal>
       )}
-    </>
+    </div>
   );
 };
 
