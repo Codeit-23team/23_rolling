@@ -1,7 +1,12 @@
 .backgroundImg {
-  display: inline-flex;
+  display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 16px;
+}
+
+.backgroundImg .backgroundImgBox:hover {
+  opacity: 0.5;
 }
 
 .backgroundImg button {

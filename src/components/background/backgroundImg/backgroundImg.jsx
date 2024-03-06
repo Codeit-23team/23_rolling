@@ -3,13 +3,19 @@ import BackgroundCheck from '../backgroundCheck/backgroundCheck';
 import './backgroundImg.css';
 
 function BackgroundImg({ setBackgroundColor, setBackgroundImg }) {
-  const [check, setCheck] = useState(0);
+  const [check, setCheck] = useState(null);
   const imgId = [683, 24, 599, 1058];
 
   const handleOnClick = (number) => {
-    setCheck(number);
-    setBackgroundColor('');
-    setBackgroundImg(`https://picsum.photos/id/${imgId[number - 1]}/3840/2160`);
+    if (check === number) {
+      setCheck(null);
+      setBackgroundColor('beige');
+      setBackgroundImg('');
+    } else {
+      setCheck(number);
+      setBackgroundColor('');
+      setBackgroundImg(`https://picsum.photos/id/${imgId[number - 1]}/3840/2160`);
+    }
   };
 
   const transparency = {
