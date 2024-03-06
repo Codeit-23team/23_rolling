@@ -130,7 +130,7 @@ const PostidNav = ({ id }) => {
                 />
                 {shareModal && (
                   <div>
-                    <ShareModal />
+                    <ShareModal id={id} />
                   </div>
                 )}
               </div>
