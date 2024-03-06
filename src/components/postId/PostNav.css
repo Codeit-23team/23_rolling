@@ -1,0 +1,61 @@
+.addEmoji {
+  flex-direction: column;
+  position: relative;
+}
+
+.addEmoji > div:nth-child(2) {
+  position: absolute;
+  top: 50px;
+  right: 25px;
+  z-index: 5;
+  width: 282px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.addEmoji button {
+  padding: 6px 16px;
+  height: 36px;
+}
+.share {
+  position: relative;
+}
+.share button {
+  padding: 6px 16px;
+  height: 36px;
+}
+.share > div {
+  position: absolute;
+  z-index: 5;
+  top: 50px;
+  right: 0;
+}
+.postIdNavUtil {
+  position: relative;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .addEmoji button {
+    padding: 6px 8px;
+    height: auto;
+  }
+  .postIdNavUtil {
+    padding: 8px 20px;
+    border-top: 1px solid var(--gray200);
+  }
+  .share button {
+    padding: 6px 8px;
+    height: auto;
+  }
+  .addEmoji {
+    position: static;
+  }
+  .addEmoji > div:nth-child(2) {
+    left: 20px;
+    top: 50px;
+  }
+  .share > div {
+    top: 42px;
+  }
+}

@@ -83,6 +83,11 @@ th {
 }
 @font-face {
   font-family: 'Pretendard';
+  font-weight: 500;
+  src: url('../fonts/pretendard/Pretendard-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Pretendard';
   font-weight: 400;
   src: url('../fonts/pretendard/Pretendard-Regular.ttf') format('truetype');
 }
@@ -115,6 +120,8 @@ html,
 body,
 #root {
   height: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* 20240303_임동현 search 수정 */
