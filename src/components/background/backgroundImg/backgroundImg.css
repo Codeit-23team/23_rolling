@@ -6,7 +6,10 @@
 }
 
 .backgroundImg .backgroundImgBox:hover {
-  opacity: 0.5;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .backgroundImg button {
