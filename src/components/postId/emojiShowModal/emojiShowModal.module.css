@@ -20,7 +20,8 @@
     width: 203px;
     padding: 16px;
   }
-  .emojies > li:nth-last-child(-n + 2) {
+  .emojies > li:nth-last-child(8),
+  .emojies > li:nth-last-child(9) {
     display: none;
   }
 }

@@ -9,7 +9,7 @@
   height: 168px;
   flex-shrink: 0;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: none;
 }
 
 .backgroundColor button.beige {
@@ -30,4 +30,17 @@
 
 .backgroundColor .backgroundColorBox {
   position: relative;
+}
+
+.backgroundColor button.beige:hover {
+  border: 2px solid var(--orange500);
+}
+.backgroundColor button.purple:hover {
+  border: 2px solid var(--purple500);
+}
+.backgroundColor button.blue:hover {
+  border: 2px solid var(--blue500);
+}
+.backgroundColor button.green:hover {
+  border: 2px solid var(--green500);
 }
