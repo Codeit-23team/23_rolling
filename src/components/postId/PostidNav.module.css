@@ -1,23 +1,24 @@
 .postIdNav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 13px auto;
-  width: 100%;
+  margin: 13px 0;
   padding: 0 24px;
 }
-
+.postIdNav > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .highlight {
   font-size: 18px;
   font-weight: 700;
 }
 
-.postIdNav > div:first-child {
+.postIdNav > div > div:first-child {
   overflow: hidden;
   max-width: 500px;
 }
-.postIdNav > div:first-child p {
+.postIdNav > div > div:first-child p {
   font-size: 28px;
   line-height: 42px;
   font-weight: 700;
@@ -26,9 +27,7 @@
   overflow: hidden;
   white-space: nowrap;
 }
-.postIdNavUtil {
-  flex-shrink: 0;
-}
+
 .messageUsers {
   display: flex;
   align-items: center;
@@ -55,7 +54,6 @@
   margin-left: 28px;
   margin-right: 8px;
   display: flex;
-  gap: 2px;
   position: relative;
 }
 
@@ -66,37 +64,16 @@
 }
 
 .emoji button {
+  cursor: pointer;
   border: 0px;
   background-color: white;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
 }
 
 .buttonSection {
   gap: 13px;
-}
-
-.addEmoji {
-  flex-direction: column;
-  position: relative;
-}
-
-.addEmoji > div:nth-child(2) {
-  position: absolute;
-  top: 50px;
-  right: -50px;
-  z-index: 5;
-}
-
-.share {
-  position: relative;
-}
-
-.share > div {
-  position: absolute;
-  z-index: 5;
-  top: 50px;
-  right: -40px;
 }
 
 .toggle {
@@ -109,17 +86,20 @@
 }
 @media screen and (max-width: 768px) {
   .postIdNav {
+    padding: 0;
+    margin: 0;
+  }
+  .postIdNav > div {
     display: block;
     padding: 0;
     margin: 0;
   }
-  .postIdNav > div:first-child {
+  .postIdNav > div > div:first-child {
     max-width: 100%;
     padding: 12px 20px;
   }
-  .postIdNavUtil {
-    padding: 8px 20px;
-    border-top: 1px solid var(--gray200);
+  .buttonSection {
+    gap: 15px;
   }
   .emoji {
     margin-left: 0;
