@@ -125,7 +125,7 @@ const PostidNav = ({ id }) => {
               <ButtonOutlined40 onClick={HandleShareButtonClick} iconUrl="/images/shareIcon.png" />
               {shareModal && (
                 <div>
-                  <ShareModal />
+                  <ShareModal id={id} />
                 </div>
               )}
             </div>
