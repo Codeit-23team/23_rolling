@@ -3,7 +3,7 @@ import { getApiRecipientList } from '../../../apis/apiRecipient';
 import RollingPaperBox from '../rollingPaperBox/rollingPaperBox';
 import './rollingPaperList.css';
 import { Link } from 'react-router-dom';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 
@@ -30,7 +30,6 @@ function RollingPaperList({ name, buttonClass }) {
       nextEl: `.${buttonClass}Next`,
     },
   };
-
   return (
     <div className="rollingPaperList">
       <strong>{name}</strong>
@@ -38,9 +37,10 @@ function RollingPaperList({ name, buttonClass }) {
         <Swiper
           loop={true}
           className="rollingPaperBoxList"
-          modules={[Navigation]}
+          modules={[Navigation, Pagination]}
           spaceBetween={20}
           slidesPerView="auto"
+          pagination={{ clickable: true }}
           navigation
           {...swiperOptions}
         >

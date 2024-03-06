@@ -72,4 +72,7 @@
   .row {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
   }
+  .postBodyBox {
+    min-height: calc(100% - 119px);
+  }
 }

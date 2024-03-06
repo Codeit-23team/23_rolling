@@ -4,20 +4,23 @@
   border: 1px solid #b6b6b6;
   background: #ffffff;
   width: 312px;
-  height: 134px;
   border-radius: 8px;
-  list-style: none;
   top: 45px;
   z-index: 5;
-  right: 0px;
+  right: 0;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px 8px;
   padding: 24px;
 }
 
-.emojies > li {
-  height: 38px;
-  width: 59px;
+@media screen and (max-width: 768px) {
+  .emojies {
+    width: 203px;
+    padding: 16px;
+  }
+  .emojies > li:nth-last-child(-n + 2) {
+    display: none;
+  }
 }

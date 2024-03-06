@@ -16,7 +16,13 @@ const EmojiAddModal = ({ id }) => {
 
   return (
     <>
-      <Picker data={data} onEmojiSelect={HandleSelectEmoji} locale={'kr'} />
+      <Picker
+        style={{ border: '1px solid #ccc', borderRadius: '5px' }}
+        perLine={7}
+        data={data}
+        onEmojiSelect={HandleSelectEmoji}
+        locale={'kr'}
+      />
     </>
   );
 };

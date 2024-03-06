@@ -31,20 +31,22 @@ const MessageModal = ({
     <>
       <div className={styled.messageModalTop}>
         <div className={styled.messageModalBox}>
-          <div className={styled.messageModalContents}>
-            <img src={profileImageURL} />
-            <div>
-              <p>
-                From.<strong>{sender}</strong>
-              </p>
-              <span className={badgeClassName}>{relationship}</span>
+          <div>
+            <div className={styled.messageModalContents}>
+              <img src={profileImageURL} />
+              <div>
+                <p>
+                  From.<strong>{sender}</strong>
+                </p>
+                <span className={badgeClassName}>{relationship}</span>
+              </div>
+              <p className={styled.messageDate}>{dateChange(createdAt)}</p>
             </div>
-            <p className={styled.messageDate}>{dateChange(createdAt)}</p>
+            <div
+              className={styled.messageModalTextBox}
+              dangerouslySetInnerHTML={{ __html: content }}
+            ></div>
           </div>
-          <div
-            className={styled.messageModalTextBox}
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
           <div className={styled.modalButton}>
             <ButtonPrimary40 buttonName="확인" handleClick={handleMessageModalClick} />
           </div>

@@ -18,8 +18,11 @@
 }
 
 .rollingPaperList .rollingPaperBoxList {
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
   width: 100%;
+  position: static;
 }
 .rollingPaperList .rollingPaperBoxList .swiper-slide {
   width: 275px;
@@ -49,7 +52,22 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .rollingPaperList .rollingPaperBoxList {
+    overflow: visible;
+  }
   .rollingPaperSwiperBox > button {
     display: none;
   }
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -30px !important;
+  top: auto !important;
+}
+
+.swiper .swiper-pagination-bullet-active {
+  background: var(--purple600);
 }
