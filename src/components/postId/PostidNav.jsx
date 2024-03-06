@@ -3,7 +3,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { ToastContainer, toast } from 'react-toastify';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage } from '../../apis/messageApi';
-import { emojiModalState, shareModalState, toastState } from '../../store/recoil/apiData';
+import { emojiAddModalState, shareModalState, toastState } from '../../store/recoil/apiData';
 import ProfileBox from '../profileList/profilebox/profileBox';
 import Reaction from '../reaction/Reaction';
 import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
@@ -19,13 +19,13 @@ const PostidNav = ({ id }) => {
   const [reaction, setReaction] = useState([]);
   const [profileMessage, setProfileMessage] = useState([]);
   const [profileCount, setProfileCount] = useState(0);
-  const [emojiToggle, setEmojiToggle] = useState(false);
+  const [emojiShowAll, setEmojiShowAll] = useState(false);
 
   //recoil
-  const emojiModal = useRecoilValue(emojiModalState);
+  const emojiAddModal = useRecoilValue(emojiAddModalState);
   const shareModal = useRecoilValue(shareModalState);
   const showToast = useRecoilValue(toastState);
-  const setEmojiModal = useSetRecoilState(emojiModalState);
+  const setEmojiAddModal = useSetRecoilState(emojiAddModalState);
   const setShareModal = useSetRecoilState(shareModalState);
   const setShowToast = useSetRecoilState(toastState);
 
@@ -56,26 +56,54 @@ const PostidNav = ({ id }) => {
     getMessage();
     getUserName();
 
-    if (!emojiModal) {
-      getReaction(); // emojiModal이 false일 때에만 실행
+    if (emojiAddModal === false) {
+      getReaction(); // emojiAddModal이 false일 때에만 실행
     }
 
     if (showToast === true) {
       toast.success('URL이 복사 되었습니다.');
       setShowToast(false);
     }
-  }, [id, emojiModal, showToast]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
 
-  const HandleEmojiButtonClick = () => {
-    setEmojiModal(!emojiModal);
+    //모달 이외의 영역 클릭했을 때 모달이 꺼지도록 하는 함수
+    const HandleEmojiAddClick = (e) => {
+      if (emojiAddModal && !e.target.closest('.' + styles.addEmoji)) {
+        setEmojiAddModal(false);
+      }
+    };
+
+    const HandleShareButtonClick = (e) => {
+      if (shareModal && !e.target.closest('.' + styles.share)) {
+        setShareModal(false);
+      }
+    };
+    const HandleShowAllEmojiClick = (e) => {
+      if (emojiShowAll && !e.target.closest('.' + styles.emoji)) {
+        setEmojiShowAll(false);
+      }
+    };
+
+    document.addEventListener('click', HandleEmojiAddClick);
+    document.addEventListener('click', HandleShareButtonClick);
+    document.addEventListener('click', HandleShowAllEmojiClick);
+
+    return () => {
+      document.removeEventListener('click', HandleEmojiAddClick);
+      document.removeEventListener('click', HandleShareButtonClick);
+      document.removeEventListener('click', HandleShowAllEmojiClick);
+    };
+  }, [id, emojiAddModal, shareModal, emojiShowAll, showToast]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
+
+  const addEmojiToggle = () => {
+    setEmojiAddModal(!emojiAddModal);
   };
 
-  const HandleShareButtonClick = () => {
+  const shareToggle = () => {
     setShareModal(!shareModal);
   };
 
   const HandleShowAllEmojiClick = () => {
-    setEmojiToggle(!emojiToggle);
+    setEmojiShowAll(!emojiShowAll);
   };
 
   return (
@@ -101,28 +129,28 @@ const PostidNav = ({ id }) => {
               ))}
             </ul>
             <button type="button" onClick={HandleShowAllEmojiClick}>
-              {emojiToggle ? (
+              {emojiShowAll ? (
                 <img className={styles.toggle} src="/images/chevronUp.svg" alt="chevronUp" />
               ) : (
                 <img src="/images/chevronDown.svg" alt="chevronDown" />
               )}
             </button>
-            {emojiToggle && <EmojiShowModal id={id} />}
+            {emojiShowAll && <EmojiShowModal id={id} />}
           </div>
           <div className={styles.buttonSection}>
             <div className={styles.addEmoji}>
               <div>
                 <ButtonOutlined40
-                  onClick={HandleEmojiButtonClick}
+                  onClick={addEmojiToggle}
                   iconUrl="/images/addImojiIcon.png"
                   buttonName="추가"
                 />
               </div>
-              {emojiModal && <EmojiAddModal id={id} />}
+              {emojiAddModal && <EmojiAddModal id={id} />}
             </div>
             <img src={line} alt="line" />
             <div className={styles.share}>
-              <ButtonOutlined40 onClick={HandleShareButtonClick} iconUrl="/images/shareIcon.png" />
+              <ButtonOutlined40 onClick={shareToggle} iconUrl="/images/shareIcon.png" />
               {shareModal && (
                 <div>
                   <ShareModal id={id} />
