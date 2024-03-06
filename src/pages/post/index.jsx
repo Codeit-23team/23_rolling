@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from '../../components/header/header';
 import InputName from '../../components/inputName/inputName';
 import ChooseBackground from '../../components/chooseBackground/chooseBackground';
+import styles from './index.module.css';
 
 function PostPage() {
   const [userName, setUserName] = useState('');
@@ -9,7 +10,7 @@ function PostPage() {
   const [backgroundImg, setBackgroundImg] = useState('');
 
   return (
-    <>
+    <div className={styles.postPage}>
       <Header button={false} />
       <InputName
         type="To"
@@ -23,7 +24,7 @@ function PostPage() {
         setBackgroundColor={setBackgroundColor}
         setBackgroundImg={setBackgroundImg}
       />
-    </>
+    </div>
   );
 }
 
