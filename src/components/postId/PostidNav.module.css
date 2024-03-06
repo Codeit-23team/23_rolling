@@ -5,10 +5,7 @@
   max-width: 1200px;
   margin: 13px auto;
   width: 100%;
-
-  @media screen and (max-width: 1248px) {
-    padding: 0 24px;
-  }
+  padding: 0 24px;
 }
 
 .highlight {
@@ -16,32 +13,37 @@
   font-weight: 700;
 }
 
-.postIdNav p {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 27px;
-  letter-spacing: 0em;
-  text-align: left;
-  display: inline-block;
+.postIdNav > div:first-child {
+  overflow: hidden;
+  max-width: 500px;
 }
-
 .postIdNav > div:first-child p {
   font-size: 28px;
   line-height: 42px;
-  letter-spacing: -0.01em;
-  text-align: left;
+  font-weight: 700;
+  padding-right: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
-
+.postIdNavUtil {
+  flex-shrink: 0;
+}
 .messageUsers {
   display: flex;
   align-items: center;
   gap: 11px;
   margin-right: 28px;
+  height: 28px;
 }
 
 .postIdNav div {
   display: flex;
   align-items: center;
+}
+.messageUsers p {
+  font-size: 18px;
+  line-height: 27px;
 }
 
 .line {
@@ -99,4 +101,27 @@
 
 .toggle {
   width: 14px;
+}
+@media screen and (max-width: 1024px) {
+  .postIdNav .messageUsers {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .postIdNav {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .postIdNav > div:first-child {
+    max-width: 100%;
+    padding: 12px 20px;
+  }
+  .postIdNavUtil {
+    padding: 8px 20px;
+    border-top: 1px solid var(--gray200);
+  }
+  .emoji {
+    margin-left: 0;
+  }
 }
