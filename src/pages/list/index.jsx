@@ -2,8 +2,31 @@ import Header from '../../components/header/header';
 import RollingPaperList from '../../components/rollingPaper/rollingPaperList/rollingPaperList';
 import ButtonPrimary56 from '../../components/button/buttonPrimary/buttonPrimary56/buttonPrimary56';
 import './index.css';
+import { useEffect, useState } from 'react';
+import { getApiRecipientList } from '../../apis/apiRecipient';
 
 function ListPage() {
+  const [userData, setUserData] = useState(undefined);
+  const [popUserData, setPopUserData] = useState(undefined);
+
+  useEffect(() => {
+    getApiRecipientList().then((response) => {
+      const { results } = response;
+      setUserData(results);
+    });
+  }, []);
+  useEffect(() => {
+    if (userData && userData.length > 0) {
+      const sortedUserDataArray = userData.slice().sort((a, b) => {
+        const lengthA = a.recentMessages.length;
+        const lengthB = b.recentMessages.length;
+        return lengthB - lengthA;
+      });
+
+      setPopUserData(sortedUserDataArray);
+    }
+  }, [userData]);
+
   return (
     <>
       <Header button={true} />
@@ -12,8 +35,16 @@ function ListPage() {
           padding: '0 32px',
         }}
       >
-        <RollingPaperList name="인기 롤링 페이퍼 🔥" buttonClass="popularity" />
-        <RollingPaperList name="최근에 만든 롤링 페이퍼 ⭐️" buttonClass="recently" />
+        <RollingPaperList
+          userData={popUserData}
+          name="인기 롤링 페이퍼 🔥"
+          buttonClass="popularity"
+        />
+        <RollingPaperList
+          userData={userData}
+          name="최근에 만든 롤링 페이퍼 ⭐️"
+          buttonClass="recently"
+        />
         <div className="gotoPostButton">
           <ButtonPrimary56 linkName={'/post'} buttonName="나도 만들어보기" />
         </div>

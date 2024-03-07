@@ -1,5 +1,3 @@
-import { useEffect, useState, useRef } from 'react';
-import { getApiRecipientList } from '../../../apis/apiRecipient';
 import RollingPaperBox from '../rollingPaperBox/rollingPaperBox';
 import './rollingPaperList.css';
 import { Link } from 'react-router-dom';
@@ -13,16 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-function RollingPaperList({ name, buttonClass }) {
-  const [userData, setUserData] = useState(undefined);
-
-  useEffect(() => {
-    getApiRecipientList().then((response) => {
-      const { results } = response;
-      setUserData(results);
-    });
-  }, []);
-
+function RollingPaperList({ name, buttonClass, userData }) {
   SwiperCore.use([Navigation]);
   const swiperOptions = {
     navigation: {

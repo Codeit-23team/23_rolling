@@ -15,7 +15,8 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
   const [trashId, setTrashId] = useState('');
 
   //edit page에 휴지통 클릭 시
-  const handleDeleteClick = (cardId) => {
+  const handleDeleteClick = (event, cardId) => {
+    event.stopPropagation();
     setTrash(true);
     setTrashId(cardId);
   };
@@ -40,7 +41,7 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
   useEffect(() => {
     getApiMessage(id).then((data) => setMessageData(data.results));
     getApiRecipient(id).then((data) => setUserData(data));
-  }, []);
+  }, [trash]);
 
   return (
     <div
