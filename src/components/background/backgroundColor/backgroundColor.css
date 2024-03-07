@@ -1,23 +1,20 @@
 .backgroundColor {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  justify-content: space-between;
   gap: 16px;
 }
-
-.backgroundColor .backgroundColorBox:hover {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
-  -webkit-transition: 0.1s ease-in-out;
-  transition: 0.1s ease-in-out;
+.backgroundColorBox {
+  display: flex;
 }
-
 .backgroundColor button {
-  width: 168px;
-  height: 168px;
-  flex-shrink: 0;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  width: 100%;
+  padding-bottom: 100%;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .backgroundColor button.beige {
@@ -38,4 +35,27 @@
 
 .backgroundColor .backgroundColorBox {
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.backgroundColor .backgroundColorBox button {
+  cursor: pointer;
+}
+.backgroundColor .backgroundColorBox:nth-of-type(1):hover {
+  border: 2px solid var(--orange500);
+}
+.backgroundColor .backgroundColorBox:nth-of-type(2):hover {
+  border: 2px solid var(--purple500);
+}
+.backgroundColor .backgroundColorBox:nth-of-type(3):hover {
+  border: 2px solid var(--blue500);
+}
+.backgroundColor .backgroundColorBox:nth-of-type(4):hover {
+  border: 2px solid var(--green500);
+}
+
+@media screen and (max-width: 768px) {
+  .backgroundColor {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
 }

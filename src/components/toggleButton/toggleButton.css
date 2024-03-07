@@ -1,31 +1,22 @@
 .toggleButton {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 24px;
   margin-bottom: 45px;
   width: 180px;
   border-radius: 6px;
-  background: var(--gray200);
+  background: var(--gray100);
 }
-
 .toggleButton button {
+  background-color: transparent;
+  cursor: pointer;
   display: flex;
   padding: 7px 16px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border-radius: 6px;
   width: 90px;
-  border: 2px solid var(--gray200);
-}
-
-.toggleButton button:hover {
-  border: 2px solid var(--gray300);
-  background: var(--gray300);
-}
-
-.toggleButton button:focus {
-  border: 2px solid var(--gray700);
+  border: none;
 }
 
 .toggleButton button.on {
@@ -35,5 +26,6 @@
 .toggleButton button:disabled {
   border: 2px solid var(--purple600);
   background: var(--white);
+  font-weight: 700;
   color: var(--purple700);
 }

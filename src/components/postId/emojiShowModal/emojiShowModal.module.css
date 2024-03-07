@@ -8,10 +8,10 @@
   top: 45px;
   z-index: 5;
   right: 0;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px 8px;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px 8px !important;
   padding: 24px;
 }
 
@@ -19,8 +19,10 @@
   .emojies {
     width: 203px;
     padding: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    right: -175px;
   }
-  .emojies > li:nth-last-child(-n + 2) {
+  .emojies > li:nth-of-type(n + 7) {
     display: none;
   }
 }
