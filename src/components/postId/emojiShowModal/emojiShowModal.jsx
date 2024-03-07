@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import styles from './emojiShowModal.module.css';
 import { getApiReaction } from '../../../apis/reactionApi';
 import Reaction from '../../reaction/Reaction';
-import { emojiModalState } from '../../../store/recoil/apiData';
+import { emojiAddModalState } from '../../../store/recoil/apiData';
 import { useRecoilValue } from 'recoil';
 
 const emojiShowModal = ({ id }) => {
   const [allReaction, setAllReaction] = useState([]);
-  const emojiModal = useRecoilValue(emojiModalState);
+  const emojiModal = useRecoilValue(emojiAddModalState);
 
   useEffect(() => {
     const getReactionAll = async () => {
