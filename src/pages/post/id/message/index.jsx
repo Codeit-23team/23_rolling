@@ -25,17 +25,22 @@ const PostMessagePage = () => {
   const [choiceFont, setChoiceFont] = useRecoilState(messageFont);
   const { id } = useParams();
   const navigate = useNavigate();
+
   const relationshipOptions = [
     { value: '친구', label: '친구' },
     { value: '지인', label: '지인' },
     { value: '동료', label: '동료' },
     { value: '가족', label: '가족' },
   ];
+
   const fontOptions = [
     { value: 'Noto Sans', label: 'Noto Sans' },
     { value: 'Pretendard', label: 'Pretendard' },
   ];
+
   const handlePostMessage = () => {
+    setEditorData('');
+
     if (messageName === '' || editorData === '<p><br></p>' || editorData === '<p></p>') {
       // 생성 막음
     } else {

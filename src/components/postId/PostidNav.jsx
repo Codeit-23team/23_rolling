@@ -1,31 +1,46 @@
 import { useEffect, useState } from 'react';
-import { getApiRecipient } from '../../apis/apiRecipient';
-import { getApiMessage, getApiMessageCondition } from '../../apis/messageApi';
-import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
-import MiniProfile from './../miniProfile/miniProfile';
-import EmojiModal from './emojiModal/emojiModal';
-import Reaction from '../reaction/Reaction';
-import styles from './PostidNav.module.css';
-import line from '@/line.svg';
-import { emojiModalState } from '../../store/recoil/apiData';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { ToastContainer, toast } from 'react-toastify';
+import { getApiRecipient } from '../../apis/apiRecipient';
+import { getApiMessage } from '../../apis/messageApi';
+import { emojiAddModalState, shareModalState, toastState } from '../../store/recoil/apiData';
+import ProfileBox from '../profileList/profilebox/profileBox';
+import Reaction from '../reaction/Reaction';
+import ButtonOutlined40 from '../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
+import EmojiShowModal from './emojiShowModal/emojiShowModal';
+import EmojiAddModal from './emojiAddModal/emojiAddModal';
+import ShareModal from './shareModal/ShareModal';
+import styles from './PostidNav.module.css';
+import './PostNav.css';
+import line from '@/line.svg';
 
 const PostidNav = ({ id }) => {
   const [name, setname] = useState('');
   const [messageCount, setMessageCount] = useState(0);
   const [reaction, setReaction] = useState([]);
-  const [message, setMessage] = useState([]);
+  const [profileMessage, setProfileMessage] = useState([]);
+  const [profileCount, setProfileCount] = useState(0);
+  const [emojiShowAll, setEmojiShowAll] = useState(false);
 
   //recoil
-  const emojiModal = useRecoilValue(emojiModalState);
-  const setEmojiModal = useSetRecoilState(emojiModalState);
+  const emojiAddModal = useRecoilValue(emojiAddModalState);
+  const shareModal = useRecoilValue(shareModalState);
+  const showToast = useRecoilValue(toastState);
+  const setEmojiAddModal = useSetRecoilState(emojiAddModalState);
+  const setShareModal = useSetRecoilState(shareModalState);
+  const setShowToast = useSetRecoilState(toastState);
 
   useEffect(() => {
+    getApiRecipient(id).then((response) => {
+      const { recentMessages, messageCount } = response;
+      setProfileMessage(recentMessages);
+      setProfileCount(messageCount);
+    });
+
     //reactionTop3 받아오기
     const getReaction = async () => {
       const reactionData = await getApiRecipient(id);
       setReaction(reactionData.topReactions);
-      console.log(reaction);
     };
 
     const getUserName = async () => {
@@ -37,25 +52,59 @@ const PostidNav = ({ id }) => {
     const getMessage = async () => {
       const MessageData = await getApiMessage(id);
       setMessageCount(MessageData.count);
-      // 메세지 객체 수가 3개 미만일 때
-      // if (countMessageData < 4) {
-      //   const limitMessageData = await getApiMessageCondition(id, 4);
-      //   setMessage(limitMessageData.results);
-      // } else {
-      //   setMessage(messageData.results);
-      // }
     };
 
-    // getMessage();
+    getMessage();
     getUserName();
-    if (!emojiModal) {
-      // emojiModal이 false일 때에만 실행
-      getReaction();
-    }
-  }, [id, emojiModal]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
 
-  const HandleEmojiButtonClick = () => {
-    setEmojiModal(true);
+    if (emojiAddModal === false) {
+      getReaction(); // emojiAddModal이 false일 때에만 실행
+    }
+
+    if (showToast === true) {
+      toast.success('URL이 복사 되었습니다.');
+      setShowToast(false);
+    }
+
+    //모달 이외의 영역 클릭했을 때 모달이 꺼지도록 하는 함수
+    const HandleEmojiAddClick = (e) => {
+      if (emojiAddModal && !e.target.closest('.' + styles.addEmoji)) {
+        setEmojiAddModal(false);
+      }
+    };
+
+    const HandleShareButtonClick = (e) => {
+      if (shareModal && !e.target.closest('.' + styles.share)) {
+        setShareModal(false);
+      }
+    };
+    const HandleShowAllEmojiClick = (e) => {
+      if (emojiShowAll && !e.target.closest('.' + styles.emoji)) {
+        setEmojiShowAll(false);
+      }
+    };
+
+    document.addEventListener('click', HandleEmojiAddClick);
+    document.addEventListener('click', HandleShareButtonClick);
+    document.addEventListener('click', HandleShowAllEmojiClick);
+
+    return () => {
+      document.removeEventListener('click', HandleEmojiAddClick);
+      document.removeEventListener('click', HandleShareButtonClick);
+      document.removeEventListener('click', HandleShowAllEmojiClick);
+    };
+  }, [id, emojiAddModal, shareModal, emojiShowAll, showToast]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
+
+  const addEmojiToggle = () => {
+    setEmojiAddModal(!emojiAddModal);
+  };
+
+  const shareToggle = () => {
+    setShareModal(!shareModal);
+  };
+
+  const HandleShowAllEmojiClick = () => {
+    setEmojiShowAll(!emojiShowAll);
   };
 
   return (
@@ -64,13 +113,10 @@ const PostidNav = ({ id }) => {
         <div>
           <p>To. {name}</p>
         </div>
-        <div>
+        <div className={styles.postIdNavUtil}>
           <div className={styles.messageUsers}>
             {/* 미니 프로필, 이모지, 공유 버튼 */}
-            {/* {message.map(({ profileImageURL }) => {
-          <MiniProfile profileImageURL={profileImageURL} />;
-        })} */}
-            <div>profile(ex)</div>
+            <ProfileBox recentMessages={profileMessage} messageCount={profileCount} />
             <p>
               <span className={styles.highlight}>{messageCount}</span>명이 작성했어요!
             </p>
@@ -83,31 +129,52 @@ const PostidNav = ({ id }) => {
                 <Reaction key={id} emoji={emoji} count={count} />
               ))}
             </ul>
-            <button type="button">
-              <img src="/images/chevronDown.svg" alt="chevronDown" />
+            <button type="button" onClick={HandleShowAllEmojiClick}>
+              {emojiShowAll ? (
+                <img className={styles.toggle} src="/images/chevronUp.svg" alt="chevronUp" />
+              ) : (
+                <img src="/images/chevronDown.svg" alt="chevronDown" />
+              )}
             </button>
+            {emojiShowAll && <EmojiShowModal id={id} />}
           </div>
           <div className={styles.buttonSection}>
             <div className={styles.addEmoji}>
               <div>
                 <ButtonOutlined40
-                  onClick={HandleEmojiButtonClick}
+                  onClick={addEmojiToggle}
                   iconUrl="/images/addImojiIcon.png"
                   buttonName="추가"
                 />
               </div>
-
-              {emojiModal && (
-                <div>
-                  <EmojiModal id={id} />
-                </div>
-              )}
+              {emojiAddModal && <EmojiAddModal id={id} />}
             </div>
             <img src={line} alt="line" />
-            <ButtonOutlined40 iconUrl="/images/shareIcon.png" />
+            <div className={styles.share}>
+              <ButtonOutlined40 onClick={shareToggle} iconUrl="/images/shareIcon.png" />
+              {shareModal && (
+                  <div>
+                    <ShareModal id={id} />
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </article>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Slide
+      />
     </>
   );
 };

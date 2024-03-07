@@ -3,7 +3,6 @@ import Header from '../components/header/header';
 import IndexBottom from '../components/main/indexBottom';
 import IndexTop from '../components/main/indexTop';
 
-
 const Index = () => {
   return (
     <>
@@ -13,7 +12,7 @@ const Index = () => {
         <IndexBottom />
       </div>
       <div className="linkButtonCon">
-        <ButtonPrimary56 goLink={'./list'} buttonName="구경해보기" />
+        <ButtonPrimary56 linkName={'/list'} buttonName="구경해보기" />
       </div>
     </>
   );

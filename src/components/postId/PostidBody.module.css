@@ -1,0 +1,78 @@
+.postBodyBox {
+  min-height: calc(100% - 133px);
+}
+.editButton {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 11px;
+  text-align: right;
+}
+.editButton button {
+  width: 92px;
+  padding: 7px 16px;
+  border-radius: 6px;
+}
+.postidBody {
+  padding: 63px 24px 90px;
+}
+
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 28px 24px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  background-color: white;
+  border-radius: 16px;
+}
+.box a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.row > li {
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width: 1024px) {
+  .row {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+  .editButton {
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    bottom: 24px;
+    left: 0;
+    padding: 0 24px;
+  }
+  .editButton a {
+    display: block;
+    width: 100%;
+  }
+  .editButton a button {
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+  .postBodyBox {
+    min-height: calc(100% - 119px);
+  }
+}

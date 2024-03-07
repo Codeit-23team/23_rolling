@@ -9,7 +9,7 @@
   max-width: 1160px;
 }
 
-.rollingPaperList h1 {
+.rollingPaperList strong {
   color: var(--black);
   font-size: 24px;
   font-weight: 700;
@@ -17,23 +17,57 @@
   letter-spacing: -0.24px;
 }
 
-.rollingPaperList button.left {
-  top: 50%;
-  left: -1%;
-  transform: translateY(50%);
-  position: absolute;
-}
-
-.rollingPaperList button.right {
-  top: 50%;
-  right: -1%g;
-  transform: translateY(50%);
-  position: absolute;
-}
-
 .rollingPaperList .rollingPaperBoxList {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
+  width: 100%;
+  position: static;
+}
+.rollingPaperList .rollingPaperBoxList .swiper-slide {
+  width: 275px;
+}
+.rollingPaperSwiperBox {
+  position: relative;
+  width: 100%;
+}
+.rollingPaperSwiperBox > button {
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dadcdf;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+}
+.rollingPaperSwiperBox > button.prev {
+  left: -20px;
+}
+.rollingPaperSwiperBox > button.next {
+  right: -20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .rollingPaperList .rollingPaperBoxList {
+    overflow: visible;
+  }
+  .rollingPaperSwiperBox > button {
+    display: none;
+  }
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -30px !important;
+  top: auto !important;
+}
+
+.swiper .swiper-pagination-bullet-active {
+  background: var(--purple600);
 }

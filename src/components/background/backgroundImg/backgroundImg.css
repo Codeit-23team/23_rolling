@@ -1,41 +1,54 @@
 .backgroundImg {
-  display: inline-flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  justify-content: space-between;
   gap: 16px;
 }
 
-.backgroundImg button {
-  width: 168px;
-  height: 168px;
-  flex-shrink: 0;
+.backgroundImgBox {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.backgroundImg button {
+  border-radius: 16px;
+  width: 100%;
+  padding-bottom: 100%;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .backgroundImg button.background1 {
   background-image: url('https://picsum.photos/id/683/3840/2160');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .backgroundImg button.background2 {
   background-image: url('https://picsum.photos/id/24/3840/2160');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .backgroundImg button.background3 {
   background-image: url('https://picsum.photos/id/599/3840/2160');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .backgroundImg button.background4 {
   background-image: url('https://picsum.photos/id/1058/3840/2160');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-.backgroundImg .backgroundImgBox {
-  position: relative;
+.backgroundImg button {
+  transition: all 0.3s;
+}
+.backgroundImg button:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .backgroundImg {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
 }
