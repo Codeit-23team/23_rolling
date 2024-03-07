@@ -11,7 +11,6 @@ import EmojiShowModal from './emojiShowModal/emojiShowModal';
 import EmojiAddModal from './emojiAddModal/emojiAddModal';
 import ShareModal from './shareModal/ShareModal';
 import styles from './PostidNav.module.css';
-import './PostNav.css';
 import line from '@/line.svg';
 
 const PostidNav = ({ id }) => {
@@ -111,48 +110,49 @@ const PostidNav = ({ id }) => {
     <>
       <article className={styles.postIdNav}>
         <div>
-          <p>To. {name}</p>
-        </div>
-        <div className={styles.postIdNavUtil}>
-          <div className={styles.messageUsers}>
-            {/* 미니 프로필, 이모지, 공유 버튼 */}
-            <ProfileBox recentMessages={profileMessage} messageCount={profileCount} />
-            <p>
-              <span className={styles.highlight}>{messageCount}</span>명이 작성했어요!
-            </p>
+          <div>
+            <p>To. {name}</p>
           </div>
-          <img src={line} alt="line" />
-          <div className={styles.emoji}>
-            {/* 이모티콘 */}
-            <ul>
-              {reaction.map(({ emoji, count, id }) => (
-                <Reaction key={id} emoji={emoji} count={count} />
-              ))}
-            </ul>
-            <button type="button" onClick={HandleShowAllEmojiClick}>
-              {emojiShowAll ? (
-                <img className={styles.toggle} src="/images/chevronUp.svg" alt="chevronUp" />
-              ) : (
-                <img src="/images/chevronDown.svg" alt="chevronDown" />
-              )}
-            </button>
-            {emojiShowAll && <EmojiShowModal id={id} />}
-          </div>
-          <div className={styles.buttonSection}>
-            <div className={styles.addEmoji}>
-              <div>
-                <ButtonOutlined40
-                  onClick={addEmojiToggle}
-                  iconUrl="/images/addImojiIcon.png"
-                  buttonName="추가"
-                />
-              </div>
-              {emojiAddModal && <EmojiAddModal id={id} />}
+          <div className={styles.postIdNavUtil}>
+            <div className={styles.messageUsers}>
+              {/* 미니 프로필, 이모지, 공유 버튼 */}
+              <ProfileBox recentMessages={profileMessage} messageCount={profileCount} />
+              <p>
+                <span className={styles.highlight}>{messageCount}</span>명이 작성했어요!
+              </p>
             </div>
             <img src={line} alt="line" />
-            <div className={styles.share}>
-              <ButtonOutlined40 onClick={shareToggle} iconUrl="/images/shareIcon.png" />
-              {shareModal && (
+            <div className={styles.emoji}>
+              {/* 이모티콘 */}
+              <ul>
+                {reaction.map(({ emoji, count, id }) => (
+                  <Reaction key={id} emoji={emoji} count={count} />
+                ))}
+              </ul>
+              <button type="button" onClick={HandleShowAllEmojiClick}>
+                {emojiShowAll ? (
+                  <img className={styles.toggle} src="/images/chevronUp.svg" alt="chevronUp" />
+                ) : (
+                  <img src="/images/chevronDown.svg" alt="chevronDown" />
+                )}
+              </button>
+              {emojiShowAll && <EmojiShowModal id={id} />}
+            </div>
+            <div className={styles.buttonSection}>
+              <div className={styles.addEmoji}>
+                <div>
+                  <ButtonOutlined40
+                    onClick={addEmojiToggle}
+                    iconUrl="/images/addImojiIcon.png"
+                    buttonName="추가"
+                  />
+                </div>
+                {emojiAddModal && <EmojiAddModal id={id} />}
+              </div>
+              <img src={line} alt="line" />
+              <div className={styles.share}>
+                <ButtonOutlined40 onClick={shareToggle} iconUrl="/images/shareIcon.png" />
+                {shareModal && (
                   <div>
                     <ShareModal id={id} />
                   </div>
