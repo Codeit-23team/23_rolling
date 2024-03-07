@@ -25,18 +25,20 @@ const PostMessagePage = () => {
   const [choiceFont, setChoiceFont] = useRecoilState(messageFont);
   const { id } = useParams();
   const navigate = useNavigate();
+
   const relationshipOptions = [
     { value: '친구', label: '친구' },
     { value: '지인', label: '지인' },
     { value: '동료', label: '동료' },
     { value: '가족', label: '가족' },
   ];
+
   const fontOptions = [
     { value: 'Noto Sans', label: 'Noto Sans' },
     { value: 'Pretendard', label: 'Pretendard' },
   ];
+
   const handlePostMessage = () => {
-    //새로운 메시지 작성시 내용 입력칸에 지워지지 않은 텍스트 해결 - 여승구
     setEditorData('');
 
     if (messageName === '' || editorData === '<p><br></p>' || editorData === '<p></p>') {

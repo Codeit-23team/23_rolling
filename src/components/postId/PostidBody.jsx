@@ -79,7 +79,7 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
           {messageData?.map(
             ({ id: cardId, content, createdAt, profileImageURL, relationship, sender }) => {
               return (
-                <li key={cardId} className={styles.messageBox}>
+                <li key={cardId}>
                   <MessageBox
                     handleDeleteClick={handleDeleteClick}
                     optionDeleteButton={optionDeleteButton}
