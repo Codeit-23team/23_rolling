@@ -11,6 +11,7 @@ import EmojiShowModal from './emojiShowModal/emojiShowModal';
 import EmojiAddModal from './emojiAddModal/emojiAddModal';
 import ShareModal from './shareModal/ShareModal';
 import styles from './PostidNav.module.css';
+import './PostNav.css';
 import line from '@/line.svg';
 
 const PostidNav = ({ id }) => {
@@ -152,10 +153,11 @@ const PostidNav = ({ id }) => {
             <div className={styles.share}>
               <ButtonOutlined40 onClick={shareToggle} iconUrl="/images/shareIcon.png" />
               {shareModal && (
-                <div>
-                  <ShareModal id={id} />
-                </div>
-              )}
+                  <div>
+                    <ShareModal id={id} />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

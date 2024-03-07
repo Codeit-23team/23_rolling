@@ -19,6 +19,15 @@
   border: 2px solid var(--gray200);
 }
 
+.toggleButton button:hover {
+  border: 2px solid var(--gray300);
+  background: var(--gray300);
+}
+
+.toggleButton button:focus {
+  border: 2px solid var(--gray700);
+}
+
 .toggleButton button.on {
   color: var(--gray900);
 }
