@@ -37,23 +37,28 @@ const MessageBox = ({
   }, []);
 
   return (
-    <div className="messageBox" onClick={handleMessageModalClick}>
-      <div className="messageBoxTop" tabIndex={0}>
-        <div className="messageBoxContents">
-          <img src={profileImageURL} />
-          <div>
-            <p>
-              From.<strong>{sender}</strong>
-            </p>
-            <span className={`badge ${relationClass}`}>{relationship}</span>
+    <div>
+      <div className="messageBox" onClick={handleMessageModalClick}>
+        <div className="messageBoxTop" tabIndex={0}>
+          <div className="messageBoxContents">
+            <img src={profileImageURL} />
+            <div>
+              <p>
+                From.<strong>{sender}</strong>
+              </p>
+              <span className={`badge ${relationClass}`}>{relationship}</span>
+            </div>
+            {optionDeleteButton ? (
+              <ButtonOutlined40
+                iconUrl="/images/deleted.svg"
+                onClick={() => handleDeleteClick(id)}
+              />
+            ) : null}
           </div>
-          {optionDeleteButton ? (
-            <ButtonOutlined40 iconUrl="/images/deleted.svg" onClick={() => handleDeleteClick(id)} />
-          ) : null}
+          <div className="messageTextBox" dangerouslySetInnerHTML={{ __html: content }}></div>
         </div>
-        <div className="messageTextBox" dangerouslySetInnerHTML={{ __html: content }}></div>
+        <p className="messageDate">{dateChange(createdAt)}</p>
       </div>
-      <p className="messageDate">{dateChange(createdAt)}</p>
       {/* 메시지 모달 ㄱㄱ */}
       {modalOpen && (
         <ModalPortal>
