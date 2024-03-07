@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 import logoImg from '@/logo.png';
 import searchIcon from '@/search_icon.svg';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { searchState } from '../../store/recoil/apiData';
 
@@ -19,10 +19,14 @@ const SearchBox = ({ open }) => {
       alert('검색어를 입력해주세요.');
     }
   };
+
   return (
     <>
       <div
-        style={{ height: open ? '68px' : '0', borderBottom: open ? `1px solid #EDEDED` : 'none' }}
+        style={{
+          height: open ? '68px' : '0',
+          borderBottom: open ? `1px solid #EDEDED` : 'none',
+        }}
         className="searchBox"
       >
         <div>
@@ -47,6 +51,11 @@ const Header = ({ button }) => {
       setOpen(true);
     }
   };
+
+  useEffect(() => {
+    setOpen(false);
+  }, []);
+
   return (
     <>
       <header className={button ? null : 'header'}>
