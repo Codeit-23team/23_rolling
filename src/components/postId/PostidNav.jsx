@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { ToastContainer, toast } from 'react-toastify';
 import { getApiRecipient } from '../../apis/apiRecipient';
 import { getApiMessage } from '../../apis/messageApi';
@@ -23,12 +23,45 @@ const PostidNav = ({ id }) => {
   const [emojiShowAll, setEmojiShowAll] = useState(false);
 
   //recoil
-  const emojiAddModal = useRecoilValue(emojiAddModalState);
-  const shareModal = useRecoilValue(shareModalState);
-  const showToast = useRecoilValue(toastState);
-  const setEmojiAddModal = useSetRecoilState(emojiAddModalState);
-  const setShareModal = useSetRecoilState(shareModalState);
-  const setShowToast = useSetRecoilState(toastState);
+  const [emojiAddModal, setEmojiAddModal] = useRecoilState(emojiAddModalState);
+  const [shareModal, setShareModal] = useRecoilState(shareModalState);
+  const [showToast, setShowToast] = useRecoilState(toastState);
+
+  //api 불러오기
+  //reactionTop3 받아오기
+  const getReaction = async () => {
+    const reactionData = await getApiRecipient(id);
+    setReaction(reactionData.topReactions);
+  };
+
+  const getUserName = async () => {
+    //롤링페이퍼 id에 해당하는 name 받아오기
+    const data = await getApiRecipient(id);
+    setname(data.name);
+  };
+
+  const getMessage = async () => {
+    const MessageData = await getApiMessage(id);
+    setMessageCount(MessageData.count);
+  };
+
+  //모달 이외의 영역 클릭했을 때 모달이 꺼지도록 하는 함수
+  const HandleEmojiAddClick = (e) => {
+    if (emojiAddModal && !e.target.closest('.addEmoji')) {
+      setEmojiAddModal(false);
+    }
+  };
+
+  const HandleShareButtonClick = (e) => {
+    if (shareModal && !e.target.closest('.share')) {
+      setShareModal(false);
+    }
+  };
+  const HandleShowAllEmojiClick = (e) => {
+    if (emojiShowAll && !e.target.closest('.' + styles.emoji)) {
+      setEmojiShowAll(false);
+    }
+  };
 
   useEffect(() => {
     getApiRecipient(id).then((response) => {
@@ -36,23 +69,6 @@ const PostidNav = ({ id }) => {
       setProfileMessage(recentMessages);
       setProfileCount(messageCount);
     });
-
-    //reactionTop3 받아오기
-    const getReaction = async () => {
-      const reactionData = await getApiRecipient(id);
-      setReaction(reactionData.topReactions);
-    };
-
-    const getUserName = async () => {
-      //롤링페이퍼 id에 해당하는 name 받아오기
-      const data = await getApiRecipient(id);
-      setname(data.name);
-    };
-
-    const getMessage = async () => {
-      const MessageData = await getApiMessage(id);
-      setMessageCount(MessageData.count);
-    };
 
     getMessage();
     getUserName();
@@ -65,24 +81,6 @@ const PostidNav = ({ id }) => {
       toast.success('URL이 복사 되었습니다.');
       setShowToast(false);
     }
-
-    //모달 이외의 영역 클릭했을 때 모달이 꺼지도록 하는 함수
-    const HandleEmojiAddClick = (e) => {
-      if (emojiAddModal && !e.target.closest('.addEmoji')) {
-        setEmojiAddModal(false);
-      }
-    };
-
-    const HandleShareButtonClick = (e) => {
-      if (shareModal && !e.target.closest('.share')) {
-        setShareModal(false);
-      }
-    };
-    const HandleShowAllEmojiClick = (e) => {
-      if (emojiShowAll && !e.target.closest('.' + styles.emoji)) {
-        setEmojiShowAll(false);
-      }
-    };
 
     document.addEventListener('click', HandleEmojiAddClick);
     document.addEventListener('click', HandleShareButtonClick);
@@ -103,7 +101,7 @@ const PostidNav = ({ id }) => {
     setShareModal(!shareModal);
   };
 
-  const HandleShowAllEmojiClick = () => {
+  const showEmojiAllToggle = () => {
     setEmojiShowAll(!emojiShowAll);
   };
 
@@ -123,22 +121,24 @@ const PostidNav = ({ id }) => {
               </p>
             </div>
             <img src={line} alt="line" />
-            <div className={styles.emoji}>
-              {/* 이모티콘 */}
-              <ul>
-                {reaction.map(({ emoji, count, id }) => (
-                  <Reaction key={id} emoji={emoji} count={count} />
-                ))}
-              </ul>
-              <button type="button" onClick={HandleShowAllEmojiClick}>
-                {emojiShowAll ? (
-                  <img className={styles.toggle} src="/images/chevronUp.svg" alt="chevronUp" />
-                ) : (
-                  <img src="/images/chevronDown.svg" alt="chevronDown" />
-                )}
-              </button>
-              {emojiShowAll && <EmojiShowModal id={id} />}
-            </div>
+            {reaction.length === 0 || (
+              <div className={styles.emoji}>
+                {/* 이모티콘 */}
+                <ul>
+                  {reaction.map(({ emoji, count, id }) => (
+                    <Reaction key={id} emoji={emoji} count={count} />
+                  ))}
+                </ul>
+                <button type="button" onClick={showEmojiAllToggle}>
+                  {emojiShowAll ? (
+                    <img className={styles.toggle} src="/images/chevronUp.svg" alt="chevronUp" />
+                  ) : (
+                    <img src="/images/chevronDown.svg" alt="chevronDown" />
+                  )}
+                </button>
+                {emojiShowAll && <EmojiShowModal id={id} />}
+              </div>
+            )}
             <div className={styles.buttonSection}>
               <div className="addEmoji">
                 <div>
