@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { ToastContainer, toast } from 'react-toastify';
 import { getApiRecipient } from '../../apis/apiRecipient';
-import { getApiMessage } from '../../apis/messageApi';
 import { emojiAddModalState, shareModalState, toastState } from '../../store/recoil/apiData';
 import ProfileBox from '../profileList/profilebox/profileBox';
 import Reaction from '../reaction/Reaction';
@@ -14,9 +13,8 @@ import styles from './PostidNav.module.css';
 import './PostNav.css';
 import line from '@/line.svg';
 
-const PostidNav = ({ id }) => {
+const PostidNav = ({ id, num }) => {
   const [name, setname] = useState('');
-  const [messageCount, setMessageCount] = useState(0);
   const [reaction, setReaction] = useState([]);
   const [profileMessage, setProfileMessage] = useState([]);
   const [profileCount, setProfileCount] = useState(0);
@@ -38,11 +36,6 @@ const PostidNav = ({ id }) => {
     //롤링페이퍼 id에 해당하는 name 받아오기
     const data = await getApiRecipient(id);
     setname(data.name);
-  };
-
-  const getMessage = async () => {
-    const MessageData = await getApiMessage(id);
-    setMessageCount(MessageData.count);
   };
 
   //모달 이외의 영역 클릭했을 때 모달이 꺼지도록 하는 함수
@@ -70,7 +63,6 @@ const PostidNav = ({ id }) => {
       setProfileCount(messageCount);
     });
 
-    getMessage();
     getUserName();
 
     if (emojiAddModal === false) {
@@ -117,7 +109,7 @@ const PostidNav = ({ id }) => {
               {/* 미니 프로필, 이모지, 공유 버튼 */}
               <ProfileBox recentMessages={profileMessage} messageCount={profileCount} />
               <p>
-                <span className={styles.highlight}>{messageCount}</span>명이 작성했어요!
+                <span className={styles.highlight}>{num}</span>명이 작성했어요!
               </p>
             </div>
             <img src={line} alt="line" />
