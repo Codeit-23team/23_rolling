@@ -15,9 +15,11 @@ const emojiShowModal = ({ id }) => {
       setAllReaction(reactionsData.results);
     };
     getReactionAll();
-    console.log(allReaction);
   }, [id, emojiModal]);
 
+  useEffect(() => {
+    console.log(allReaction);
+  }, [allReaction]);
   return (
     <ul className={styles.emojies}>
       {allReaction.map(({ emoji, count, id }) => (

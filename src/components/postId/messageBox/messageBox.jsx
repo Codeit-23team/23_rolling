@@ -48,7 +48,10 @@ const MessageBox = ({
             <span className={`badge ${relationClass}`}>{relationship}</span>
           </div>
           {optionDeleteButton ? (
-            <ButtonOutlined40 iconUrl="/images/deleted.svg" onClick={() => handleDeleteClick(id)} />
+            <ButtonOutlined40
+              iconUrl="/images/deleted.svg"
+              onClick={(event) => handleDeleteClick(event, id)}
+            />
           ) : null}
         </div>
         <div className="messageTextBox" dangerouslySetInnerHTML={{ __html: content }}></div>

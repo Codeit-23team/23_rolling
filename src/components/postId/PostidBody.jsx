@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './PostidBody.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { deleteApiMessage, getApiMessage } from '../../apis/messageApi';
 import { deleteApiRecipient, getApiRecipient } from '../../apis/apiRecipient';
 import plusButton from '@/Enabled.png';
@@ -14,15 +14,22 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
   const [trash, setTrash] = useState(false);
   const [trashId, setTrashId] = useState('');
 
+  const navigete = useNavigate();
+
   //edit page에 휴지통 클릭 시
-  const handleDeleteClick = (cardId) => {
+  const handleDeleteClick = (event, cardId) => {
+    event.stopPropagation();
     setTrash(true);
     setTrashId(cardId);
   };
 
   //edit page에 삭제하기 버튼 클릭 시
-  const handleAllDeleteClick = () => {
-    deleteApiRecipient(id);
+  const handleAllDeleteClick = (event) => {
+    if (confirm('정말 삭제하시겠습니까?') === true) {
+      deleteApiRecipient(id);
+    } else {
+      event.preventDefault();
+    }
   };
 
   useEffect(() => {
@@ -40,7 +47,7 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
   useEffect(() => {
     getApiMessage(id).then((data) => setMessageData(data.results));
     getApiRecipient(id).then((data) => setUserData(data));
-  }, []);
+  }, [trash]);
 
   return (
     <div
@@ -58,11 +65,14 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
         {/*edit page에서 삭제하기 버튼 추가*/}
         <div className={styles.editButton}>
           {optionDeleteButton === true ? (
-            <ButtonPrimary56
-              linkName={`/`}
-              buttonName="삭제하기"
-              handleApi={handleAllDeleteClick}
-            />
+            <div className={styles.editButtonBox}>
+              <ButtonPrimary56
+                linkName={`/`}
+                buttonName="삭제하기"
+                handleApi={(event) => handleAllDeleteClick(event)}
+              />
+              <ButtonPrimary56 linkName={`/post/${id}`} buttonName="저장하기" />
+            </div>
           ) : (
             <ButtonPrimary56 linkName={`/post/${id}/edit`} buttonName="수정하기" />
           )}
