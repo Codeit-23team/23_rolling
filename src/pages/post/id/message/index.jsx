@@ -13,7 +13,6 @@ import {
   fromName,
   messageProfile,
 } from '../../../../store/recoil/apiData';
-import { useEffect } from 'react';
 import { messageApiRecipient } from '../../../../apis/apiRecipient';
 import { useParams, useNavigate } from 'react-router-dom';
 

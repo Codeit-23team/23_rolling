@@ -14,8 +14,6 @@ function ListPage() {
       const { results } = response;
       setUserData(results);
     });
-  }, []);
-  useEffect(() => {
     if (userData && userData.length > 0) {
       const sortedUserDataArray = userData.slice().sort((a, b) => {
         const lengthA = a.messageCount;
