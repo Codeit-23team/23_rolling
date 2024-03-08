@@ -13,7 +13,6 @@ import {
   fromName,
   messageProfile,
 } from '../../../../store/recoil/apiData';
-import { useEffect } from 'react';
 import { messageApiRecipient } from '../../../../apis/apiRecipient';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -41,8 +40,8 @@ const PostMessagePage = () => {
   const handlePostMessage = () => {
     setEditorData('');
 
-    if (messageName === '' || editorData === '<p><br></p>' || editorData === '<p></p>') {
-      // 생성 막음
+    if (messageName === '' || editorData === '' || editorData === '<p></p>') {
+      alert('빈칸의 내용을 입력해주세요.');
     } else {
       messageApiRecipient(messageName, messageImage, relationship, editorData, choiceFont, id).then(
         (response) => {

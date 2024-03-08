@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './PostidBody.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { deleteApiMessage, getApiMessage } from '../../apis/messageApi';
 import { deleteApiRecipient, getApiRecipient } from '../../apis/apiRecipient';
 import plusButton from '@/Enabled.png';
@@ -13,8 +13,6 @@ const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
   //edit page에 쓸 useState
   const [trash, setTrash] = useState(false);
   const [trashId, setTrashId] = useState('');
-
-  const navigete = useNavigate();
 
   //edit page에 휴지통 클릭 시
   const handleDeleteClick = (event, cardId) => {
@@ -68,7 +66,7 @@ const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
           {optionDeleteButton === true ? (
             <div className={styles.editButtonBox}>
               <ButtonPrimary56
-                linkName={`/`}
+                linkName={`/list`}
                 buttonName="삭제하기"
                 handleApi={(event) => handleAllDeleteClick(event)}
               />
