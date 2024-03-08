@@ -68,13 +68,13 @@ const PostidNav = ({ id }) => {
 
     //모달 이외의 영역 클릭했을 때 모달이 꺼지도록 하는 함수
     const HandleEmojiAddClick = (e) => {
-      if (emojiAddModal && !e.target.closest('.' + styles.addEmoji)) {
+      if (emojiAddModal && !e.target.closest('.addEmoji')) {
         setEmojiAddModal(false);
       }
     };
 
     const HandleShareButtonClick = (e) => {
-      if (shareModal && !e.target.closest('.' + styles.share)) {
+      if (shareModal && !e.target.closest('.share')) {
         setShareModal(false);
       }
     };

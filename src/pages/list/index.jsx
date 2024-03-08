@@ -18,8 +18,8 @@ function ListPage() {
   useEffect(() => {
     if (userData && userData.length > 0) {
       const sortedUserDataArray = userData.slice().sort((a, b) => {
-        const lengthA = a.recentMessages.length;
-        const lengthB = b.recentMessages.length;
+        const lengthA = a.messageCount;
+        const lengthB = b.messageCount;
         return lengthB - lengthA;
       });
 

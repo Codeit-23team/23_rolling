@@ -2,10 +2,22 @@
   min-height: calc(100% - 133px);
 }
 .editButton {
+  display: flex;
+  justify-content: flex-end;
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 11px;
-  text-align: right;
+}
+.editButton .editButtonBox {
+  display: flex;
+  gap: 10px;
+}
+.editButton .editButtonBox a:nth-of-type(1) button {
+  background-color: var(--error);
+  border: 1px solid var(--error);
+}
+.editButton .editButtonBox a:nth-of-type(1) button:hover {
+  background-color: #c03535;
 }
 .editButton button {
   width: 92px;
@@ -56,6 +68,10 @@
     bottom: 24px;
     left: 0;
     padding: 0 24px;
+  }
+  .editButton .editButtonBox {
+    flex-direction: column;
+    width: 100%;
   }
   .editButton a {
     display: block;
