@@ -7,7 +7,7 @@ import plusButton from '@/Enabled.png';
 import ButtonPrimary56 from '../button/buttonPrimary/buttonPrimary56/buttonPrimary56';
 import MessageBox from './messageBox/messageBox';
 
-const PostidBody = ({ id, optionDeleteButton = false }) => {
+const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
   const [messageData, setMessageData] = useState([]);
   const [userData, setUserData] = useState([]);
   //edit page에 쓸 useState
@@ -19,6 +19,7 @@ const PostidBody = ({ id, optionDeleteButton = false }) => {
     event.stopPropagation();
     setTrash(true);
     setTrashId(cardId);
+    fixCardData();
   };
 
   //edit page에 삭제하기 버튼 클릭 시
