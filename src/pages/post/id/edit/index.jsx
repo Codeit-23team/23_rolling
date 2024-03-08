@@ -5,15 +5,33 @@ import Header from '../../../../components/header/header';
 import PostidNav from '../../../../components/postId/PostidNav';
 import PostidBody from '../../../../components/postId/PostidBody';
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getApiMessage } from '../../../../apis/messageApi';
 
 function PostEditPage() {
   const { id } = useParams();
+  const [messageCount, setMessageCount] = useState(0);
+  const [edit, setEdit] = useState(false);
+
+  const fixCardData = () => {
+    setEdit(true);
+  };
+
+  const getMessage = async () => {
+    const MessageData = await getApiMessage(id);
+    setMessageCount(MessageData.count);
+  };
+
+  useEffect(() => {
+    getMessage();
+    return setEdit(false);
+  }, [edit]);
 
   return (
     <>
       <Header button={false} />
-      <PostidNav id={id} />
-      <PostidBody id={id} optionDeleteButton={true} />
+      <PostidNav id={id} num={messageCount} />
+      <PostidBody id={id} optionDeleteButton={true} fixCardData={fixCardData} />
     </>
   );
 }

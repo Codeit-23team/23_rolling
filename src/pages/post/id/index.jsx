@@ -3,11 +3,18 @@ import PostidNav from '../../../components/postId/PostidNav';
 import PostidBody from '../../../components/postId/PostidBody';
 import { getApiRecipientList } from '../../../apis/apiRecipient';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { getApiMessage } from '../../../apis/messageApi';
 
 function PostIdPage() {
   const { id } = useParams();
+  const [messageCount, setMessageCount] = useState(0);
   const navigate = useNavigate();
+
+  const getMessage = async () => {
+    const MessageData = await getApiMessage(id);
+    setMessageCount(MessageData.count);
+  };
 
   useEffect(() => {
     getApiRecipientList().then((response) => {
@@ -18,12 +25,13 @@ function PostIdPage() {
         window.location.reload();
       }
     });
+    getMessage();
   }, []);
 
   return (
     <>
       <Header button={false} />
-      <PostidNav id={id} />
+      <PostidNav id={id} num={messageCount} />
       <PostidBody id={id} />
     </>
   );
