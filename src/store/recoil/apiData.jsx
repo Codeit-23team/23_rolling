@@ -55,3 +55,8 @@ export const searchState = atom({
   key: 'searchState',
   default: '',
 });
+
+export const deleteState = atom({
+  key: 'deleteState',
+  default: true,
+});

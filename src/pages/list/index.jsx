@@ -4,8 +4,11 @@ import ButtonPrimary56 from '../../components/button/buttonPrimary/buttonPrimary
 import './index.css';
 import { useEffect, useState } from 'react';
 import { getApiRecipientList } from '../../apis/apiRecipient';
+import { useRecoilValue } from 'recoil';
+import { deleteState } from '../../store/recoil/apiData';
 
 function ListPage() {
+  const deleteValue = useRecoilValue(deleteState);
   const [userData, setUserData] = useState(undefined);
   const [popUserData, setPopUserData] = useState(undefined);
 
@@ -14,7 +17,8 @@ function ListPage() {
       const { results } = response;
       setUserData(results);
     });
-  }, []);
+    // deleteValue가 변경되었을때 랜더링 합니다!
+  }, [deleteValue]);
 
   // too many request
   useEffect(() => {

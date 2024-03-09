@@ -6,6 +6,8 @@ import { deleteApiRecipient, getApiRecipient } from '../../apis/apiRecipient';
 import plusButton from '@/Enabled.png';
 import ButtonPrimary56 from '../button/buttonPrimary/buttonPrimary56/buttonPrimary56';
 import MessageBox from './messageBox/messageBox';
+import { useRecoilState } from 'recoil';
+import { deleteState } from '../../store/recoil/apiData';
 
 const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
   const [messageData, setMessageData] = useState([]);
@@ -13,6 +15,8 @@ const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
   //edit page에 쓸 useState
   const [trash, setTrash] = useState(false);
   const [trashId, setTrashId] = useState('');
+  // delete 렌더링 recoil
+  const [deleteValue, setDeleteValue] = useRecoilState(deleteState);
 
   //edit page에 휴지통 클릭 시
   const handleDeleteClick = (event, cardId) => {
@@ -25,7 +29,8 @@ const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
   //edit page에 삭제하기 버튼 클릭 시
   const handleAllDeleteClick = (event) => {
     if (confirm('정말 삭제하시겠습니까?') === true) {
-      deleteApiRecipient(id);
+      deleteApiRecipient(id).then(() => setDeleteValue(!deleteValue));
+      // deleteApiRecipient의 호출이 성공했을때 state를 변경합니다!
     } else {
       event.preventDefault();
     }
