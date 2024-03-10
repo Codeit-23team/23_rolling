@@ -1,0 +1,156 @@
+.indexContents {
+  margin-top: 60px;
+  padding: 0 24px;
+}
+.indexTop,
+.indexBottom {
+  display: flex;
+  gap: 20px;
+  background-color: var(--surface);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.indexTop {
+  justify-content: space-between;
+  padding: 60px;
+}
+.indexTop > div:last-of-type {
+  max-width: 664px;
+}
+.indexTop .mbImg {
+  display: none;
+}
+.indexBottom {
+  justify-content: center;
+  padding: 60px 0;
+  margin-top: 30px;
+  gap: 125px;
+}
+.indexBottom > div:first-of-type {
+  max-width: 470px;
+}
+.indexContents .indexPoint {
+  display: inline-block;
+  line-height: 20px;
+  padding: 6px 12px;
+  background-color: var(--purple600);
+  border-radius: 50px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.07px;
+  margin-bottom: 16px;
+}
+.indexContents strong {
+  display: block;
+  width: 268px;
+  color: var(--gray900);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.24px;
+  margin-bottom: 8px;
+  word-break: keep-all;
+}
+.indexContents strong em {
+  font-size: 0;
+  line-height: 0;
+}
+.indexContents p {
+  color: var(--gray500);
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+}
+.linkButtonCon {
+  text-align: center;
+  padding: 24px 0;
+  margin-top: 24px;
+  padding: 24px;
+}
+.linkButtonCon button {
+  width: 280px;
+}
+
+@media screen and (max-width: 1024px) {
+  .indexContents {
+    margin-top: 50px;
+  }
+  .indexContents strong {
+    width: 100%;
+  }
+  .indexTop,
+  .indexBottom {
+    padding: 40px;
+  }
+  .indexTop {
+    gap: 50px;
+    flex-direction: column;
+  }
+  .indexTop em {
+    display: none;
+  }
+  .indexBottom {
+    gap: 36px;
+    flex-direction: column-reverse;
+  }
+  .indexBottom > div:first-of-type {
+    margin: 0 auto;
+  }
+  .linkButtonCon {
+    margin-top: 48px;
+  }
+  .linkButtonCon a,
+  .linkButtonCon button {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .indexContents {
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+  .indexContents .indexPoint {
+    padding: 4px 12px;
+  }
+  .indexContents strong {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.18px;
+    margin-bottom: 4px;
+  }
+  .indexContents p {
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: -0.15px;
+  }
+  .indexTop {
+    padding: 24px;
+    padding-bottom: 60px;
+    overflow: hidden;
+  }
+  .indexTop img {
+    display: none;
+  }
+  .indexTop > div:last-of-type {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 354px;
+  }
+  .indexTop .mbImg {
+    display: block;
+  }
+  .indexBottom {
+    padding: 24px;
+    padding-bottom: 50px;
+    gap: 45px;
+    margin-top: 24px;
+  }
+  .linkButtonCon {
+    margin-top: 37px;
+    padding: 24px 20px;
+  }
+}

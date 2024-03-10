@@ -1,16 +1,29 @@
+.listContainer {
+  padding: 0 24px;
+  padding-bottom: 218px;
+}
+
 .gotoPostButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 60px auto 218px;
   padding: 24px 0;
 }
 
 @media screen and (max-width: 1024px) {
+  .listContainer {
+    padding-bottom: 0;
+  }
   .gotoPostButton a {
     width: 100%;
   }
   .gotoPostButton a button {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .listContainer {
+    padding: 0 20px;
   }
 }
