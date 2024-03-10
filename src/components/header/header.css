@@ -50,10 +50,34 @@ header .utillBox {
   left: 0;
   width: 100%;
   overflow: hidden;
-  transition: height 0.3s;
-  border-bottom: 1px solid #ededed;
   background-color: #fff;
   padding: 0 24px;
+  height: 68px;
+}
+.searchBox-enter {
+  opacity: 0;
+  height: 0;
+}
+
+.searchBox-enter-active {
+  opacity: 1;
+  height: 68px;
+  transition:
+    opacity 300ms,
+    height 300ms;
+}
+
+.searchBox-exit {
+  opacity: 1;
+  height: 68px;
+}
+
+.searchBox-exit-active {
+  opacity: 0;
+  height: 0;
+  transition:
+    opacity 300ms,
+    height 300ms;
 }
 .searchBox > div {
   max-width: 1200px;
@@ -98,5 +122,8 @@ header .utillBox {
 @media screen and (max-width: 768px) {
   .header {
     display: none;
+  }
+  header > div {
+    padding: 11px 20px;
   }
 }

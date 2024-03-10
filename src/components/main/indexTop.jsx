@@ -1,4 +1,4 @@
-import './indexTop.css';
+import './index.css';
 
 const IndexTop = () => {
   return (
@@ -15,7 +15,10 @@ const IndexTop = () => {
         </strong>
         <p>로그인 없이 자유롭게 만들어요.</p>
       </div>
-      <img src="images/img_01.png" />
+      <div>
+        <img src="images/img_01.png" />
+        <img className="mbImg" src="images/img_01_01.png" />
+      </div>
     </div>
   );
 };

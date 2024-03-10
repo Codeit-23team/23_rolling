@@ -5,6 +5,7 @@ import searchIcon from '@/search_icon.svg';
 import { useEffect, useRef, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { searchState } from '../../store/recoil/apiData';
+import { CSSTransition } from 'react-transition-group';
 
 const SearchBox = ({ open }) => {
   const setSearchValue = useSetRecoilState(searchState);
@@ -22,22 +23,18 @@ const SearchBox = ({ open }) => {
 
   return (
     <>
-      <div
-        style={{
-          height: open ? '68px' : '0',
-          borderBottom: open ? `1px solid #EDEDED` : 'none',
-        }}
-        className="searchBox"
-      >
-        <div>
-          <form action="/search" onSubmit={handleSearchValue}>
-            <input ref={searchRef} type="search" placeholder="이름을 입력해주세요." />
-            <button onClick={handleSearchValue} type="button">
-              <img src={searchIcon} alt="검색 하기" />
-            </button>
-          </form>
+      <CSSTransition in={open} timeout={300} classNames="searchBox" unmountOnExit>
+        <div className="searchBox">
+          <div>
+            <form action="/search" onSubmit={handleSearchValue}>
+              <input ref={searchRef} type="search" placeholder="이름을 입력해주세요." />
+              <button onClick={handleSearchValue} type="button">
+                <img src={searchIcon} alt="검색 하기" />
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+      </CSSTransition>
     </>
   );
 };

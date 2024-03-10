@@ -1,7 +1,9 @@
 const IndexBottom = () => {
   return (
     <div className="indexBottom">
-      <img src="images/img_02.png" />
+      <div>
+        <img src="images/img_02.png" />
+      </div>
       <div>
         <span className="indexPoint">Point. 02</span>
         <strong>서로에게 이모지로 감정을 표현해보세요</strong>

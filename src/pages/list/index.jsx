@@ -36,11 +36,7 @@ function ListPage() {
   return (
     <>
       <Header button={true} />
-      <div
-        style={{
-          padding: '0 32px',
-        }}
-      >
+      <div className="listContainer">
         <RollingPaperList
           userData={popUserData}
           name="인기 롤링 페이퍼 🔥"

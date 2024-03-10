@@ -26,3 +26,14 @@
 .messageContainer > a .buttonPrimary56 {
   width: 100%;
 }
+
+@media screen and (max-width: 1024px) {
+  .messageContainer {
+    padding-bottom: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .messageContainer {
+    padding: 0 20px;
+  }
+}
