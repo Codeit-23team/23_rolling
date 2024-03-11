@@ -1,13 +1,13 @@
-import './buttonOutlined40.css';
+import styles from './buttonOutlined40.module.css';
 
 const ButtonOutlined40 = ({ iconUrl, buttonName, onClick }) => {
   return (
-    <button className="buttonOutlined40" onClick={onClick}>
+    <button className={styles.buttonOutlined40} onClick={onClick}>
       {iconUrl === undefined ? (
         buttonName
       ) : (
-        <div className="iconBox">
-          <img className="icon" src={iconUrl} alt="icon" />
+        <div className={styles.iconBox}>
+          <img className={styles.icon} src={iconUrl} alt="icon" />
           {buttonName !== undefined && <span>{buttonName}</span>}
         </div>
       )}

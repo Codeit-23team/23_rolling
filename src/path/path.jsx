@@ -7,8 +7,6 @@ import PostEditPage from '../pages/post/id/edit';
 import ListPage from '../pages/list';
 import SearchPage from '../pages/search';
 import NotFoundPage from '../pages/notFound';
-import { useEffect, useState } from 'react';
-import { getApiRecipientList } from '../apis/apiRecipient';
 
 function Path() {
   return (

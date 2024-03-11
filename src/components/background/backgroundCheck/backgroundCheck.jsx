@@ -1,8 +1,8 @@
-import './backgroundCheck.css';
+import styles from './backgroundCheck.module.css';
 
 function BackgroundCheck() {
   return (
-    <div className="backgroundCheck">
+    <div className={styles.backgroundCheck}>
       <img className="checkIcon" src="images/check.svg" alt="checkIcon" />
     </div>
   );

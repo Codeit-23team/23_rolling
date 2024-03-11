@@ -1,0 +1,28 @@
+.messageContainer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 36px;
+}
+.messageContainer .inputName {
+  margin-top: 47px;
+  margin-bottom: 50px;
+}
+.messageContainer .formTitle {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.24px;
+  margin-bottom: 12px;
+}
+.messageContainer > div {
+  margin-bottom: 50px;
+}
+.messageContainer > a {
+  display: block;
+  width: 100%;
+  padding: 24px 0;
+}
+.messageContainer > a .buttonPrimary56 {
+  width: 100%;
+}

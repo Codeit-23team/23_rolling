@@ -40,3 +40,11 @@
   border: 1px solid var(--error);
   color: var(--gray500);
 }
+
+.errorInput {
+  color: var(--error);
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.06px;
+}
