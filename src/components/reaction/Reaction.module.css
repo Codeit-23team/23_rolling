@@ -1,3 +1,6 @@
+.emojiBox .reaction {
+  padding: 8px 12px;
+}
 .reaction {
   padding: 8px 12px;
   border-radius: 32px;
