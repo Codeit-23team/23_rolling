@@ -3,7 +3,7 @@ import BackgroundCheck from '../backgroundCheck/backgroundCheck';
 import styles from './backgroundImg.module.css';
 
 function BackgroundImg({ setBackgroundColor, setBackgroundImg }) {
-  const [check, setCheck] = useState(null);
+  const [check, setCheck] = useState(1);
   const imgId = [683, 24, 599, 1058];
 
   const handleOnClick = (number) => {

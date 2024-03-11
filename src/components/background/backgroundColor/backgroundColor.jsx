@@ -3,7 +3,7 @@ import BackgroundCheck from '../backgroundCheck/backgroundCheck';
 import styles from './backgroundColor.module.css';
 
 function BackgroundColor({ setBackgroundColor, setBackgroundImg }) {
-  const [check, setCheck] = useState('');
+  const [check, setCheck] = useState('beige');
 
   const handleOnClick = (color) => {
     if (check === color) {

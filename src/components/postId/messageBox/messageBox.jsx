@@ -37,7 +37,10 @@ const MessageBox = ({
   }, []);
 
   return (
-    <div className={styles.messageBox} onClick={handleMessageModalClick}>
+    <div
+      className={styles.messageBox}
+      onClick={modalOpen === false ? handleMessageModalClick : null}
+    >
       <div className={styles.messageBoxTop} tabIndex={0}>
         <div className={styles.messageBoxContents}>
           <img src={profileImageURL} alt="프로필 이미지" />
