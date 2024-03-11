@@ -1,0 +1,20 @@
+/*mobile*/
+@media only screen and (min-width: 360px) {
+  #root {
+    padding: 0 24px;
+  }
+}
+
+/*tablet*/
+@media only screen and (min-width: 768px) {
+  #root {
+    padding: 0 24px;
+  }
+}
+
+/*pc*/
+@media only screen and (min-width: 1248px) {
+  #root {
+    padding: 0;
+  }
+}
