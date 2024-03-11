@@ -5,11 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 const { Kakao } = window;
 
-const ShareModal = ({ id }) => {
+const ShareModal = () => {
   const setShareModal = useSetRecoilState(shareModalState);
   const setToast = useSetRecoilState(toastState);
 
-  const realUrl = `https://23-rolling.netlify.app//post/${id}`;
+  const realUrl = window.location.href;
   // 로컬 주소 (localhost 3000 같은거)
   useEffect(() => {
     // init 해주기 전에 clean up 을 해준다.
@@ -26,16 +26,25 @@ const ShareModal = ({ id }) => {
       content: {
         title: 'rolling',
         description: '롤링페이퍼 작성하기',
-        imageUrl: 'https://sprint.codeit.kr/static/images/sprint-admissions/og_img.png',
+        imageUrl: 'https://i.ibb.co/31wCVB6/logo-Icon-Color.png',
         link: {
           mobileWebUrl: realUrl,
+          webUrl: realUrl,
         },
       },
       buttons: [
         {
-          title: '롤링페이퍼 작성하러 가기',
+          title: '웹으로 이동',
           link: {
             mobileWebUrl: realUrl,
+            webUrl: realUrl,
+          },
+        },
+        {
+          title: '앱으로 이동',
+          link: {
+            mobileWebUrl: realUrl,
+            webUrl: realUrl,
           },
         },
       ],
