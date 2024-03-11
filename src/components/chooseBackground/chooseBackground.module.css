@@ -36,6 +36,10 @@
   width: 100%;
 }
 
+.chooseBackground .createPaper {
+  margin: 69px 0;
+}
+
 @media screen and (max-width: 768px) {
   .chooseBackground {
     max-width: 720px;

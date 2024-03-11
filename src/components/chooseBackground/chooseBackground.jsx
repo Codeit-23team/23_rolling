@@ -4,7 +4,7 @@ import { useSetRecoilState } from 'recoil';
 import { postUserId } from '../../store/recoil/apiData';
 import ToggleButton from '../toggleButton/toggleButton';
 import ButtonPrimary56 from '../button/buttonPrimary/buttonPrimary56/buttonPrimary56';
-import './chooseBackground.css';
+import styles from './chooseBackground.module.css';
 
 function ChooseBackground({
   userName,
@@ -38,13 +38,15 @@ function ChooseBackground({
   };
 
   return (
-    <div className="chooseBackground">
-      <div className="chooseBackgroundText">
+    <div className={styles.chooseBackground}>
+      <div className={styles.chooseBackgroundText}>
         <h1>배경화면을 선택해 주세요.</h1>
         <p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
       </div>
       <ToggleButton setBackgroundColor={setBackgroundColor} setBackgroundImg={setBackgroundImg} />
-      <ButtonPrimary56 buttonName="생성하기" handleApi={handlePostUserInfo} />
+      <div className={styles.createPaper}>
+        <ButtonPrimary56 buttonName="생성하기" handleApi={handlePostUserInfo} />
+      </div>
     </div>
   );
 }

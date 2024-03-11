@@ -1,0 +1,31 @@
+.buttonPrimary56 {
+  cursor: pointer;
+  padding: 14px 24px;
+  border-radius: 12px;
+  background: var(--purple600);
+  color: var(--white);
+  line-height: 26px;
+  letter-spacing: -0.16px;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-family: 'Pretendard';
+  border: 1px solid var(--purple600);
+}
+
+.buttonPrimary56:hover {
+  background: var(--purple700);
+}
+
+.buttonPrimary56:focus {
+  background: var(--purple800);
+  box-sizing: border-box;
+}
+
+.buttonPrimary56:active {
+  background: var(--purple800);
+}
+
+.buttonPrimary56:disabled {
+  background-color: var(--gray300);
+}

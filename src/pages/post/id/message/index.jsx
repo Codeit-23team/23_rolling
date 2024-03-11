@@ -4,7 +4,7 @@ import Header from '../../../../components/header/header';
 import InputName from '../../../../components/inputName/inputName';
 import ProfileImage from '../../../../components/profileImage/profileImage';
 import TextDropdown from '../../../../components/textField/dropdown/textDropdown';
-import './index.css';
+import styles from './index.module.css';
 import { useRecoilState } from 'recoil';
 import {
   messageRelationship,
@@ -55,7 +55,7 @@ const PostMessagePage = () => {
   return (
     <>
       <Header button={false}></Header>
-      <div className="messageContainer">
+      <div className={styles.messageContainer}>
         <InputName
           setUserName={setMessageName}
           type={'From'}
