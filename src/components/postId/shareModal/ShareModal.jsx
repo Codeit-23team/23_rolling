@@ -9,7 +9,7 @@ const ShareModal = ({ id }) => {
   const setShareModal = useSetRecoilState(shareModalState);
   const setToast = useSetRecoilState(toastState);
 
-  const realUrl = `https://23-rolling.netlify.app//post/${id}`;
+  const realUrl = `https://23-rolling.netlify.app/post/${id}`;
   // 로컬 주소 (localhost 3000 같은거)
   useEffect(() => {
     // init 해주기 전에 clean up 을 해준다.
