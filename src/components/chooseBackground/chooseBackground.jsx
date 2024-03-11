@@ -45,7 +45,11 @@ function ChooseBackground({
       </div>
       <ToggleButton setBackgroundColor={setBackgroundColor} setBackgroundImg={setBackgroundImg} />
       <div className={styles.createPaper}>
-        <ButtonPrimary56 buttonName="생성하기" handleApi={handlePostUserInfo} />
+        <ButtonPrimary56
+          buttonName="생성하기"
+          handleApi={handlePostUserInfo}
+          disabled={userData.name === null}
+        />
       </div>
     </div>
   );

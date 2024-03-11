@@ -3,7 +3,7 @@ import BackgroundCheck from '../backgroundCheck/backgroundCheck';
 import styles from './backgroundColor.module.css';
 
 function BackgroundColor({ setBackgroundColor, setBackgroundImg }) {
-  const [check, setCheck] = useState('');
+  const [check, setCheck] = useState('beige');
 
   const handleOnClick = (color) => {
     if (check === color) {
@@ -21,20 +21,25 @@ function BackgroundColor({ setBackgroundColor, setBackgroundImg }) {
     <div className={styles.backgroundColor}>
       <div className={styles.backgroundColorBox}>
         {/* api에서 beige 컬러 받음 */}
-        <button className={styles.beige} onClick={() => handleOnClick('beige')} />
-        {check === 'beige' ? <BackgroundCheck /> : null}
+        <button className={styles.beige} onClick={() => handleOnClick('beige')}>
+          {check === 'beige' ? <BackgroundCheck /> : null}
+        </button>
       </div>
       <div className={styles.backgroundColorBox}>
-        <button className={styles.purple} onClick={() => handleOnClick('purple')} />
-        {check === 'purple' ? <BackgroundCheck /> : null}
+        <button className={styles.purple} onClick={() => handleOnClick('purple')}>
+          {check === 'purple' ? <BackgroundCheck /> : null}
+        </button>
       </div>
       <div className={styles.backgroundColorBox}>
-        <button className={styles.blue} onClick={() => handleOnClick('blue')} />
-        {check === 'blue' ? <BackgroundCheck /> : null}
+        <button className={styles.blue} onClick={() => handleOnClick('blue')}>
+          {' '}
+          {check === 'blue' ? <BackgroundCheck /> : null}
+        </button>
       </div>
       <div className={styles.backgroundColorBox}>
-        <button className={styles.green} onClick={() => handleOnClick('green')} />
-        {check === 'green' ? <BackgroundCheck /> : null}
+        <button className={styles.green} onClick={() => handleOnClick('green')}>
+          {check === 'green' ? <BackgroundCheck /> : null}
+        </button>
       </div>
     </div>
   );
