@@ -2,6 +2,7 @@ import { useRecoilValueLoadable } from 'recoil';
 import { profileImageData } from '../../store/recoil/apiData';
 import { useEffect, useState } from 'react';
 import styles from './profileImage.module.css';
+import stylesA from '../../pages/post/id/message/index.module.css';
 
 const ProfileImage = ({ profileImage, setProfileImage }) => {
   const { contents } = useRecoilValueLoadable(profileImageData);
@@ -28,7 +29,7 @@ const ProfileImage = ({ profileImage, setProfileImage }) => {
   }, [contents]);
   return (
     <div className={styles.profileImage}>
-      <strong className={styles.formTitle}>프로필 이미지</strong>
+      <strong className={stylesA.formTitle}>프로필 이미지</strong>
       <div className={styles.profileImageBox}>
         <div className={styles.clickImageBox}>
           <img src={profileImage} alt="기본 프로필" />

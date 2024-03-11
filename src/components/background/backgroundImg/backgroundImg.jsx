@@ -18,43 +18,31 @@ function BackgroundImg({ setBackgroundColor, setBackgroundImg }) {
     }
   };
 
-  const transparency = {
-    opacity: 0.5,
-  };
-
   return (
     <div className={styles.backgroundImg}>
       <div className={styles.backgroundImgBox}>
-        <button
-          className={styles.background1}
-          onClick={() => handleOnClick(1)}
-          style={check === 1 ? transparency : null}
-        />
-        {check === 1 ? <BackgroundCheck /> : null}
+        <button className={styles.background1} onClick={() => handleOnClick(1)}>
+          {check === 1 ? <BackgroundCheck styled={check === 1 ? 'on' : ''} /> : null}
+          <img src="https://picsum.photos/id/683/3840/2160" alt="배경이미지1" />
+        </button>
       </div>
       <div className={styles.backgroundImgBox}>
-        <button
-          className={styles.background2}
-          onClick={() => handleOnClick(2)}
-          style={check === 2 ? transparency : null}
-        />
-        {check === 2 ? <BackgroundCheck /> : null}
+        <button className={styles.background2} onClick={() => handleOnClick(2)}>
+          {check === 2 ? <BackgroundCheck styled={check === 2 ? 'on' : ''} /> : null}
+          <img src="https://picsum.photos/id/24/3840/2160" alt="배경이미지2" />
+        </button>
       </div>
       <div className={styles.backgroundImgBox}>
-        <button
-          className={styles.background3}
-          onClick={() => handleOnClick(3)}
-          style={check === 3 ? transparency : null}
-        />
-        {check === 3 ? <BackgroundCheck /> : null}
+        <button className={styles.background3} onClick={() => handleOnClick(3)}>
+          {check === 3 ? <BackgroundCheck styled={check === 3 ? 'on' : ''} /> : null}
+          <img src="https://picsum.photos/id/599/3840/2160" alt="배경이미지3" />
+        </button>
       </div>
       <div className={styles.backgroundImgBox}>
-        <button
-          className={styles.background4}
-          onClick={() => handleOnClick(4)}
-          style={check === 4 ? transparency : null}
-        />
-        {check === 4 ? <BackgroundCheck /> : null}
+        <button className={styles.background4} onClick={() => handleOnClick(4)}>
+          {check === 4 ? <BackgroundCheck styled={check === 4 ? 'on' : ''} /> : null}
+          <img src="https://picsum.photos/id/1058/3840/2160" alt="배경이미지4" />
+        </button>
       </div>
     </div>
   );
