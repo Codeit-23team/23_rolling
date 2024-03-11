@@ -7,44 +7,31 @@
 
 .backgroundImgBox {
   display: flex;
-  overflow: hidden;
-  position: relative;
   width: 100%;
   overflow: hidden;
   border-radius: 16px;
-}
-
-.backgroundImg button {
-  border-radius: 16px;
-  width: 100%;
-  padding-bottom: 100%;
-  border: none;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
-
-.backgroundImg button.background1 {
-  background-image: url('https://picsum.photos/id/683/3840/2160');
-}
-
-.backgroundImg button.background2 {
-  background-image: url('https://picsum.photos/id/24/3840/2160');
-}
-
-.backgroundImg button.background3 {
-  background-image: url('https://picsum.photos/id/599/3840/2160');
-}
-
-.backgroundImg button.background4 {
-  background-image: url('https://picsum.photos/id/1058/3840/2160');
 }
 
 .backgroundImg button {
   cursor: pointer;
+  position: relative;
+  border-radius: 16px;
+  width: 100%;
+  padding-bottom: 100%;
+  border: none;
+}
+.backgroundImg button > img {
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.backgroundImg button > img {
   transition: all 0.3s;
 }
-.backgroundImg button:hover {
+.backgroundImg button:hover > img {
   transform: scale(1.1);
 }
 

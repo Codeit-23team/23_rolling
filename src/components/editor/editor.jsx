@@ -1,5 +1,6 @@
 import ReactQuill from 'react-quill';
 import './editor.css';
+import styles from '../../pages/post/id/message/index.module.css';
 
 const Editor = ({ type, editorData, setEditorData }) => {
   const modules = {
@@ -36,8 +37,8 @@ const Editor = ({ type, editorData, setEditorData }) => {
     setEditorData(value);
   };
   return (
-    <div className="testCon">
-      <strong className="formTitle">{type}</strong>
+    <div className="editorCon">
+      <strong className={styles.formTitle}>{type}</strong>
       <ReactQuill value={editorData} onChange={handleChange} formats={formats} modules={modules} />
     </div>
   );

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Select from 'react-select';
+import styles from '../../../pages/post/id/message/index.module.css';
 
 const TextDropdown = ({ setValue, type, options }) => {
   const handleChange = (selectedOption) => {
@@ -52,8 +53,8 @@ const TextDropdown = ({ setValue, type, options }) => {
   }, []);
 
   return (
-    <div className="selectBox">
-      <strong className="formTitle">{type}</strong>
+    <div className={styles.selectBox}>
+      <strong className={styles.formTitle}>{type}</strong>
       <Select
         options={options}
         onChange={handleChange}

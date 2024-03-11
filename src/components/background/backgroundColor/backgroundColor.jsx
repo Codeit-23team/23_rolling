@@ -32,7 +32,6 @@ function BackgroundColor({ setBackgroundColor, setBackgroundImg }) {
       </div>
       <div className={styles.backgroundColorBox}>
         <button className={styles.blue} onClick={() => handleOnClick('blue')}>
-          {' '}
           {check === 'blue' ? <BackgroundCheck /> : null}
         </button>
       </div>
