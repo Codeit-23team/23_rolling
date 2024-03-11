@@ -27,5 +27,6 @@
 }
 
 .buttonPrimary56:disabled {
+  border: 1px solid var(--gray300);
   background-color: var(--gray300);
 }

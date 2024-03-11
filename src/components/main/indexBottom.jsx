@@ -4,7 +4,7 @@ const IndexBottom = () => {
   return (
     <div className={styles.indexBottom}>
       <div>
-        <img src="images/img_02.png" />
+        <img src="images/img_02.png" alt="추가 버튼을 누르면 이모티콘 추가가 됩니다." />
       </div>
       <div>
         <span className={styles.indexPoint}>Point. 02</span>

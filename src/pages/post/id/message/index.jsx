@@ -26,8 +26,8 @@ const PostMessagePage = () => {
   const navigate = useNavigate();
 
   const relationshipOptions = [
-    { value: '친구', label: '친구' },
     { value: '지인', label: '지인' },
+    { value: '친구', label: '친구' },
     { value: '동료', label: '동료' },
     { value: '가족', label: '가족' },
   ];
