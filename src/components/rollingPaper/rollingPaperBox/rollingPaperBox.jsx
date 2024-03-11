@@ -1,4 +1,5 @@
 import styles from './rollingPaperBox.module.css';
+import styled from '../../reaction/Reaction.module.css';
 import Reaction from '../../reaction/Reaction';
 import ProfileBox from '../../profileList/profilebox/profileBox';
 
@@ -31,7 +32,7 @@ function RollingPaperBox({ name, background, recentMessages, messageCount, topRe
         </div>
         <div className={styles.message}>{messageCount}명이 작성했어요!</div>
       </div>
-      <ul className={styles.emoji}>
+      <ul className={`${styles.emoji} ${styled.emojiBox}`}>
         {topReactions?.map((data) => (
           <Reaction key={data.id} emoji={data.emoji} count={data.count} />
         ))}
