@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './messageBox.css';
+import styles from './messageBox.module.css';
 import { dateChange } from '../../../utils/utilsFunction';
 import ButtonOutlined40 from '../../button/buttonOutlined/buttonOutlined40/buttonOutlined40';
 import ModalPortal from '../../../utils/modalPortal';
@@ -37,15 +37,15 @@ const MessageBox = ({
   }, []);
 
   return (
-    <div className="messageBox" onClick={handleMessageModalClick}>
-      <div className="messageBoxTop" tabIndex={0}>
-        <div className="messageBoxContents">
-          <img src={profileImageURL} />
+    <div className={styles.messageBox} onClick={handleMessageModalClick}>
+      <div className={styles.messageBoxTop} tabIndex={0}>
+        <div className={styles.messageBoxContents}>
+          <img src={profileImageURL} alt="프로필 이미지" />
           <div>
             <p>
               From.<strong>{sender}</strong>
             </p>
-            <span className={`badge ${relationClass}`}>{relationship}</span>
+            <span className={`${styles.badge} ${styles[relationClass]}`}>{relationship}</span>
           </div>
           {optionDeleteButton ? (
             <ButtonOutlined40
@@ -54,9 +54,9 @@ const MessageBox = ({
             />
           ) : null}
         </div>
-        <div className="messageTextBox" dangerouslySetInnerHTML={{ __html: content }}></div>
+        <div className={styles.messageTextBox} dangerouslySetInnerHTML={{ __html: content }}></div>
       </div>
-      <p className="messageDate">{dateChange(createdAt)}</p>
+      <p className={styles.messageDate}>{dateChange(createdAt)}</p>
       {/* 메시지 모달 ㄱㄱ */}
       {modalOpen && (
         <ModalPortal>
