@@ -16,22 +16,21 @@ function ListPage() {
     getApiRecipientList().then((response) => {
       const { results } = response;
       setUserData(results);
+      if (results && results.length > 0) {
+        const sortedUserDataArray = results.slice().sort((a, b) => {
+          const lengthA = a.messageCount;
+          const lengthB = b.messageCount;
+          return lengthB - lengthA;
+        });
+
+        setPopUserData(sortedUserDataArray);
+      } else {
+        //페이퍼가 없을때 undefined 주기
+        setPopUserData(undefined);
+      }
     });
     // deleteValue가 변경되었을때 랜더링 합니다!
   }, [deleteValue]);
-
-  // too many request
-  useEffect(() => {
-    if (userData && userData.length > 0) {
-      const sortedUserDataArray = userData.slice().sort((a, b) => {
-        const lengthA = a.messageCount;
-        const lengthB = b.messageCount;
-        return lengthB - lengthA;
-      });
-
-      setPopUserData(sortedUserDataArray);
-    }
-  }, [userData]);
 
   return (
     <>

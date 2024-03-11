@@ -23,7 +23,7 @@
   width: 100%;
   padding: 24px 0;
 }
-.messageContainer > a .buttonPrimary56 {
+.messageContainer > a button {
   width: 100%;
 }
 

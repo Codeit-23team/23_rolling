@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './textInput.css';
+import styles from './textInput.module.css';
 import { useRef } from 'react';
 
 const TextInput = ({ placeholder, setUserName }) => {
@@ -8,7 +8,6 @@ const TextInput = ({ placeholder, setUserName }) => {
 
   const handleUserName = (e) => {
     setUserName(e.target.value);
-    // console.log(inputRef.current.value);
   };
   const blurInput = () => {
     if (inputRef.current.value === '') {
@@ -22,12 +21,12 @@ const TextInput = ({ placeholder, setUserName }) => {
     <>
       <input
         ref={inputRef}
-        className={textOn ? 'textInput error' : 'textInput'}
+        className={textOn ? `${styles.textInput} ${styles.error}` : styles.textInput}
         placeholder={placeholder}
         onChange={handleUserName}
         onBlur={blurInput}
       />
-      {textOn ? <p className="errorInput">값을 입력해 주세요.</p> : null}
+      {textOn ? <p className={styles.errorInput}>값을 입력해 주세요.</p> : null}
     </>
   );
 };
