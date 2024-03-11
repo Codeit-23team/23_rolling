@@ -30,14 +30,12 @@
   max-width: 720px;
 }
 
-.chooseBackground .buttonPrimary56 {
-  margin-top: 69px;
-  margin-bottom: 336px;
-  width: 100%;
-}
-
 .chooseBackground .createPaper {
   margin: 69px 0;
+}
+
+.chooseBackground .createPaper button {
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
