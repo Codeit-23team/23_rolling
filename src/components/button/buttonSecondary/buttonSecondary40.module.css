@@ -1,0 +1,31 @@
+.buttonSecondary40 {
+  cursor: pointer;
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--purple600);
+  background: var(--white);
+  color: var(--purple700);
+  font-family: Pretendard;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: -0.16px;
+}
+
+.buttonSecondary40:hover {
+  border: 1px solid var(--purple700);
+  background: var(--purple100);
+}
+
+.buttonSecondary40:focus {
+  border: 1px solid var(--purple800);
+}
+
+.buttonSecondary40:active {
+  border: 1px solid var(--purple800);
+  background: var(--purple100);
+}
+
+.buttonSecondary40:disabled {
+  background-color: var(--gray300);
+  color: var(--white);
+}

@@ -1,9 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
-import { getApiRecipientList } from '../../../apis/apiRecipient';
 import RollingPaperBox from '../rollingPaperBox/rollingPaperBox';
 import './rollingPaperList.css';
 import { Link } from 'react-router-dom';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 
@@ -13,16 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-function RollingPaperList({ name, buttonClass }) {
-  const [userData, setUserData] = useState(undefined);
-
-  useEffect(() => {
-    getApiRecipientList().then((response) => {
-      const { results } = response;
-      setUserData(results);
-    });
-  }, []);
-
+function RollingPaperList({ name, buttonClass, userData }) {
   SwiperCore.use([Navigation]);
   const swiperOptions = {
     navigation: {
@@ -30,17 +19,17 @@ function RollingPaperList({ name, buttonClass }) {
       nextEl: `.${buttonClass}Next`,
     },
   };
-
   return (
     <div className="rollingPaperList">
-      <span>{name}</span>
+      <strong>{name}</strong>
       <div className="rollingPaperSwiperBox">
         <Swiper
           loop={true}
           className="rollingPaperBoxList"
-          modules={[Navigation]}
+          modules={[Navigation, Pagination]}
           spaceBetween={20}
           slidesPerView="auto"
+          pagination={{ clickable: true }}
           navigation
           {...swiperOptions}
         >

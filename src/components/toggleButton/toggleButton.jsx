@@ -11,7 +11,7 @@ function ToggleButton({ setBackgroundColor, setBackgroundImg }) {
   };
 
   return (
-    <div>
+    <div className="toggleBackground">
       <div className="toggleButton">
         <button
           className={toggleOn ? `on` : null}

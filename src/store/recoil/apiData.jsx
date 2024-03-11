@@ -35,7 +35,7 @@ export const postUserId = atom({
 });
 
 //------ post/id페이지 emoji 추가 토글 상태) _ 권나은
-export const emojiModalState = atom({
+export const emojiAddModalState = atom({
   key: 'emojiModalState',
   default: false,
 });
@@ -50,9 +50,13 @@ export const toastState = atom({
   default: false,
 });
 
-
 // ------ 검색페이지 _ 임동현
 export const searchState = atom({
   key: 'searchState',
   default: '',
+});
+
+export const deleteState = atom({
+  key: 'deleteState',
+  default: true,
 });

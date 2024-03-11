@@ -1,36 +1,40 @@
 .testCon {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .quill {
-    border: 1px solid var(--gray300);
-    border-radius: 8px;
+  border: 1px solid var(--gray300);
+  border-radius: 8px;
 }
 .ql-toolbar.ql-snow {
-    padding: 12px 15px;
-    background-color: var(--gray200);
-    border: none;
+  padding: 12px 15px;
+  background-color: var(--gray200);
+  border: none;
 }
 .ql-toolbar.ql-snow .ql-formats {
-    margin-right: 14px;
+  margin-right: 14px;
 }
 .ql-toolbar.ql-snow .ql-formats:last-of-type {
-    margin-right: 0;
+  margin-right: 0;
 }
 .ql-container {
-    font-size: 16px;
-    font-family: 'Pretendard';
+  font-size: 16px;
+  font-family: 'Pretendard';
 }
 .ql-container.ql-snow {
-    border: none;
+  border: none;
 }
 .ql-editor {
-    padding: 16px;
-    min-height: 178px;
+  padding: 16px;
+  min-height: 178px;
 }
-.ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button, .ql-snow .ql-color-picker, .ql-snow .ql-icon-picker {
-    width: 24px;
+.ql-snow.ql-toolbar button,
+.ql-snow .ql-toolbar button,
+.ql-snow .ql-color-picker,
+.ql-snow .ql-icon-picker {
+  width: 24px;
 }
-.ql-snow .ql-color-picker .ql-picker-label, .ql-snow .ql-icon-picker .ql-picker-label {
-    padding: 2px 1px;
+.ql-snow .ql-color-picker .ql-picker-label,
+.ql-snow .ql-icon-picker .ql-picker-label {
+  padding: 2px 1px;
 }

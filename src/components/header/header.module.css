@@ -1,0 +1,53 @@
+.headerBox {
+  border-bottom: 1px solid #ededed;
+}
+.headerBox > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1248px;
+  padding: 11px 24px;
+  margin: 0 auto;
+}
+.headerBox h1 a {
+  display: block;
+  width: 106px;
+  height: 42px;
+  font-size: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.headerBox button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.headerBox div > a {
+  display: inline-block;
+  font-weight: 700;
+  padding: 8px 16px;
+  color: var(--gray900);
+  border: 1px solid var(--gray300);
+  background-color: var(--white);
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.headerBox div > a:hover {
+  background-color: var(--gray100);
+}
+.headerBox .utillBox {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    display: none;
+  }
+  .headerBox > div {
+    padding: 11px 20px;
+  }
+}

@@ -1,0 +1,9 @@
+.postPage {
+  margin: 0 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .postPage {
+    margin: 0 20px;
+  }
+}

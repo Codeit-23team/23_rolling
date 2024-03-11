@@ -1,0 +1,75 @@
+.searchBox {
+  position: absolute;
+  z-index: 100;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 0 24px;
+  height: 68px;
+}
+.searchBox-enter {
+  opacity: 0;
+  height: 0;
+}
+
+.searchBox-enter-active {
+  opacity: 1;
+  height: 68px;
+  transition:
+    opacity 300ms,
+    height 300ms;
+}
+
+.searchBox-exit {
+  opacity: 1;
+  height: 68px;
+}
+
+.searchBox-exit-active {
+  opacity: 0;
+  height: 0;
+  transition:
+    opacity 300ms,
+    height 300ms;
+}
+.searchBox > div {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+.searchBox form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.searchBox form input {
+  padding: 12px 40px 12px 16px;
+  width: 100%;
+  border: 1px solid var(--gray300);
+  border-radius: 50px;
+  font-family: 'Pretendard';
+}
+.searchBox form input::placeholder {
+  font-size: 14px;
+  color: var(--gray500);
+}
+.searchBox form button {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  right: 16px;
+  background-color: transparent;
+  border: none;
+}
+.searchBox form button img {
+  width: 100%;
+}

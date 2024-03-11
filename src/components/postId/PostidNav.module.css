@@ -1,35 +1,31 @@
 .postIdNav {
+  margin: 13px 0;
+  padding: 0 24px;
+}
+.postIdNav > div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 13px auto;
   width: 100%;
-
-  @media screen and (max-width: 1248px) {
-    padding: 0 24px;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
 .highlight {
   font-size: 18px;
   font-weight: 700;
 }
 
-.postIdNav p {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 27px;
-  letter-spacing: 0em;
-  text-align: left;
-  display: inline-block;
+.postIdNav > div > div:first-child {
+  overflow: hidden;
+  max-width: 500px;
 }
-
-.postIdNav > div:first-child p {
+.postIdNav > div > div:first-child p {
   font-size: 28px;
   line-height: 42px;
-  letter-spacing: -0.01em;
-  text-align: left;
+  font-weight: 700;
+  padding-right: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .messageUsers {
@@ -37,11 +33,16 @@
   align-items: center;
   gap: 11px;
   margin-right: 28px;
+  height: 28px;
 }
 
 .postIdNav div {
   display: flex;
   align-items: center;
+}
+.messageUsers p {
+  font-size: 18px;
+  line-height: 27px;
 }
 
 .line {
@@ -53,7 +54,7 @@
   margin-left: 28px;
   margin-right: 8px;
   display: flex;
-  gap: 2px;
+  position: relative;
 }
 
 .emoji ul {
@@ -63,35 +64,44 @@
 }
 
 .emoji button {
+  cursor: pointer;
   border: 0px;
   background-color: white;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
 }
 
 .buttonSection {
   gap: 13px;
 }
 
-.addEmoji {
-  flex-direction: column;
-  position: relative;
+.toggle {
+  width: 14px;
 }
-
-.addEmoji > div:nth-child(2) {
-  position: absolute;
-  top: 50px;
-  right: -50px;
-  z-index: 5;
+@media screen and (max-width: 1024px) {
+  .postIdNav .messageUsers {
+    display: none;
+  }
 }
-
-.share {
-  position: relative;
-}
-
-.share > div {
-  position: absolute;
-  z-index: 5;
-  top: 50px;
-  right: -40px;
+@media screen and (max-width: 768px) {
+  .postIdNav {
+    padding: 0;
+    margin: 0;
+  }
+  .postIdNav > div {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .postIdNav > div > div:first-child {
+    max-width: 100%;
+    padding: 12px 20px;
+  }
+  .buttonSection {
+    gap: 15px;
+  }
+  .emoji {
+    margin-left: 0;
+  }
 }

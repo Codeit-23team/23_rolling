@@ -4,7 +4,7 @@ import Header from '../../../../components/header/header';
 import InputName from '../../../../components/inputName/inputName';
 import ProfileImage from '../../../../components/profileImage/profileImage';
 import TextDropdown from '../../../../components/textField/dropdown/textDropdown';
-import './index.css';
+import styles from './index.module.css';
 import { useRecoilState } from 'recoil';
 import {
   messageRelationship,
@@ -13,7 +13,6 @@ import {
   fromName,
   messageProfile,
 } from '../../../../store/recoil/apiData';
-import { useEffect } from 'react';
 import { messageApiRecipient } from '../../../../apis/apiRecipient';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -25,23 +24,33 @@ const PostMessagePage = () => {
   const [choiceFont, setChoiceFont] = useRecoilState(messageFont);
   const { id } = useParams();
   const navigate = useNavigate();
+
   const relationshipOptions = [
     { value: '친구', label: '친구' },
     { value: '지인', label: '지인' },
     { value: '동료', label: '동료' },
     { value: '가족', label: '가족' },
   ];
+
   const fontOptions = [
     { value: 'Noto Sans', label: 'Noto Sans' },
     { value: 'Pretendard', label: 'Pretendard' },
   ];
+
   const handlePostMessage = () => {
-    if (messageName === '' || editorData === '<p><br></p>' || editorData === '<p></p>') {
-      // 생성 막음
+    if (
+      messageName === '' ||
+      editorData === '' ||
+      editorData === '<p></p>' ||
+      editorData === '<p><br></p>'
+    ) {
+      alert('빈칸의 내용을 입력해주세요.');
     } else {
       messageApiRecipient(messageName, messageImage, relationship, editorData, choiceFont, id).then(
         (response) => {
           const data = response;
+          setEditorData('');
+          setMessageName('');
           navigate(`/post/${id}`);
           return data;
         },
@@ -51,7 +60,7 @@ const PostMessagePage = () => {
   return (
     <>
       <Header button={false}></Header>
-      <div className="messageContainer">
+      <div className={styles.messageContainer}>
         <InputName
           setUserName={setMessageName}
           type={'From'}

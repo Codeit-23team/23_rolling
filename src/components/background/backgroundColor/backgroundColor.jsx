@@ -1,34 +1,45 @@
 import { useState } from 'react';
 import BackgroundCheck from '../backgroundCheck/backgroundCheck';
-import './backgroundColor.css';
+import styles from './backgroundColor.module.css';
 
 function BackgroundColor({ setBackgroundColor, setBackgroundImg }) {
-  const [check, setCheck] = useState(0);
+  const [check, setCheck] = useState('beige');
 
   const handleOnClick = (color) => {
-    setCheck(color);
-    setBackgroundColor(color);
-    setBackgroundImg('');
+    if (check === color) {
+      setCheck('');
+      setBackgroundColor('beige');
+      setBackgroundImg('');
+    } else {
+      setCheck(color);
+      setBackgroundColor(color);
+      setBackgroundImg('');
+    }
   };
 
   return (
-    <div className="backgroundColor">
-      <div className="backgroundColorBox">
+    <div className={styles.backgroundColor}>
+      <div className={styles.backgroundColorBox}>
         {/* api에서 beige 컬러 받음 */}
-        <button className="beige" onClick={() => handleOnClick('beige')} />
-        {check === 'beige' ? <BackgroundCheck /> : null}
+        <button className={styles.beige} onClick={() => handleOnClick('beige')}>
+          {check === 'beige' ? <BackgroundCheck /> : null}
+        </button>
       </div>
-      <div className="backgroundColorBox">
-        <button className="purple" onClick={() => handleOnClick('purple')} />
-        {check === 'purple' ? <BackgroundCheck /> : null}
+      <div className={styles.backgroundColorBox}>
+        <button className={styles.purple} onClick={() => handleOnClick('purple')}>
+          {check === 'purple' ? <BackgroundCheck /> : null}
+        </button>
       </div>
-      <div className="backgroundColorBox">
-        <button className="blue" onClick={() => handleOnClick('blue')} />
-        {check === 'blue' ? <BackgroundCheck /> : null}
+      <div className={styles.backgroundColorBox}>
+        <button className={styles.blue} onClick={() => handleOnClick('blue')}>
+          {' '}
+          {check === 'blue' ? <BackgroundCheck /> : null}
+        </button>
       </div>
-      <div className="backgroundColorBox">
-        <button className="green" onClick={() => handleOnClick('green')} />
-        {check === 'green' ? <BackgroundCheck /> : null}
+      <div className={styles.backgroundColorBox}>
+        <button className={styles.green} onClick={() => handleOnClick('green')}>
+          {check === 'green' ? <BackgroundCheck /> : null}
+        </button>
       </div>
     </div>
   );

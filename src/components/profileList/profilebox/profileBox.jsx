@@ -11,8 +11,8 @@ function ProfileBox({ recentMessages, messageCount }) {
           </li>
         ),
       )}
-      {messageCount < 3 ? null : (
-        <li>
+      {messageCount <= 3 ? null : (
+        <li className={styles.profileNum}>
           <ProfileImg imageCount={messageCount - 3} />
         </li>
       )}

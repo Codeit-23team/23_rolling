@@ -1,0 +1,28 @@
+.emojies {
+  position: absolute;
+  box-shadow: 0px 2px 12px 0px #00000014;
+  border: 1px solid #b6b6b6;
+  background: #ffffff;
+  max-width: 312px;
+  border-radius: 8px;
+  top: 45px;
+  z-index: 5;
+  right: 0;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px 8px !important;
+  padding: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .emojies {
+    max-width: 203px;
+    padding: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    right: -175px;
+  }
+  .emojies > li:nth-of-type(n + 7) {
+    display: none;
+  }
+}

@@ -1,0 +1,21 @@
+.reaction {
+  padding: 8px 12px;
+  border-radius: 32px;
+  background: #0000008a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.reaction span {
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .postIdNavUtil .reaction {
+    padding: 4px 8px;
+  }
+  .postIdNavUtil .reaction li span:nth-of-type(2) {
+    font-size: 14px;
+  }
+}

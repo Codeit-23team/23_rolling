@@ -6,10 +6,11 @@
   align-items: flex-start;
   gap: 16px;
   margin: 50px auto;
+  margin-bottom: 80px;
   max-width: 1160px;
 }
 
-.rollingPaperList h1 {
+.rollingPaperList strong {
   color: var(--black);
   font-size: 24px;
   font-weight: 700;
@@ -18,8 +19,11 @@
 }
 
 .rollingPaperList .rollingPaperBoxList {
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
   width: 100%;
+  position: static;
 }
 .rollingPaperList .rollingPaperBoxList .swiper-slide {
   width: 275px;
@@ -32,12 +36,17 @@
   cursor: pointer;
   z-index: 10;
   position: absolute;
-  top: 50%; transform: translateY(-50%);
-  width: 40px; height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.90);
-  border: 1px solid #DADCDF;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dadcdf;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+}
+.rollingPaperSwiperBox > button:hover {
+  background-color: rgba(236, 236, 236, 0.9);
 }
 .rollingPaperSwiperBox > button.prev {
   left: -20px;
@@ -47,7 +56,22 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .rollingPaperList .rollingPaperBoxList {
+    overflow: visible;
+  }
   .rollingPaperSwiperBox > button {
     display: none;
   }
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -30px !important;
+  top: auto !important;
+}
+
+.swiper .swiper-pagination-bullet-active {
+  background: var(--purple600);
 }
