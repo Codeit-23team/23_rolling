@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BackgroundCheck from '../backgroundCheck/backgroundCheck';
 import styles from './backgroundImg.module.css';
 
@@ -17,6 +17,12 @@ function BackgroundImg({ setBackgroundColor, setBackgroundImg }) {
       setBackgroundImg(`https://picsum.photos/id/${imgId[number - 1]}/3840/2160`);
     }
   };
+
+  useEffect(() => {
+    //초기 이미지
+    setBackgroundColor('');
+    setBackgroundImg('https://picsum.photos/id/683/3840/2160');
+  }, []);
 
   return (
     <div className={styles.backgroundImg}>
