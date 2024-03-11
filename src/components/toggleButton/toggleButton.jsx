@@ -4,7 +4,7 @@ import BackgroundImg from '../background/backgroundImg/backgroundImg';
 import './toggleButton.css';
 
 function ToggleButton({ setBackgroundColor, setBackgroundImg }) {
-  const [toggleOn, setToggleOn] = useState(true);
+  const [toggleOn, setToggleOn] = useState(false);
 
   const handleOnClick = () => {
     setToggleOn(!toggleOn);
@@ -14,16 +14,16 @@ function ToggleButton({ setBackgroundColor, setBackgroundImg }) {
     <div className="toggleBackground">
       <div className="toggleButton">
         <button
-          className={toggleOn ? `on` : null}
+          className={toggleOn ? 'on' : null}
           onClick={handleOnClick}
-          disabled={toggleOn ? null : `disabled`}
+          disabled={toggleOn ? null : 'disabled'}
         >
           컬러
         </button>
         <button
-          className={toggleOn ? null : `on`}
+          className={!toggleOn ? 'on' : null}
           onClick={handleOnClick}
-          disabled={!toggleOn ? null : `disabled`}
+          disabled={!toggleOn ? null : 'disabled'}
         >
           이미지
         </button>
