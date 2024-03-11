@@ -11,11 +11,19 @@
 .reaction span {
   color: #fff;
 }
+@media screen and (max-width: 1024px) {
+  .reaction {
+    padding: 6px 12px;
+  }
+  .reaction li span:nth-of-type(2) {
+    font-size: 14px;
+  }
+}
 @media screen and (max-width: 768px) {
-  .postIdNavUtil .reaction {
+  .reaction {
     padding: 4px 8px;
   }
-  .postIdNavUtil .reaction li span:nth-of-type(2) {
+  .reaction li span:nth-of-type(2) {
     font-size: 14px;
   }
 }
