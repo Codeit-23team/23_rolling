@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
-import './header.css';
+import styles from './header.module.css';
+import './search.css';
 import logoImg from '@/logo.png';
 import searchIcon from '@/search_icon.svg';
 import { useEffect, useRef, useState } from 'react';
@@ -28,7 +29,7 @@ const SearchBox = ({ open }) => {
           <div>
             <form action="/search" onSubmit={handleSearchValue}>
               <input ref={searchRef} type="search" placeholder="이름을 입력해주세요." />
-              <button onClick={handleSearchValue} type="button">
+              <button onClick={handleSearchValue} type="submit">
                 <img src={searchIcon} alt="검색 하기" />
               </button>
             </form>
@@ -55,14 +56,14 @@ const Header = ({ button }) => {
 
   return (
     <>
-      <header className={button ? null : 'header'}>
+      <header className={`${styles.headerBox} ${button ? '' : styles.header}`}>
         <div>
           <h1>
             <Link to={'/'} style={{ backgroundImage: `url(${logoImg})` }}>
               홈으로
             </Link>
           </h1>
-          <div className="utillBox">
+          <div className={styles.utillBox}>
             {button ? <Link to={'/post'}>롤링페이퍼 만들기</Link> : null}
             <button type="button" onClick={handleSearch}>
               <img src={searchIcon} alt="검색하기" />

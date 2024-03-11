@@ -38,14 +38,19 @@ const PostMessagePage = () => {
   ];
 
   const handlePostMessage = () => {
-    setEditorData('');
-
-    if (messageName === '' || editorData === '' || editorData === '<p></p>') {
+    if (
+      messageName === '' ||
+      editorData === '' ||
+      editorData === '<p></p>' ||
+      editorData === '<p><br></p>'
+    ) {
       alert('빈칸의 내용을 입력해주세요.');
     } else {
       messageApiRecipient(messageName, messageImage, relationship, editorData, choiceFont, id).then(
         (response) => {
           const data = response;
+          setEditorData('');
+          setMessageName('');
           navigate(`/post/${id}`);
           return data;
         },

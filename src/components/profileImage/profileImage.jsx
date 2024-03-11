@@ -1,7 +1,7 @@
 import { useRecoilValueLoadable } from 'recoil';
 import { profileImageData } from '../../store/recoil/apiData';
 import { useEffect, useState } from 'react';
-import './profileImage.css';
+import styles from './profileImage.module.css';
 
 const ProfileImage = ({ profileImage, setProfileImage }) => {
   const { contents } = useRecoilValueLoadable(profileImageData);
@@ -27,20 +27,20 @@ const ProfileImage = ({ profileImage, setProfileImage }) => {
     }
   }, [contents]);
   return (
-    <div className="profileImage">
-      <strong className="formTitle">프로필 이미지</strong>
-      <div className="profileImageBox">
-        <div className="clickImageBox">
-          <img src={profileImage} />
+    <div className={styles.profileImage}>
+      <strong className={styles.formTitle}>프로필 이미지</strong>
+      <div className={styles.profileImageBox}>
+        <div className={styles.clickImageBox}>
+          <img src={profileImage} alt="기본 프로필" />
         </div>
-        <div className="imageList">
+        <div className={styles.imageList}>
           <p>프로필 이미지를 선택해주세요!</p>
           <ul>
             {newImage?.map((img, index) => {
               return (
                 <li key={index}>
                   <button
-                    className={buttonClass === img ? 'on' : null}
+                    className={buttonClass === img ? styles.on : ''}
                     onClick={(e) => handleImageClick(e, img)}
                     type="button"
                   >

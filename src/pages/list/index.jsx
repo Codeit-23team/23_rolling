@@ -1,7 +1,7 @@
 import Header from '../../components/header/header';
 import RollingPaperList from '../../components/rollingPaper/rollingPaperList/rollingPaperList';
 import ButtonPrimary56 from '../../components/button/buttonPrimary/buttonPrimary56/buttonPrimary56';
-import './index.css';
+import styles from './index.module.css';
 import { useEffect, useState } from 'react';
 import { getApiRecipientList } from '../../apis/apiRecipient';
 import { useRecoilValue } from 'recoil';
@@ -36,7 +36,7 @@ function ListPage() {
   return (
     <>
       <Header button={true} />
-      <div className="listContainer">
+      <div className={styles.listContainer}>
         <RollingPaperList
           userData={popUserData}
           name="인기 롤링 페이퍼 🔥"
@@ -47,7 +47,7 @@ function ListPage() {
           name="최근에 만든 롤링 페이퍼 ⭐️"
           buttonClass="recently"
         />
-        <div className="gotoPostButton">
+        <div className={styles.gotoPostButton}>
           <ButtonPrimary56 linkName={'/post'} buttonName="나도 만들어보기" />
         </div>
       </div>

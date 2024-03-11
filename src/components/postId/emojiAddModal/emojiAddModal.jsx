@@ -9,7 +9,6 @@ const EmojiAddModal = ({ id }) => {
 
   const HandleSelectEmoji = (data) => {
     const nativeEmoji = data.native;
-    console.log('Selected Emoji:', nativeEmoji);
     postApiReaction(id, nativeEmoji, 'increase');
     setEmojiModal(false);
   };

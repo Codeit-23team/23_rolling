@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import './searchContents.css';
+import styles from './searchContents.module.css';
 import { searchState } from '../../store/recoil/apiData';
 import { getApiRecipientList } from '../../apis/apiRecipient';
 import { useState, useEffect } from 'react';
@@ -20,28 +20,28 @@ const SearchContents = () => {
     });
   }, [currentValue]);
   return (
-    <div className="searchContainer">
-      <div className="searchContents">
-        <p className="searchTopText">
+    <div className={styles.searchContainer}>
+      <div className={styles.searchContents}>
+        <p className={styles.searchTopText}>
           "<strong>{currentValue}</strong>"에 대한 검색 결과{' '}
           <strong>
             총 {currentValue === '' || userData?.length === 0 ? 0 : userData?.length}건
           </strong>{' '}
           입니다.
         </p>
-        <div className="searchResultBox">
+        <div className={styles.searchResultBox}>
           <h3>
             <span>총 {currentValue === '' || userData?.length === 0 ? 0 : userData?.length}건</span>
           </h3>
           <ul>
             {currentValue === '' || userData?.length === 0 ? (
-              <p className="searchNoData">검색 결과가 없습니다.</p>
+              <p className={styles.searchNoData}>검색 결과가 없습니다.</p>
             ) : (
               userData?.map(({ id, name, recentMessages }) => {
                 return (
                   <li key={id}>
                     <Link to={`/post/${id}`}>
-                      <div className="searchResultList">
+                      <div className={styles.searchResultList}>
                         <p>To.{name}</p>
                         <span>
                           <strong>{recentMessages?.length}개</strong>의 메시지

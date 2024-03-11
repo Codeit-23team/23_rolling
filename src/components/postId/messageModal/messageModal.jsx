@@ -33,7 +33,7 @@ const MessageModal = ({
         <div className={styled.messageModalBox}>
           <div>
             <div className={styled.messageModalContents}>
-              <img src={profileImageURL} />
+              <img src={profileImageURL} alt="프로필 이미지" />
               <div>
                 <p>
                   From.<strong>{sender}</strong>
