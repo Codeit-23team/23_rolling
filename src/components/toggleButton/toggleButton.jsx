@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackgroundColor from '../background/backgroundColor/backgroundColor';
 import BackgroundImg from '../background/backgroundImg/backgroundImg';
 import './toggleButton.css';
@@ -9,6 +9,19 @@ function ToggleButton({ setBackgroundColor, setBackgroundImg }) {
   const handleOnClick = () => {
     setToggleOn(!toggleOn);
   };
+
+  //초기 배경화면 세팅
+  useEffect(() => {
+    if (toggleOn === false) {
+      //초기 컬러
+      setBackgroundColor('beige');
+      setBackgroundImg('');
+    } else {
+      //초기 이미지
+      setBackgroundColor('');
+      setBackgroundImg('https://picsum.photos/id/683/3840/2160');
+    }
+  }, [toggleOn]);
 
   return (
     <div className="toggleBackground">

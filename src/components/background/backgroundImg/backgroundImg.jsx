@@ -18,12 +18,6 @@ function BackgroundImg({ setBackgroundColor, setBackgroundImg }) {
     }
   };
 
-  useEffect(() => {
-    //초기 이미지
-    setBackgroundColor('');
-    setBackgroundImg('https://picsum.photos/id/683/3840/2160');
-  }, []);
-
   return (
     <div className={styles.backgroundImg}>
       <div className={styles.backgroundImgBox}>
