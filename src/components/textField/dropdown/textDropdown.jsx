@@ -30,10 +30,12 @@ const TextDropdown = ({ setValue, type, options }) => {
     }),
     valueContainer: (provided) => ({
       ...provided,
+      cursor: 'pointer',
       padding: '0 0 0 16px',
     }),
     option: (provided, state) => ({
       ...provided,
+      'cursor': 'pointer',
       'backgroundColor': state.isSelected || state.isFocused ? '#F6F6F6' : 'inherit',
       'color': state.isSelected ? '#181818' : '#181818',
       '&:hover': {
@@ -42,6 +44,7 @@ const TextDropdown = ({ setValue, type, options }) => {
     }),
     dropdownIndicator: (provided, state) => ({
       ...provided,
+      cursor: 'pointer',
       padding: '0 16px',
       transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
     }),

@@ -112,7 +112,7 @@ const PostidNav = ({ id, num }) => {
                 <span className={styles.highlight}>{num}</span>명이 작성했어요!
               </p>
             </div>
-            <img src={line} alt="line" />
+            <img src={line} className={styles.messageUserLine} alt="line" />
             {reaction.length === 0 || (
               <div className={styles.emoji}>
                 {/* 이모티콘 */}
