@@ -119,7 +119,7 @@ select {
 html,
 body,
 #root {
-  height: 100%;
+  /*height: 100%;*/ /*스크롤 값 얻기 위함*/
   overflow-x: hidden;
   position: relative;
 }

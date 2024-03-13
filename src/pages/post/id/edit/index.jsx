@@ -30,7 +30,7 @@ function PostEditPage() {
   return (
     <>
       <Header button={false} />
-      <PostidNav id={id} num={messageCount} />
+      <PostidNav id={id} num={messageCount} edit={edit} />
       <PostidBody id={id} optionDeleteButton={true} fixCardData={fixCardData} />
     </>
   );
