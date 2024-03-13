@@ -1,14 +1,28 @@
 import { useRecoilValue } from 'recoil';
 import styles from './searchContents.module.css';
 import { searchState } from '../../store/recoil/apiData';
-import { getApiRecipientList } from '../../apis/apiRecipient';
+import { getApiRecipientList, getApiRecipientOffset } from '../../apis/apiRecipient';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const SearchContents = () => {
   const currentValue = useRecoilValue(searchState);
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState([]);
 
+  useEffect(() => {
+    getApiRecipientOffset(100, 0, '')
+      .then((data) => {
+        const searchResult = data.results.filter((value) => {
+          return value.name.includes(currentValue);
+        });
+        setUserData(searchResult);
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+  }, [currentValue]);
+
+  /*
   useEffect(() => {
     getApiRecipientList().then((response) => {
       const { results } = response;
@@ -19,6 +33,8 @@ const SearchContents = () => {
       );
     });
   }, [currentValue]);
+  */
+
   return (
     <div className={styles.searchContainer}>
       <div className={styles.searchContents}>

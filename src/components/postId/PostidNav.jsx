@@ -13,7 +13,7 @@ import styles from './PostidNav.module.css';
 import './PostNav.css';
 import line from '@/line.svg';
 
-const PostidNav = ({ id, num }) => {
+const PostidNav = ({ id, num, edit }) => {
   const [name, setname] = useState('');
   const [reaction, setReaction] = useState([]);
   const [profileMessage, setProfileMessage] = useState([]);
@@ -83,7 +83,7 @@ const PostidNav = ({ id, num }) => {
       document.removeEventListener('click', HandleShareButtonClick);
       document.removeEventListener('click', HandleShowAllEmojiClick);
     };
-  }, [id, emojiAddModal, shareModal, emojiShowAll, showToast]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
+  }, [id, emojiAddModal, shareModal, emojiShowAll, showToast, edit]); // id가 변경될 때마다 useEffect가 다시 실행되도록 함
 
   const addEmojiToggle = () => {
     setEmojiAddModal(!emojiAddModal);
@@ -109,10 +109,10 @@ const PostidNav = ({ id, num }) => {
               {/* 미니 프로필, 이모지, 공유 버튼 */}
               <ProfileBox recentMessages={profileMessage} messageCount={profileCount} />
               <p>
-                <span className={styles.highlight}>{num}</span>명이 작성했어요!
+                <span className={styles.highlight}>{profileCount}</span>명이 작성했어요!
               </p>
             </div>
-            <img src={line} alt="line" />
+            <img src={line} className={styles.messageUserLine} alt="line" />
             {reaction.length === 0 || (
               <div className={styles.emoji}>
                 {/* 이모티콘 */}

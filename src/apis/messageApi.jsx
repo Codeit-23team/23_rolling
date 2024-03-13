@@ -9,6 +9,18 @@ export const getApiMessage = async (id) => {
   }
 };
 
+export const getApiMessageOffset = async (id, limit, offset) => {
+  try {
+    const response = await fetch(
+      `https://rolling-api.vercel.app/4-23/recipients/${id}/messages/?limit=${limit}&offset=${offset}`,
+    );
+    const data = await response.json();
+    return data;
+  } catch {
+    throw new Error(error);
+  }
+};
+
 export const deleteApiMessage = async (id) => {
   try {
     const response = await fetch(`https://rolling-api.vercel.app/4-23/messages/${id}/`, {

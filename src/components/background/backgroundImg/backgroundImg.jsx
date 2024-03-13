@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BackgroundCheck from '../backgroundCheck/backgroundCheck';
 import styles from './backgroundImg.module.css';
 

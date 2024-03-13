@@ -93,4 +93,7 @@
   .postBodyBox {
     min-height: calc(100% - 119px);
   }
+  .postidBody {
+    padding: 24px 20px;
+  }
 }
