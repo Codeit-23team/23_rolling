@@ -97,8 +97,6 @@ const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
     <div
       className={styles.postBodyBox}
       style={{
-        minHeight: '100vh',
-
         backgroundImage: userData?.backgroundImageURL
           ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${userData?.backgroundImageURL})`
           : null,
