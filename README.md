@@ -12,6 +12,59 @@
 # 기술 스택
 ![HTML](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![HTML](https://img.shields.io/badge/-HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![CSS](https://img.shields.io/badge/-CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) 
 
+# 폴더 구조
+├── README.md
+├── .eslintrc.js
+├── .gitignore
+├── .prettierrc.json
+├── index.html
+├── package-lock.json
+├── package.json
+│
+├── public
+│    └── images
+└── src
+     ├── App.jsx
+     ├── main.jsx
+     ├── apis
+     │     ├── apiRecipient.jsx
+     │     ├── messageApi.jsx
+     │     └── reactionApi.jsx
+     ├── asset
+     │     ├── css
+     │     └── fonts
+     ├── components
+     │     ├── background
+     │     ├── button
+     │     ├── chooseBackground
+     │     ├── editor
+     │     ├── header
+     │     ├── inputName
+     │     ├── main
+     │     ├── postId
+     │     ├── profileImage
+     │     ├── profileList
+     │     ├── reaction
+     │     ├── rollingPaper
+     │     ├── search
+     │     ├── textField
+     │     └── toggleButton
+     ├── pages
+     │     ├── list
+     │     ├── notFound
+     │     ├── post
+     │     │     └── id
+     │     │          ├── edit
+     │     │          └── message     
+     │     └── search
+     ├── path
+     │     └── path.jsx
+     ├── store
+     │     └── recoil
+     └── utils
+           ├── modalPortal.jsx
+           └── utilsFunction.js  
+
 # 배포 주소 
 https://23-rolling.netlify.app/
 
