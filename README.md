@@ -1,7 +1,7 @@
-# rolling
+# 💌 rolling
 추억의 롤링 페이퍼를 웹 상에서도 즐길 수 있는 플랫폼인 '롤링' 서비스
 
-# 팀원
+# 👨‍💻 팀원
 
 | 이름   | GitHub 링크                           | 
 | ------ | ------------------------------------- | 
@@ -9,12 +9,12 @@
 | 임동현 | [DHyeon98](https://github.com/DHyeon98) |
 | 여승구 | [skoo1100](https://github.com/skoo1100) | 
 
-# 기술 스택
+# 💻 기술 스택
 ![HTML](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![HTML](https://img.shields.io/badge/-HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![CSS](https://img.shields.io/badge/-CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) 
 
 <br>
 
-# 폴더구조
+# 💾 폴더구조
 ```
 ├── README.md
 ├── .eslintrc.js
@@ -71,10 +71,10 @@
 
 <br>
 
-# 배포 주소 
+# 🌍 배포 주소 
 https://23-rolling.netlify.app/
 
-# 페이지 설명~
+# 📖 페이지 설명~
 ### message 페이지
 - 작성자의 이름, 프로필, 관계 등을 정할 수 있습니다.
 - 빈칸의 내용을 입력 후 생성하면 해당 post/id 페이지로 이동하고, message box가 생성됩니다.
