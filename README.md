@@ -45,5 +45,6 @@ https://23-rolling.netlify.app/
 - 검색 아이콘을 클릭하면 slide toggle 가능한 search box가 나옵니다.
 - 검색하고싶은 검색어를 입력하면 해당 검색어를 포함한 롤링페이퍼의 생성자 이름을 보여줍니다.
 - 필터링된 롤링페이퍼를 클릭하면 해당 post/id 페이지로 이동합니다.
+  
 ![검색기능](https://github.com/Codeit-23team/23_rolling/assets/84865501/40e28452-8ae4-474a-8b3f-999583da7b36)
 
