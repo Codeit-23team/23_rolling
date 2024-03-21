@@ -16,7 +16,7 @@
 https://23-rolling.netlify.app/
 
 # 페이지 설명~
-## message 페이지
+### message 페이지
 ![롤링페이퍼 리스트 보기](https://github.com/Codeit-23team/23_rolling/assets/84865501/4cb1a7a0-b66b-4207-aa34-bbe25be737cd)
 
 ![롤링 페이퍼 제작](https://github.com/Codeit-23team/23_rolling/assets/84865501/c27aded6-e242-4c0f-9086-44cc96f9ece5)
