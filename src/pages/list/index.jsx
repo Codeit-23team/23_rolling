@@ -3,15 +3,27 @@ import RollingPaperList from '../../components/rollingPaper/rollingPaperList/rol
 import ButtonPrimary56 from '../../components/button/buttonPrimary/buttonPrimary56/buttonPrimary56';
 import styles from './index.module.css';
 import { useEffect, useState } from 'react';
-import { getApiRecipientList } from '../../apis/apiRecipient';
+import { getApiRecipientList, getApiRecipientOffset } from '../../apis/apiRecipient';
 import { useRecoilValue } from 'recoil';
 import { deleteState } from '../../store/recoil/apiData';
 
 function ListPage() {
   const deleteValue = useRecoilValue(deleteState);
-  const [userData, setUserData] = useState(undefined);
-  const [popUserData, setPopUserData] = useState(undefined);
+  const [userData, setUserData] = useState([]);
+  const [popUserData, setPopUserData] = useState([]);
 
+  useEffect(() => {
+    Promise.all([getApiRecipientOffset(100, 0, 'like'), getApiRecipientOffset(100, 0, '')])
+      .then(([popData, regularData]) => {
+        setPopUserData(popData.results);
+        setUserData(regularData.results);
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+  }, [deleteValue]);
+
+  /*
   useEffect(() => {
     getApiRecipientList().then((response) => {
       const { results } = response;
@@ -31,6 +43,7 @@ function ListPage() {
     });
     // deleteValue가 변경되었을때 랜더링 합니다!
   }, [deleteValue]);
+  */
 
   return (
     <>

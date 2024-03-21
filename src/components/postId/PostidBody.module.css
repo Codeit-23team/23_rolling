@@ -1,5 +1,5 @@
 .postBodyBox {
-  min-height: calc(100% - 133px);
+  min-height: calc(100vh - 133px);
 }
 .editButton {
   display: flex;
@@ -91,7 +91,7 @@
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
   }
   .postBodyBox {
-    min-height: calc(100% - 119px);
+    min-height: calc(100vh - 108px);
   }
   .postidBody {
     padding: 24px 20px;

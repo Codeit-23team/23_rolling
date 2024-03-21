@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './PostidBody.module.css';
 import { Link } from 'react-router-dom';
-import { deleteApiMessage, getApiMessage } from '../../apis/messageApi';
+import { deleteApiMessage, getApiMessage, getApiMessageOffset } from '../../apis/messageApi';
 import { deleteApiRecipient, getApiRecipient } from '../../apis/apiRecipient';
 import plusButton from '@/Enabled.png';
 import ButtonPrimary56 from '../button/buttonPrimary/buttonPrimary56/buttonPrimary56';
@@ -10,11 +10,13 @@ import { useRecoilState } from 'recoil';
 import { deleteState } from '../../store/recoil/apiData';
 
 const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
-  const [messageData, setMessageData] = useState([]);
   const [userData, setUserData] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [messageDataOffset, setMessageDataOffset] = useState([]);
+  const [scrollY, setScrollY] = useState(false);
   //edit page에 쓸 useState
   const [trash, setTrash] = useState(false);
-  const [trashId, setTrashId] = useState('');
+  const [trashId, setTrashId] = useState(null);
   // delete 렌더링 recoil
   const [deleteValue, setDeleteValue] = useRecoilState(deleteState);
 
@@ -36,22 +38,60 @@ const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
     }
   };
 
+  //스크롤 위치 맨밑에 있을시 렌더링
+  const onScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight
+    ) {
+      setScrollY(!scrollY);
+    }
+  };
+
+  //메시지 가져오기
   useEffect(() => {
-    //edit page에 휴지통 버튼 누르면 삭제
+    let isMounted = true;
+
     if (trash === true) {
       deleteApiMessage(trashId)
+        .then(() => {
+          setTrash(!trash);
+        })
         .catch((error) => {
           throw new Error(error);
+        });
+    } else {
+      getApiMessageOffset(id, 8, offset)
+        .then((data) => {
+          if (isMounted && data.results.length !== 0) {
+            setMessageDataOffset((prev) => [...prev, ...data.results]);
+            setOffset((prevOffset) => prevOffset + 8);
+          }
+          if (trashId !== null) {
+            setMessageDataOffset((prev) => prev.filter((message) => message.id !== trashId));
+            setTrashId(null);
+          }
         })
-        .finally(() => {
-          setTrash(!trash);
+        .catch((error) => {
+          throw new Error(error);
         });
     }
-  }, [trash]);
-  useEffect(() => {
-    getApiMessage(id).then((data) => setMessageData(data.results));
+
     getApiRecipient(id).then((data) => setUserData(data));
-  }, [trash]);
+
+    return () => {
+      isMounted = false;
+    };
+  }, [trash, scrollY]);
+
+  //스크롤
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [scrollY]);
 
   return (
     <div
@@ -90,7 +130,7 @@ const PostidBody = ({ id, optionDeleteButton = false, fixCardData }) => {
               </Link>
             </li>
           ) : null}
-          {messageData?.map(
+          {messageDataOffset?.map(
             ({ id: cardId, content, createdAt, profileImageURL, relationship, sender }) => {
               return (
                 <li key={cardId}>

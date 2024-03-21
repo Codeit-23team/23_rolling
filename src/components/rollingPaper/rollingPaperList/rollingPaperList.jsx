@@ -19,6 +19,7 @@ function RollingPaperList({ name, buttonClass, userData }) {
       nextEl: `.${buttonClass}Next`,
     },
   };
+
   return (
     <div className="rollingPaperList">
       <strong>{name}</strong>
