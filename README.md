@@ -73,7 +73,8 @@
 <br>
 
 # 🌍 배포 주소 
-https://23-rolling.netlify.app/
+개발: https://23-rolling.netlify.app/ <br>
+회의록&회고: https://www.notion.so/b5d36af00f2049b78327a34e7411743c
 
 # 📖 화면 구성
 ### list 페이지
